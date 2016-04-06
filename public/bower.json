@@ -1,0 +1,24 @@
+{
+  "name": "public",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "bhare1987 <brandonlhare@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/bhare1987/Sherpa",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "font-awesome": "fontawesome#^4.5.0"
+  },
+  "dependencies": {
+    "angular-material": "^1.0.7"
+  }
+}
