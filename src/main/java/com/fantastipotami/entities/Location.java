@@ -19,23 +19,28 @@ public class Location {
 //    @GenericGenerator(name = "uuid2", strategy = "uuid2")
 //    @Column(columnDefinition = "BINARY(16)")
 //    private UUID uuid;
-
     @Id
     @GeneratedValue
     int id;
-
+    //0
     private String imageUrl;
+    //1
     private String siteUrl;
+    //2
     private String description;
-
+    //3
     @NotNull
     private String name;
+    //4
     @NotNull
     private String streetAddress;
+    //5
     @NotNull
     private double latitude;
+    //6
     @NotNull
     private double longitude;
+    //7
     @OneToMany(mappedBy = "detail")
     List<LocationCategoryJoin> categories;
 

@@ -1,8 +1,10 @@
 package com.fantastipotami.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 /**
@@ -15,11 +17,13 @@ public class TourLocationJoin {
     @GeneratedValue
     int id;
 
+    @NotNull
     private Boolean isVisited = false;
 
     @ManyToOne
     private Location location;
 
+    @JsonIgnore
     @ManyToOne
     private Tour tour;
 

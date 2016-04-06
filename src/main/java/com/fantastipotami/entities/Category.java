@@ -1,10 +1,7 @@
 package com.fantastipotami.entities;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.UUID;
 
 /**
  * Created by alexanderhughes on 4/6/16.
@@ -17,13 +14,13 @@ public class Category {
     int id;
 
     @NotNull
-    private String category;
+    private String categoryStr;
 
     public Category() {
     }
 
     public Category(String category) {
-        this.category = category;
+        this.categoryStr = category;
     }
 
     public int getId() {
@@ -34,11 +31,11 @@ public class Category {
         this.id = id;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategoryStr() {
+        return categoryStr;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryStr(String categoryStr) {
+        this.categoryStr = categoryStr;
     }
 }
