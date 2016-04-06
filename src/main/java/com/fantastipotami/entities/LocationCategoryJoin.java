@@ -1,5 +1,6 @@
 package com.fantastipotami.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -9,14 +10,16 @@ import java.util.UUID;
  * Created by alexanderhughes on 4/6/16.
  */
 @Entity
-@Table(name = "det_cat_joins")
+@Table(name = "loc_cat_joins")
 public class LocationCategoryJoin {
     @Id
     @GeneratedValue
     int id;
 
+    @JsonIgnore
     @ManyToOne
     Location location;
+
     @ManyToOne
     Category category;
 
