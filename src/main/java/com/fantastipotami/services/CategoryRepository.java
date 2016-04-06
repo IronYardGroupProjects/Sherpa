@@ -1,6 +1,6 @@
-package com.fantastipotamuses.services;
+package com.fantastipotami.services;
 
-import com.fantastipotamuses.entities.Category;
+import com.fantastipotami.entities.Category;
 import org.springframework.data.repository.CrudRepository;
 
 /**

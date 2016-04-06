@@ -1,4 +1,4 @@
-package com.fantastipotamuses.entities;
+package com.fantastipotami.entities;
 
 import org.hibernate.annotations.GenericGenerator;
 

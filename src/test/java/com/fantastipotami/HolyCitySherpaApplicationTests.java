@@ -1,4 +1,4 @@
-package com.fantastipotamuses;
+package com.fantastipotami;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
