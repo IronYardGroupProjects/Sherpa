@@ -11,7 +11,7 @@ import java.util.UUID;
  * Created by alexanderhughes on 4/5/16.
  */
 @Entity
-@Table(name = "details")
+@Table(name = "locations")
 public class Location {
 //    commented out, uuid seems superfluous for all my tables
 //    @Id
