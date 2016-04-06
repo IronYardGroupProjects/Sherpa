@@ -13,11 +13,32 @@ import java.util.UUID;
 @Table(name = "categories")
 public class Category {
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(columnDefinition = "BINARY(16)")
-    private UUID uuid;
+    @GeneratedValue
+    int id;
 
     @NotNull
     private String category;
+
+    public Category() {
+    }
+
+    public Category(String category) {
+        this.category = category;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }

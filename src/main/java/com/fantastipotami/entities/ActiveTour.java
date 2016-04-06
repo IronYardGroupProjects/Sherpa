@@ -13,11 +13,32 @@ import java.util.UUID;
 @Table(name = "active_tours")
 public class ActiveTour {
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(columnDefinition = "BINARY(16)")
-    private UUID uuid;
+    @GeneratedValue
+    int id;
 
     @ManyToOne
     private Tour tour;
+
+    public ActiveTour() {
+    }
+
+    public ActiveTour(Tour tour) {
+        this.tour = tour;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Tour getTour() {
+        return tour;
+    }
+
+    public void setTour(Tour tour) {
+        this.tour = tour;
+    }
 }

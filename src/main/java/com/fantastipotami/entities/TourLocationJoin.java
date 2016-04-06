@@ -12,20 +12,51 @@ import java.util.UUID;
 @Table(name = "tour_loc_joins")
 public class TourLocationJoin {
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(columnDefinition = "BINARY(16)")
-    private UUID uuid;
+    @GeneratedValue
+    int id;
 
-    private Boolean visited = false;
+    private Boolean isVisited = false;
 
     @ManyToOne
-    private Detail detail;
+    private Location location;
+
     @ManyToOne
     private Tour tour;
 
-    public TourLocationJoin(Detail detail, Tour tour) {
-        this.detail = detail;
+    public TourLocationJoin(Location location, Tour tour) {
+        this.location = location;
         this.tour = tour;
+    }
+
+    public Boolean getisVisited() {
+        return isVisited;
+    }
+
+    public void setisVisited(Boolean isVisited) {
+        this.isVisited = isVisited;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Tour getTour() {
+        return tour;
+    }
+
+    public void setTour(Tour tour) {
+        this.tour = tour;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
