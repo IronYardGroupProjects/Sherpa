@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -18,12 +19,18 @@ public class Detail {
     @Column(columnDefinition = "BINARY(16)")
     private UUID uuid;
 
-    String siteUrl;
-    String description;
+    private String imageUrl;
+    private String siteUrl;
+    private String description;
+
     @NotNull
-    String streetAddress;
+    private String name;
     @NotNull
-    double latitude;
+    private String streetAddress;
     @NotNull
-    double longitude;
+    private double latitude;
+    @NotNull
+    private double longitude;
+    @OneToMany(mappedBy = "detail")
+    List<DetailCategoryJoin> categories;
 }
