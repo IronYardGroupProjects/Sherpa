@@ -8,11 +8,11 @@ angular
   .config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider
-      .state('main',
+      .state('main', {
         url: '/',
         template: 'main.html',
         abstract: true
-      )
+      })
   });
 
 require('./js/curated_experiences');
