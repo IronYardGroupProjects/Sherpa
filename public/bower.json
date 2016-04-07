@@ -19,6 +19,7 @@
     "font-awesome": "fontawesome#^4.5.0"
   },
   "dependencies": {
-    "angular-material": "^1.0.7"
+    "angular-material": "^1.0.7",
+    "angular-google-maps": "^2.3.2"
   }
 }
