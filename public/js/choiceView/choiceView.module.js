@@ -1,11 +1,15 @@
 var angular = require('angular');
-var angularRoute = require('angular-route');
+var uiRouter = require('angular-ui-router')
 
 angular
-  .module('App', ['ngRoute'])
-  .config(function($routeProvider){
-    $routeProvider
-      .when('/choiceView', {
-        templateUrl: 'choiceView/templates/choiceView.html'
+  .module('choiceViewModule', [
+    'ui.router',
+  ])
+  .config(function($stateProvider, $urlRouterProvider){
+    $stateProvider
+      .state('main.choiceView', {
+        url: '/choiceView',
+        templateUrl:'choiceView/templates/choiceView.html',
+        controller: 'ChoiceViewController as choiceViewCtrl'
       })
   });
