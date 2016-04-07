@@ -15,5 +15,5 @@ angular
       )
   });
 
-require('./js/curated_experiences');
+require('./js/curExp');
 require('./js/choiceView');
