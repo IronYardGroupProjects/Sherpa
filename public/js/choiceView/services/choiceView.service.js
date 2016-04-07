@@ -1,6 +1,6 @@
 angular
-  .module('App')
-  .service('choiceViewService', function($http,$q){
+  .module('choiceViewModule')
+  .service('choiceViewService', function(){
 
     return{
     }
