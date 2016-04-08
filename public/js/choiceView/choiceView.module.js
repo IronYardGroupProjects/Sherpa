@@ -1,5 +1,5 @@
 var angular = require('angular');
-var uiRouter = require('angular-ui-router')
+require('angular-ui-router')
 
 angular
   .module('choiceView', [
@@ -9,7 +9,7 @@ angular
     $stateProvider
       .state('main.choiceView', {
         url: '/choiceView',
-        templateUrl:'choiceView/templates/choiceView.html',
+        templateUrl:'js/choiceView/templates/choiceView.html',
         controller: 'ChoiceViewController as choiceViewCtrl'
       })
   });
