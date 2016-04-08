@@ -1,10 +1,10 @@
 var angular = require('angular');
 angular
 .module('curExp')
-.controller('curExpController', function ($scope, curExpService, $routeParams){
+.controller('curExpController', function ($scope, CurExpService, $routeParams){
 
-  curExpService.getTour()
+  CurExpService.getTour()
   .then(function(data){
-    
+
   })
 })

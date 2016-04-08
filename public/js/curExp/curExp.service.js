@@ -1,4 +1,4 @@
 var angular = require('angular');
 angular
   .module('curExp')
-  .factory()
+  .factory('CurExpService', function($http, ))
