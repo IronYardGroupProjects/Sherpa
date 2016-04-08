@@ -13,7 +13,7 @@ public class Category {
     @GeneratedValue
     private int id;
 
-    @NotNull
+    @Column(unique = true)
     private String categoryStr;
 
     public Category() {

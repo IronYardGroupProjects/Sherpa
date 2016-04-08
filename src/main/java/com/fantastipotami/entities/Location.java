@@ -1,6 +1,7 @@
 package com.fantastipotami.entities;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Loader;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -23,13 +24,13 @@ public class Location {
     @GeneratedValue
     private int id;
     //0
-    @Column
+    @Lob
     private String imageUrl;
     //1
-    @Column
+    @Lob
     private String siteUrl;
     //2
-    @Column
+    @Lob
     private String description;
     //3
     @NotNull
