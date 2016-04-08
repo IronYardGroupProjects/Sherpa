@@ -7,4 +7,5 @@ angular
       scope:{
 
       },
+    }
   })

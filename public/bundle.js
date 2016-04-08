@@ -1,1 +1,1 @@
-console.error("Error: Cannot find module './js/curated_experiences' from '/Users/brandon.hare/tiy/final/Sherpa/public'");
+console.error("Error: Parsing file /Users/russpate/Documents/TIY/Assignments/Sherpa/public/js/curExp/curExp.service.js: Unexpected token (5:0)");
