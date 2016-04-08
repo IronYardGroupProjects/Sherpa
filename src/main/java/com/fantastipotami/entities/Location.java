@@ -21,12 +21,15 @@ public class Location {
 //    private UUID uuid;
     @Id
     @GeneratedValue
-    int id;
+    private int id;
     //0
+    @Column
     private String imageUrl;
     //1
+    @Column
     private String siteUrl;
     //2
+    @Column
     private String description;
     //3
     @NotNull
@@ -41,8 +44,8 @@ public class Location {
     @NotNull
     private double longitude;
     //7
-    @OneToMany(mappedBy = "detail")
-    List<LocationCategoryJoin> categories;
+    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<LocationCategoryJoin> categories;
 
     public Location() {
     }
