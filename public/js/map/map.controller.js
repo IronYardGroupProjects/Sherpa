@@ -7,12 +7,11 @@ angular
     uiGmapGoogleMapApi.then(function(map){
       vm.gMap = {
         "center": {
-          lat:
-          lng:
+          lat: 12,
+          lng: 12
         },
-        "zoom": ,
+        "zoom": 1,
         "dragging": true,
-
       }
     })
 

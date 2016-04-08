@@ -3,13 +3,17 @@ var uiRouter = require('angular-ui-router');
 
 
 angular
-  .module('CurExp', ['ui.router'])
+  .module('curExp', ['ui.router'])
   .config(function($stateProvider, $urlRouterProvider){
 
     $stateProvider
-    .state('main.curExp', {
+    .state('home.curexp', {
       url: '/curExp',
-      templateUrl: 'curExp/templates/curExp.html',
-      controller: 'curExpController as ExpCtrl'
+      views: {
+        'container': {
+          templateUrl: './js/curExp/templates/curExp.html',
+          controllerAs: 'curExpController as ExpCtrl'
+        }
+      }
     })
   })

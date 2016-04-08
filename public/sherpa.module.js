@@ -1,19 +1,33 @@
 var angular = require('angular');
-var uiRouter = require('angular-ui-router')
+require('angular-ui-router');
+require('./node_modules/angular-simple-logger/dist/angular-simple-logger.min.js');
+require('./node_modules/angular-google-maps/dist/angular-google-maps.js');
 
 angular
   .module('sherpa', [
     'ui.router',
+    'map',
+    'choiceView',
+    'curExp'
   ])
   .config(function($stateProvider, $urlRouterProvider){
-    $urlRouterProvider.otherwise('/');
     $stateProvider
-      .state('main', {
-        url: '/',
-        template: 'main.html',
-        abstract: true
+      .state('home', {
+        url: '/home',
+        abstract: true,
+        templateUrl: 'templates/main.html'
       })
+      .state('home.main', {
+        url: '/main',
+        views: {
+          'container': {
+            templateUrl: 'templates/landing.html'
+          }
+        }
+      })
+      $urlRouterProvider.otherwise('/404');
   });
 
 require('./js/curExp');
 require('./js/choiceView');
+require('./js/map');

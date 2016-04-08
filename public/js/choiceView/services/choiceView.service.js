@@ -1,7 +1,6 @@
 angular
-  .module('choiceViewModule')
+  .module('choiceView')
   .service('choiceViewService', function(){
-
     return{
     }
   })

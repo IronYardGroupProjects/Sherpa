@@ -1,5 +1,5 @@
 var angular = require('angular');
-var uiRouter = require('angular-ui-router')
+require('angular-ui-router')
 
 angular
   .module('map', [
@@ -13,8 +13,13 @@ angular
           libraries: 'weather,geometry,visualization'
       });
       $stateProvider
-        .state('main.map',
+        .state('home.map',{
           url: '/map',
-          templateUrl: 'map/templates/map.html',
-          controller: 'MapController as MapCtrl'
+          views: {
+            'container': {
+              templateUrl: './js/map/templates/map.html',
+              controllerAs: 'MapController as MapCtrl'
+            }
+          },
+        })
   })
