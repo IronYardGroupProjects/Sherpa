@@ -15,7 +15,7 @@ import java.util.UUID;
 public class TourLocationJoin {
     @Id
     @GeneratedValue
-    int id;
+    private int id;
 
     @NotNull
     private Boolean isVisited = false;

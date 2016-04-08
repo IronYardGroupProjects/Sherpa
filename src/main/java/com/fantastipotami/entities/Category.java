@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 public class Category {
     @Id
     @GeneratedValue
-    int id;
+    private int id;
 
     @NotNull
     private String categoryStr;
