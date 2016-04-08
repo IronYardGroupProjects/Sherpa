@@ -70,7 +70,7 @@ var uiRouter = require('angular-ui-router');
 
 
 angular
-  .module('CurExp', ['ui.router'])
+  .module('curExp', ['ui.router'])
   .config(function($stateProvider, $urlRouterProvider){
 
     $stateProvider
@@ -83,8 +83,13 @@ angular
 
 },{"angular":13,"angular-ui-router":11}],9:[function(require,module,exports){
 var angular = require('angular');
+
 angular
   .module('curExp')
+  .service('curExpService', function(){
+    return{
+    }
+  })
 
 },{"angular":13}],10:[function(require,module,exports){
 require('./curExp.module');

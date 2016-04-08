@@ -3,7 +3,7 @@ var uiRouter = require('angular-ui-router');
 
 
 angular
-  .module('CurExp', ['ui.router'])
+  .module('curExp', ['ui.router'])
   .config(function($stateProvider, $urlRouterProvider){
 
     $stateProvider
