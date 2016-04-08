@@ -23,11 +23,11 @@ public class PermTourLocationJoin {
 
     @JsonIgnore
     @ManyToOne
-    private PermTour tour;
+    private PermTour permTour;
 
     public PermTourLocationJoin(Location location, PermTour tour) {
         this.location = location;
-        this.tour = tour;
+        this.permTour = tour;
     }
 
     public Boolean getIsVisited() {
@@ -46,12 +46,12 @@ public class PermTourLocationJoin {
         this.location = location;
     }
 
-    public PermTour getTour() {
-        return tour;
+    public PermTour getPermTour() {
+        return permTour;
     }
 
-    public void setTour(PermTour tour) {
-        this.tour = tour;
+    public void setPermTour(PermTour permTour) {
+        this.permTour = permTour;
     }
 
     public int getId() {
