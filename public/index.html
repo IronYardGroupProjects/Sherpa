@@ -4,13 +4,24 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
     <title>Sherpa</title>
+    <style media="screen">
+      .angular-google-map-container {
+        height: 80vh;
+      }
+      .angular-google-map {
+        height: 80vh;
+      }
+    </style>
   </head>
   <body ng-app="sherpa">
     <div layout="column">
       <ui-view></ui-view>
     </div>
-
-
+    <script src="node_modules/lodash/dist/lodash.min.js" charset="utf-8"></script>
+    <!-- <script src="node_modules/angular/angular.js" charset="utf-8"></script>
+    <script src="node_modules/angular-simple-logger/dist/angular-simple-logger.js" charset="utf-8"></script>
+    <script src="node_modules/angular-google-maps/dist/angular-google-maps.js" charset="utf-8"></script> -->
     <script src="bundle.js" charset="utf-8"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false?key=AIzaSyBDYqypuGrpUQn2SCTzz9mvwy6-Eb55UZA"></script>
   </body>
 </html>
