@@ -14,6 +14,8 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -31,7 +33,12 @@ public class SherpaController {
     @Autowired
     TourLocationJoinRepository tourLocRepo;
     @Autowired
+    PermTourLocationJoinRepository pTourLocRepo;
+    @Autowired
     TourRepository tourRepo;
+    @Autowired
+    PermTourRepository pTourRepo;
+
 
     Server dbui = null;
 
@@ -52,19 +59,19 @@ public class SherpaController {
     /*Hit to get the perm tour options, they will include each
     * location with all available details, don't need to pass
     * anything*/
-    @RequestMapping(path = "/tour", method = RequestMethod.GET)
+    @RequestMapping(path = "/perm-tour", method = RequestMethod.GET)
     public ResponseEntity<Object> getAllTours(HttpSession session) {
 //        Integer id = (Integer) session.getAttribute("tourId");
 //        if (id != null) {
 //            return new ResponseEntity<Object>("A tour is already in progress for this user", HttpStatus.TEMPORARY_REDIRECT);
 //        }
-        return new ResponseEntity<Object>(tourRepo.findAllByIsPerm(true), HttpStatus.OK);
+        return new ResponseEntity<Object>(pTourRepo.findAll(), HttpStatus.OK);
     }
     /*hit this if user hits continue after being asked if they
     * wished to continue an existing tour (if they opt not to continue
-    * then hit the /tour delete route and then hit the /tour route again
+    * then hit the /tour delete route and then hit the post /tour route again
     * to display all the tours for the user to select a knew one
-    * just append 0 to as the id, don't need anything there*/
+    * just append 0 as the id in the , don't need anything there*/
     @RequestMapping(path = "/tour/{id}", method = RequestMethod.GET)
     public ResponseEntity<Object> getCurrentTour(HttpSession session, @PathVariable("id") Integer id) {
         return new ResponseEntity<Object>(tourRepo.findOne(id), HttpStatus.OK);
@@ -76,15 +83,18 @@ public class SherpaController {
         return new ResponseEntity<Object>(HttpStatus.OK);
     }
     /*hit this to start a tour based on one of the pre-made tours
-    * pass the id of the pre-made tour as a path variable*/
+    * pass the id of the pre-made PermTour as a path variable*/
     @RequestMapping(path = "/tour/{id}", method = RequestMethod.POST)
     public ResponseEntity<Object> joinTour(HttpSession session, @PathVariable("id") int id) {
-        Tour permTour = tourRepo.findOne(id);
-        Tour newTour = new Tour();
-        newTour.setLocations(permTour.getLocations());
-        newTour = tourRepo.save(newTour);
-        session.setAttribute("tourId", newTour.getId());
-        return new ResponseEntity<Object>(newTour, HttpStatus.OK);
+        PermTour permTour = pTourRepo.findOne(id);
+        List<Location> locs = pTourLocRepo.findAllByPermTour(permTour);
+        Tour tour = new Tour();
+        tour = tourRepo.save(tour);
+        for (Location loc : locs) {
+            tourLocRepo.save(new TourLocationJoin(loc, tour));
+        }
+        session.setAttribute("tourId", tour.getId());
+        return new ResponseEntity<Object>(tour, HttpStatus.OK);
     }
     //choiceView stuff
     /*use this to get an array all the categories*/
@@ -97,6 +107,16 @@ public class SherpaController {
     @RequestMapping(path = "/category/{id}", method = RequestMethod.GET)
     public ResponseEntity<Object> getToursByCat(HttpSession session, @PathVariable("id") int id) {
         return new ResponseEntity<Object>(locCatRepo.findAllByCategory(catRepo.findOne(1)), HttpStatus.OK);
+    }
+    @RequestMapping(path = "/tour", method = RequestMethod.POST)
+    public ResponseEntity<Object> buildTour(@RequestBody HashMap<String, List<Integer>> map) {
+        List<Integer> locs = map.get("list");
+        Tour tour = new Tour();
+        tour = tourRepo.save(tour);
+        for (int id : locs) {
+            tourLocRepo.save(new TourLocationJoin(locRepo.findOne(id), tour));
+        }
+        return new ResponseEntity<Object>(tour, HttpStatus.OK);
     }
 
     public void populateCategoriesTable(String fileName) throws FileNotFoundException {

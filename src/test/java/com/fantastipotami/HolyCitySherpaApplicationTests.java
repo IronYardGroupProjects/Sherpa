@@ -1,18 +1,18 @@
-package com.fantastipotami;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = SherpaApplication.class)
-@WebAppConfiguration
-public class HolyCitySherpaApplicationTests {
-
-	@Test
-	public void contextLoads() {
-	}
-
-}
+//package com.fantastipotami;
+//
+//import org.junit.Test;
+//import org.junit.runner.RunWith;
+//import org.springframework.test.context.web.WebAppConfiguration;
+//import org.springframework.boot.test.SpringApplicationConfiguration;
+//import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+//
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringApplicationConfiguration(classes = SherpaApplication.class)
+//@WebAppConfiguration
+//public class HolyCitySherpaApplicationTests {
+//
+//	@Test
+//	public void contextLoads() {
+//	}
+//
+//}

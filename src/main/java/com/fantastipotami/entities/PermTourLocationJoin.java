@@ -1,18 +1,16 @@
 package com.fantastipotami.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.UUID;
 
 /**
  * Created by alexanderhughes on 4/5/16.
  */
 @Entity
 @Table(name = "tour_loc_joins")
-public class TourLocationJoin {
+public class PermTourLocationJoin {
     @Id
     @GeneratedValue
     private int id;
@@ -25,9 +23,9 @@ public class TourLocationJoin {
 
     @JsonIgnore
     @ManyToOne
-    private Tour tour;
+    private PermTour tour;
 
-    public TourLocationJoin(Location location, Tour tour) {
+    public PermTourLocationJoin(Location location, PermTour tour) {
         this.location = location;
         this.tour = tour;
     }
@@ -48,11 +46,11 @@ public class TourLocationJoin {
         this.location = location;
     }
 
-    public Tour getTour() {
+    public PermTour getTour() {
         return tour;
     }
 
-    public void setTour(Tour tour) {
+    public void setTour(PermTour tour) {
         this.tour = tour;
     }
 
