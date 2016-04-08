@@ -1,0 +1,1 @@
+console.error("Error: Cannot find module './js/curated_experiences' from '/Users/brandon.hare/tiy/final/Sherpa/public'");
