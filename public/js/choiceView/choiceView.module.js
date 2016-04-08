@@ -1,5 +1,5 @@
 var angular = require('angular');
-var uiRouter = require('angular-ui-router')
+require('angular-ui-router')
 
 angular
   .module('choiceView', [
@@ -15,6 +15,5 @@ angular
             controllerAs: 'ChoiceViewController as choiceViewCtrl'
           }
         }
-
       })
   });
