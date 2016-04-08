@@ -12,10 +12,18 @@ angular
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
-      .state('main', {
-        url: '/main',
+      .state('home', {
+        url: '/home',
         abstract: true,
-        templateUrl: 'main.html'
+        templateUrl: 'templates/main.html'
+      })
+      .state('home.main', {
+        url: '/main',
+        views: {
+          'container': {
+            templateUrl: 'templates/landing.html'
+          }
+        }
       })
       $urlRouterProvider.otherwise('/404');
   });
