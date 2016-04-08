@@ -1,5 +1,5 @@
 angular
-  .module('choiceViewModule')
+  .module('choiceView')
   .controller('ChoiceViewController', function($rootScope, $scope, choiceViewService){
 
     }

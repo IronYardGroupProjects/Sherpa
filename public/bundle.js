@@ -3,7 +3,7 @@ var angular = require('angular');
 var uiRouter = require('angular-ui-router')
 
 angular
-  .module('choiceViewModule', [
+  .module('choiceView', [
     'ui.router',
   ])
   .config(function($stateProvider, $urlRouterProvider){
@@ -17,7 +17,7 @@ angular
 
 },{"angular":13,"angular-ui-router":11}],2:[function(require,module,exports){
 angular
-  .module('choiceViewModule')
+  .module('choiceView')
   .controller('ChoiceViewController', function($rootScope, $scope, choiceViewService){
 
     }
@@ -25,13 +25,12 @@ angular
 
 },{}],3:[function(require,module,exports){
 angular
-  .module('choiceViewModule')
+  .module('choiceView')
   .directive('choiceViewDirective', function(){
     return {
       templateUrl:'choiceView/templates/choiceViewDir.html',
       restrict:'EA',
       scope:{
-
       },
     }
   })
@@ -44,7 +43,7 @@ require('./directives/choiceView.directive');
 
 },{"./choiceView.module":1,"./controllers/choiceView.controller":2,"./directives/choiceView.directive":3,"./services/choiceView.service":5}],5:[function(require,module,exports){
 angular
-  .module('choiceViewModule')
+  .module('choiceView')
   .service('choiceViewService', function(){
     return{
     }

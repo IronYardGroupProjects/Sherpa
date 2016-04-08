@@ -2,7 +2,7 @@ var angular = require('angular');
 var uiRouter = require('angular-ui-router')
 
 angular
-  .module('choiceViewModule', [
+  .module('choiceView', [
     'ui.router',
   ])
   .config(function($stateProvider, $urlRouterProvider){
