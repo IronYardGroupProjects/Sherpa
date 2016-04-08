@@ -12,7 +12,6 @@ angular
         },
         "zoom": 1,
         "dragging": true,
-
       }
     })
 
