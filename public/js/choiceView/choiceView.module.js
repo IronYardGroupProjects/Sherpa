@@ -7,9 +7,13 @@ angular
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
-      .state('main.choiceView', {
+      .state('home.choiceView', {
         url: '/choiceView',
-        templateUrl:'js/choiceView/templates/choiceView.html',
-        controller: 'ChoiceViewController as choiceViewCtrl'
+        views: {
+          'container': {
+            templateUrl:'./js/choiceView/templates/choiceView.html',
+            controllerAs: 'ChoiceViewController as choiceViewCtrl'
+          }
+        }
       })
   });

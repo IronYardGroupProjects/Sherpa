@@ -13,7 +13,7 @@ angular
           libraries: 'weather,geometry,visualization'
       });
       $stateProvider
-        .state('main.map',{
+        .state('home.map',{
           url: '/map',
           views: {
             'container': {

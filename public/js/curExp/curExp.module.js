@@ -7,9 +7,13 @@ angular
   .config(function($stateProvider, $urlRouterProvider){
 
     $stateProvider
-    .state('main.curExp', {
+    .state('home.curexp', {
       url: '/curExp',
-      templateUrl: 'curExp/templates/curExp.html',
-      controller: 'curExpController as ExpCtrl'
+      views: {
+        'container': {
+          templateUrl: './js/curExp/templates/curExp.html',
+          controllerAs: 'curExpController as ExpCtrl'
+        }
+      }
     })
   })
