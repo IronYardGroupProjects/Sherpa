@@ -12,6 +12,7 @@ angular
     vm.tour = [];
     google.maps.event.addDomListener(window, 'load',
       MapService.getLocation().then(function(location){
+        console.log(location);
         vm.mapOptions.center = {lat: location.coords.latitude, lng: location.coords.longitude};
         // vm.map = new google.maps.Map(document.getElementById('main-map'), vm.mapOptions);
         // vm.marker = new google.maps.Marker({
@@ -29,21 +30,28 @@ angular
         //   center: vm.mapOptions.center,
         //   radius: 25
         // })
+        // vm.marker.addListener(vm.marker, drag, function(){
+        //   latLngCenter = new google.maps.LatLng(markerCenter.position.lat(), markerCenter.position.lng());
+        //   bounds = vm.circle.getBounds();
+        //   if(bounds.contains(latLngCenter)){
+        //     console.log("it does!");
+        //   }
+        // })
         vm.map = new GMaps({
           div: '#main-map',
           lat: 32.778515,
           lng: -79.931657,
           zoom: 18
         })
-        vm.circle = vm.map.drawCircle({
-          strokeColor: '#FF0000',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: '#FF0000',
-          fillOpacity: 0.35,
-          center: vm.mapOptions.center,
-          radius: 25
-        })
+        // vm.circle = vm.map.drawCircle({
+        //   strokeColor: '#FF0000',
+        //   strokeOpacity: 0.8,
+        //   strokeWeight: 2,
+        //   fillColor: '#FF0000',
+        //   fillOpacity: 0.35,
+        //   center: vm.mapOptions.center,
+        //   radius: 25
+        // })
         // vm.circle1 = vm.map.drawCircle({
         //   strokeColor: '#FF0000',
         //   strokeOpacity: 0.8,
@@ -53,22 +61,29 @@ angular
         //   center: {lat: 32.778515, lng: -79.931657},
         //   radius: 25
         // })
-        vm.rect = vm.map.drawRectangle({
-          bounds: [
-            [32.778516, -79.931658],
-            [32.778516, -79.931656],
-            [32.778514, -79.931658],
-            [32.778514, -79.931656]
+        vm.rect = vm.map.drawPolygon({
+          paths: [
+            [
+            32.778619, -79.931985
+            ],
+            [
+            32.778667, -79.931516
+            ],
+            [
+            32.778418, -79.931489
+            ],
+            [
+            32.778376, -79.931961
+            ],
           ],
           strokeColor: '#FF0000',
           strokeOpacity: 0.8,
           strokeWeight: 2,
           fillColor: '#FF0000',
           fillOpacity: 0.35,
-          center: {lat: 32.778515, lng: -79.931657},
-
         })
-        vm.map.addMarker({
+        console.log(vm.circle1);
+        vm.marker = vm.map.addMarker({
           lat: location.coords.latitude,
           lng: location.coords.longitude,
           draggable: true,
@@ -80,13 +95,22 @@ angular
         vm.map.addMarker({
           lat: 32.778515,
           lng: -79.931657,
-          fences: [vm.circle1]
+          fences: [vm.rect]
         })
-        // vm.map.checkGeofence({
-        //   lat: 32.76,
-        //   lng: -79.92,
-        //   fence: vm.circle1
-        // })
+        console.log(vm.map.checkGeofence(
+          location.coords.latitude,
+          location.coords.longitude,
+          vm.rect
+        ));
+        if(vm.map.checkGeofence(
+          12,
+          -75,
+          vm.rect
+        )){
+          console.log("yes!");
+        } else {
+          console.log("nope");
+        }
       })
     )
   });
