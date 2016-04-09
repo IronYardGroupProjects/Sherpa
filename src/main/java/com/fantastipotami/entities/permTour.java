@@ -9,35 +9,25 @@ import java.util.List;
  * Created by alexanderhughes on 4/6/16.
  */
 @Entity
-@Table(name = "tours")
+@Table(name = "perm_tours")
 public class PermTour {
     @Id
     @GeneratedValue
     private int id;
 
-    @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TourLocationJoin> locations;
+    @OneToMany(mappedBy = "permTour", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PermTourLocationJoin> locations;
 
     private String name;
-
-    private LocalDateTime timeStamp = LocalDateTime.now();
 
     public PermTour() {
     }
 
-    public LocalDateTime getTimeStamp() {
-        return timeStamp;
-    }
-
-    public void setTimeStamp(LocalDateTime timeStamp) {
-        this.timeStamp = timeStamp;
-    }
-
-    public List<TourLocationJoin> getLocations() {
+    public List<PermTourLocationJoin> getLocations() {
         return locations;
     }
 
-    public void setLocations(List<TourLocationJoin> locations) {
+    public void setLocations(List<PermTourLocationJoin> locations) {
         this.locations = locations;
     }
 

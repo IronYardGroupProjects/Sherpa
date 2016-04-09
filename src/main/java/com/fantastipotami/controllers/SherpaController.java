@@ -46,9 +46,9 @@ public class SherpaController {
     @PostConstruct
     public void init() throws SQLException, FileNotFoundException {
         dbui = Server.createWebServer().start();
-//        populateCategoriesTable("categories.tsv");
-//        populateLocationsTable("locations.tsv");
-//        populateToursTable("tours.tsv");
+        populateCategoriesTable("categories.tsv");
+        populateLocationsTable("locations.tsv");
+        populatePermToursTable("permTours.tsv");
     }
 
     @PreDestroy
@@ -139,38 +139,37 @@ public class SherpaController {
         while (fileScanner.hasNext()) {
             String[] columns = fileScanner.nextLine().split("\\t");
             Location location = new Location(columns[3], columns[4], Double.valueOf(columns[5]), Double.valueOf(columns[6]));
-            if (columns[0].isEmpty()) {
+            if (!columns[0].isEmpty()) {
                 location.setImageUrl(columns[0]);
             }
-            if (columns[1].isEmpty()) {
+            if (!columns[1].isEmpty()) {
                 location.setSiteUrl(columns[1]);
             }
-            if (columns[2].isEmpty()) {
+            if (!columns[2].isEmpty()) {
                 location.setDescription(columns[2]);
             }
             location = locRepo.save(location);
-            String[] cats = columns[7].split(";");
+            String[] cats = columns[7].split(",");
             for (String cat : cats) {
-                LocationCategoryJoin lcj = new LocationCategoryJoin(location, catRepo.findByCategoryStr(cat));
+                 LocationCategoryJoin lcj = new LocationCategoryJoin(location, catRepo.findByCategoryStr(cat));
                 locCatRepo.save(lcj);
             }
         }
     }
 
-    public void populateToursTable(String fileName) throws FileNotFoundException {
-        Tour tour = new Tour();
-        tour.setisPerm(true);
-        tour = tourRepo.save(tour);
+    public void populatePermToursTable(String fileName) throws FileNotFoundException {
         File f = new File(fileName);
         Scanner fileScanner = new Scanner(f);
         fileScanner.nextLine();
+        for (int i = 0; i < 4; i++) {
+            PermTour permTour = new PermTour();
+            permTour = pTourRepo.save(permTour);
+        }
         while (fileScanner.hasNext()) {
             String[] columns = fileScanner.nextLine().split("\\t");
-            for (String id : columns) {
-                Location location = locRepo.findOne(Integer.valueOf(id));
-                TourLocationJoin tlj = new TourLocationJoin(location, tour);
-                tourLocRepo.save(tlj);
-            }
+            PermTourLocationJoin tlj = new PermTourLocationJoin(locRepo.findOne(Integer.valueOf(columns[1])), pTourRepo.findOne(Integer.valueOf(columns[0])));
+            pTourLocRepo.save(tlj);
+
         }
     }
 }
