@@ -48,7 +48,7 @@ public class SherpaController {
         dbui = Server.createWebServer().start();
         populateCategoriesTable("categories.tsv");
         populateLocationsTable("locations.tsv");
-//        populateToursTable("tours.tsv");
+        populatePermToursTable("permTours.tsv");
     }
 
     @PreDestroy
@@ -157,19 +157,19 @@ public class SherpaController {
         }
     }
 
-    public void populateToursTable(String fileName) throws FileNotFoundException {
-        PermTour tour = new PermTour();
-        tour = pTourRepo.save(tour);
+    public void populatePermToursTable(String fileName) throws FileNotFoundException {
         File f = new File(fileName);
         Scanner fileScanner = new Scanner(f);
         fileScanner.nextLine();
+        for (int i = 0; i < 4; i++) {
+            PermTour permTour = new PermTour();
+            permTour = pTourRepo.save(permTour);
+        }
         while (fileScanner.hasNext()) {
             String[] columns = fileScanner.nextLine().split("\\t");
-            for (String id : columns) {
-                Location location = locRepo.findOne(Integer.valueOf(id));
-                PermTourLocationJoin tlj = new PermTourLocationJoin(location, tour);
-                pTourLocRepo.save(tlj);
-            }
+            PermTourLocationJoin tlj = new PermTourLocationJoin(locRepo.findOne(Integer.valueOf(columns[1])), pTourRepo.findOne(Integer.valueOf(columns[0])));
+            pTourLocRepo.save(tlj);
+
         }
     }
 }
