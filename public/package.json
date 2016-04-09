@@ -12,8 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.5.3",
+    "angular-google-maps": "^2.3.2",
+    "angular-simple-logger": "^0.1.7",
     "angular-ui-router": "^0.2.18",
     "jquery": "^2.2.3",
+    "lodash": "^4.9.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

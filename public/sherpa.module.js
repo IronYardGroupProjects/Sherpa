@@ -1,8 +1,5 @@
 var angular = require('angular');
 require('angular-ui-router');
-// var _ = require('./node_modules/lodash/dist/lodash.min.js');
-// require('./node_modules/angular-simple-logger/dist/angular-simple-logger.min.js');
-// require('./node_modules/angular-google-maps/dist/angular-google-maps.js');
 
 angular
   .module('sherpa', [
