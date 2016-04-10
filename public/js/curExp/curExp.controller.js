@@ -3,11 +3,14 @@ angular
 .module('curExp')
 .controller('curExpController', function ($scope, CurExpService, $routeParams){
 
+$scope.tours = tours;
 $scope.tour = tour;
 $scope.tourObj = {};
+$scope.submitTour = submitTour;
 
-  CurExpService.goToTour() {
-    
-
+  CurExpService.getTours(){
+    .then(function(data){
+      $scope.tours
+    }
   })
 })

@@ -8,7 +8,7 @@ angular
       templateUrl: 'curExp/templates/experience.directive.html',
       /*come back to this transclusion? link? click event changes? */
     scope: {
-      tour: '@',
+      tour: '=',
       tourID: '@'
     },
     link: function (scope, element, attributes) {
