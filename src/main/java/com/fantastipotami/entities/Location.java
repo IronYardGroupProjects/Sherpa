@@ -1,6 +1,7 @@
 package com.fantastipotami.entities;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Loader;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -21,12 +22,15 @@ public class Location {
 //    private UUID uuid;
     @Id
     @GeneratedValue
-    int id;
+    private int id;
     //0
+    @Lob
     private String imageUrl;
     //1
+    @Lob
     private String siteUrl;
     //2
+    @Lob
     private String description;
     //3
     @NotNull
@@ -41,8 +45,8 @@ public class Location {
     @NotNull
     private double longitude;
     //7
-    @OneToMany(mappedBy = "detail")
-    List<LocationCategoryJoin> categories;
+    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<LocationCategoryJoin> categories;
 
     public Location() {
     }
