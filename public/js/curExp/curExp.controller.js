@@ -8,9 +8,9 @@ $scope.tour = tour;
 $scope.tourObj = {};
 $scope.submitTour = submitTour;
 
-  CurExpService.getTours(){
-    .then(function(data){
-      $scope.tours
-    }
-  })
+  // CurExpService.getTours(){
+  //   .then(function(data){
+  //     $scope.tours
+  //   }
+  // })
 })
