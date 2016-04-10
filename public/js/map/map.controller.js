@@ -62,6 +62,11 @@ angular
           fillColor: '#FF0000',
           fillOpacity: 0.35,
         })
+        Gmaps.on('click', vm.test, function(){
+          vm.overlay = vm.map.drawOverlay({
+            content: "<div class='overlay'><h1>Window</h1><p>This is an info window</p></div>"
+          })
+        })
         vm.test = vm.map.addMarker({
           lat: 32.778619,
           lng: -79.931985
