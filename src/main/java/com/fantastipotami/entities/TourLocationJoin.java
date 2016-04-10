@@ -15,7 +15,7 @@ import java.util.UUID;
 public class TourLocationJoin {
     @Id
     @GeneratedValue
-    int id;
+    private int id;
 
     @NotNull
     private Boolean isVisited = false;
@@ -32,11 +32,11 @@ public class TourLocationJoin {
         this.tour = tour;
     }
 
-    public Boolean getisVisited() {
+    public Boolean getIsVisited() {
         return isVisited;
     }
 
-    public void setisVisited(Boolean isVisited) {
+    public void setIsVisited(Boolean isVisited) {
         this.isVisited = isVisited;
     }
 

@@ -16,11 +16,15 @@ import java.util.UUID;
 public class Tour {
     @Id
     @GeneratedValue
-    int id;
+    private int id;
+
     @NotNull
     private Boolean isPerm = false;
+
     @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TourLocationJoin> locations;
+
+    private String name;
 
     private LocalDateTime timeStamp = LocalDateTime.now();
 

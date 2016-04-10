@@ -14,14 +14,14 @@ import java.util.UUID;
 public class LocationCategoryJoin {
     @Id
     @GeneratedValue
-    int id;
+    private int id;
 
     @JsonIgnore
     @ManyToOne
-    Location location;
+    private Location location;
 
     @ManyToOne
-    Category category;
+    private Category category;
 
     public LocationCategoryJoin() {
     }

@@ -11,9 +11,9 @@ import javax.validation.constraints.NotNull;
 public class Category {
     @Id
     @GeneratedValue
-    int id;
+    private int id;
 
-    @NotNull
+    @Column(unique = true)
     private String categoryStr;
 
     public Category() {
