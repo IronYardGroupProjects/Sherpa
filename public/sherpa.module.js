@@ -1,7 +1,5 @@
 var angular = require('angular');
 require('angular-ui-router');
-require('./node_modules/angular-simple-logger/dist/angular-simple-logger.min.js');
-require('./node_modules/angular-google-maps/dist/angular-google-maps.js');
 
 angular
   .module('sherpa', [
