@@ -10,6 +10,10 @@ angular
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
+      .state('landing',{
+        url:'/',
+        templateUrl:'templates/landing.html'
+      })
       .state('home', {
         url: '/home',
         abstract: true,
