@@ -8,6 +8,7 @@ $scope.tour = tour;
 $scope.tourObj = {};
 $scope.submitTour = submitTour;
 
+
     })
 
 
@@ -16,4 +17,11 @@ $scope.submitTour = submitTour;
       $scope.tourObj
     }
   })
+
+  // CurExpService.getTours(){
+  //   .then(function(data){
+  //     $scope.tours
+  //   }
+  // })
+
 })

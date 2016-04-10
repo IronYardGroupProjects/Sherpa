@@ -5,6 +5,7 @@ angular
       templateUrl:'choiceView/templates/choiceViewDir.html',
       restrict:'EA',
       scope:{
+        category: '='
       },
     }
   })
