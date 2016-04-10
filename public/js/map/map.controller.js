@@ -10,9 +10,39 @@ angular
       zoom: 15
     }
     vm.tour = [];
+    // google.maps.event.addDomListener(window, 'load',
+    // MapService.getLocation().then(function(location){
+    //   vm.user = vm.map.addMarker({
+    //     lat: location.coords.latitude,
+    //     lng: location.coords.longitude,
+    //   })
+    //   vm.watchID = navigator.geolocation.watchPosition(a,b, vm.options);
+    // })
+    //   vm.watchID;
+    //   vm.options = {timeout: 60000}
+    //   vm.map = new GMaps({
+    //     div: '#main-map',
+    //     lat: 32.778515,
+    //     lng: -79.931657,
+    //     zoom: 18
+    //   })
+    //   vm.tour.forEach(function(el){
+    //     vm.map.addMarker({
+    //       lat: el.lat,
+    //       lng: el.lng,
+    //       fences: [el.fence]
+    //     })
+    //   })
+    //   function updateMarker(){
+    //     vm.user
+    //   }
+    //
+    //
+    // )
+    //
+
     google.maps.event.addDomListener(window, 'load',
       MapService.getLocation().then(function(location){
-        console.log(location);
         vm.mapOptions.center = {lat: location.coords.latitude, lng: location.coords.longitude};
         // vm.map = new google.maps.Map(document.getElementById('main-map'), vm.mapOptions);
         // vm.marker = new google.maps.Marker({
@@ -82,7 +112,6 @@ angular
           fillColor: '#FF0000',
           fillOpacity: 0.35,
         })
-        console.log(vm.circle1);
         vm.marker = vm.map.addMarker({
           lat: location.coords.latitude,
           lng: location.coords.longitude,
@@ -92,19 +121,15 @@ angular
           //   alert('This marker has been moved outside of its fence');
           // }
         })
-        vm.map.addMarker({
+        vm.test = vm.map.addMarker({
           lat: 32.778515,
           lng: -79.931657,
           fences: [vm.rect]
         })
-        console.log(vm.map.checkGeofence(
-          location.coords.latitude,
-          location.coords.longitude,
-          vm.rect
-        ));
+        console.log(vm.test);
         if(vm.map.checkGeofence(
-          12,
-          -75,
+          32.778515,
+          -79.931657,
           vm.rect
         )){
           console.log("yes!");
