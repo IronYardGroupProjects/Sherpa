@@ -1,7 +1,9 @@
-<h1>Map</h1>
-<ui-gmap-google-map center='gMap.center'
-                    control='{Object}'
-                    zoom='gMap.zoom'
-                    dragging='gMap.dragging'
->
-</ui-gmap-google-map>
+<div class="nav col-xs-12">
+  <h2>Map View</h2>
+  <a ui-sref="landing">home</a>
+  <a ui-sref="home.map">Map</a>
+  <a ui-sref="home.choiceView">Choice View</a>
+  <a ui-sref="home.curExp">Curated Experience</a>
+</div>
+
+<div id="main-map" class="col-xs-12" ng-init="initMap()"></div>

@@ -4,5 +4,15 @@
   box-sizing: border-box;
 }
 body{
-  background-color: orange;
+  background-color: #efefef;
+}
+.landing-splash img{
+  width:100%;
+}
+.nav{
+  margin-bottom:20px;
+}
+
+#main-map, #near-map {
+  height: 500px;
 }

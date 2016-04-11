@@ -1,17 +1,24 @@
 var angular = require('angular');
 require('angular-ui-router');
-require('./node_modules/angular-simple-logger/dist/angular-simple-logger.min.js');
-require('./node_modules/angular-google-maps/dist/angular-google-maps.js');
+require('angular-animate');
+require('angular-aria');
+require('angular-material');
+// module.exports = 'ngMaterial';
 
 angular
   .module('sherpa', [
     'ui.router',
     'map',
     'choiceView',
-    'curExp'
+    'curExp',
+    'near'
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
+      .state('landing',{
+        url:'/',
+        templateUrl:'templates/landing.html'
+      })
       .state('home', {
         url: '/home',
         abstract: true,
@@ -31,3 +38,4 @@ angular
 require('./js/curExp');
 require('./js/choiceView');
 require('./js/map');
+require('./js/near');
