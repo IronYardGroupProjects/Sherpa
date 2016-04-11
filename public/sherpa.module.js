@@ -1,5 +1,9 @@
 var angular = require('angular');
 require('angular-ui-router');
+require('angular-animate');
+require('angular-aria');
+require('angular-material');
+// module.exports = 'ngMaterial';
 
 angular
   .module('sherpa', [
@@ -11,6 +15,10 @@ angular
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
+      .state('landing',{
+        url:'/',
+        templateUrl:'templates/landing.html'
+      })
       .state('home', {
         url: '/home',
         abstract: true,
