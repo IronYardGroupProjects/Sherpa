@@ -1,4 +1,15 @@
 <h1>CurExp</h1>
+
+
+<!-- ng-repeat call directive and pass in tourobj -->
+
+<div ng-repeat="tour in tours">
+  <experience-directive tour="tour"></experience-directive>
+
+</div>
+
+
+
 <a ui-sref="home.map">Map</a>
 <a ui-sref="home.choiceView">Choice View</a>
 <a ui-sref="home.CurExp">Curated Experience</a>

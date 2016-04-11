@@ -4,18 +4,17 @@ angular
   .module('curExp')
   .service('CurExpService', function($http) {
 
-    var permTour = '/perm-tour';
+var CurExpService = {
 
-    var getTours = function () {
-      return $http.get(permTour)
-    }
-    var getTour = function (id) {
-      return $http.get(permTour + '/' + id)
-    }
-
-  return {
-      getTour: getTour,
-      getTours: getTours
+  url: '/perm-tour',
+  getTours: function () {
+    return $http.get(permTour);
+  },
+  getTour: function (id) {
+    return $http.get(permTour + '/' + id);
   }
-
+};
+  return CurExpService;
+      // getTour: getTour,
+      // getTours: getTours
 });

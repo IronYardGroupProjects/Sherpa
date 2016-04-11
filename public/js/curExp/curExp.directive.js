@@ -11,10 +11,10 @@ angular
       tour: '=',
       tourID: '@'
     },
-    link: function (scope, element, attributes) {
-      element.on('click', function (event){
-        
-      })
-    }
+    // link: function (scope, element, attributes) {
+    //   element.on('click', function (event){
+    //
+    //   })
+    // }
     }
   })
