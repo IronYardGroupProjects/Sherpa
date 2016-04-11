@@ -22,6 +22,9 @@ public class PermTourLocationJoin {
     @ManyToOne
     private PermTour permTour;
 
+    public PermTourLocationJoin() {
+    }
+
     public PermTourLocationJoin(Location location, PermTour tour) {
         this.location = location;
         this.permTour = tour;
