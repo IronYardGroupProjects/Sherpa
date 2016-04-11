@@ -1,12 +1,8 @@
 package com.fantastipotami.entities;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Loader;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by alexanderhughes on 4/5/16.
@@ -40,11 +36,13 @@ public class Location {
     private String streetAddress;
     //5
     @NotNull
-    private double latitude;
-    //6
+    double latitude;
     @NotNull
-    private double longitude;
-    //7
+    double longitude;
+    //8
+    @OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
+    private GeoFence geoFence;
+    //9
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LocationCategoryJoin> categories;
 
@@ -106,6 +104,22 @@ public class Location {
         this.streetAddress = streetAddress;
     }
 
+    public GeoFence getGeoFence() {
+        return geoFence;
+    }
+
+    public void setGeoFence(GeoFence geoFence) {
+        this.geoFence = geoFence;
+    }
+
+    public List<LocationCategoryJoin> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<LocationCategoryJoin> categories) {
+        this.categories = categories;
+    }
+
     public double getLatitude() {
         return latitude;
     }
@@ -120,13 +134,5 @@ public class Location {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
-    }
-
-    public List<LocationCategoryJoin> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List<LocationCategoryJoin> categories) {
-        this.categories = categories;
     }
 }
