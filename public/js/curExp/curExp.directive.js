@@ -8,7 +8,7 @@ angular
       templateUrl: 'curExp/templates/experience.directive.html',
     scope: {
       tour: '=',
-      // tourID: '@'
+      tourID: '='
     },
   };
 });
