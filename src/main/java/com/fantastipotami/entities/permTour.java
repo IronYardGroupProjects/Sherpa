@@ -15,10 +15,11 @@ public class PermTour {
     @GeneratedValue
     private int id;
 
+    @NotNull
+    private String name;
+
     @OneToMany(mappedBy = "permTour", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PermTourLocationJoin> locations;
-
-    private String name;
 
     public PermTour() {
     }
@@ -37,5 +38,13 @@ public class PermTour {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
