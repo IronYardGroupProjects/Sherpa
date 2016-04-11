@@ -10,7 +10,8 @@ angular
     'ui.router',
     'map',
     'choiceView',
-    'curExp'
+    'curExp',
+    'near'
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
@@ -37,3 +38,4 @@ angular
 require('./js/curExp');
 require('./js/choiceView');
 require('./js/map');
+require('./js/near');
