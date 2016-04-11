@@ -9,6 +9,6 @@ body {
 body {
   background-color: orange; }
 
-#main-map {
+#main-map, #near-map {
   width: 500px;
   height: 500px; }

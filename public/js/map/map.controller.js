@@ -67,13 +67,13 @@ angular
           lng: -79.931985
         })
         vm.test.addListener('click', function(){
+          vm.map.setCenter(this.position.lat(), this.position.lng())
           if(!vm.overlay){
             vm.overlay = vm.map.drawOverlay({
               content: "<div class='overlay'><h1>Window</h1><p>This is an info window</p></div>",
               lat: vm.test.position.lat(),
               lng: vm.test.position.lng()
             })
-            console.log(vm.overlay);
           } else {
             if(vm.overlay.map){
               vm.overlay.setMap(null)
