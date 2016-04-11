@@ -17,7 +17,6 @@ angular
           type: 'restaurant'
         }
         vm.infowindow = new google.maps.InfoWindow();
-        console.log(vm.infowindow);
         vm.service = new google.maps.places.PlacesService(vm.map);
         vm.nearSearch = function(results, status){
           if(status === google.maps.places.PlacesServiceStatus.OK){
@@ -36,9 +35,51 @@ angular
           var _this = this;
           vm.service.getDetails({placeId: this.placeId}, function(result, status){
             console.log(result);
-            vm.infowindow.setContent('<div><strong>' + result.name + '</strong><br>' +
-              'Place ID: ' + result.place_id + '<br>' +
-              result.formatted_address + '</div>');
+            var open = (function(){
+              if(result.opening_hours && result.opening_hours.open_now){
+                  return 'Open</span>';
+                } else if (result.opening_hours && !result.opening_hours.open_now) {
+                    return 'Closed</span>';
+                } else {
+                  return '</span>';
+                }
+              })()
+            var rating = (function(){
+              if(result.rating) {
+                return result.rating;
+              } else {
+                return "";
+              }
+            })()
+            vm.infowindow.setContent(
+              '<div class="infowindow">' +
+                '<div>' +
+                  '<a href="tel:' +
+                  result.formatted_phone_number +
+                  '"><span class="fa-stack fa-lg">' +
+                    '<i class="fa fa-circle fa-stack-2x"></i>' +
+                    '<i class="fa fa-phone fa-stack-1x fa-inverse"></i>' +
+                  '</span></a>' +
+                  '<a href="' +
+                  result.website +
+                  '" target="_blank"><span class="fa-stack fa-lg">' +
+                    '<i class="fa fa-circle fa-stack-2x"></i>' +
+                    '<i class="fa fa-laptop fa-stack-1x fa-inverse"></i>' +
+                  '</span></a>' +
+                '</div>' +
+                '<div>' +
+                  '<h2>' +
+                  result.name +
+                  '<span>' +
+                  rating +
+                  '</span><span>' +
+                  open +
+                  '</h2>' +
+                  '<p>' +
+                  result.formatted_address +
+                  '</p>' +
+                '</div></div>'
+            );
             vm.infowindow.open(vm.map, _this);
             vm.map.panTo(result.geometry.location);
           })
