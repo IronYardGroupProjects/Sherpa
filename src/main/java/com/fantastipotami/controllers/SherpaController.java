@@ -1,5 +1,6 @@
 package com.fantastipotami.controllers;
 
+import com.fantastipotami.entities.GeoFence;
 import com.fantastipotami.entities.*;
 import com.fantastipotami.services.*;
 import org.h2.tools.Server;
@@ -55,6 +56,13 @@ public class SherpaController {
     public void destroy() {
         dbui.stop();
     }
+    /*a pseudo login, the tourId from local storage is passed to
+    * recreate the session if needed*/
+    @RequestMapping(path = "/re-join/{id}", method = RequestMethod.POST)
+    public ResponseEntity<Object> getTourLocs(HttpSession session, @PathVariable("id") int id) {
+        session.setAttribute("tourId", id);
+        return new ResponseEntity<Object>(tourLocRepo.findAllByTour(tourRepo.findOne(id)), HttpStatus.OK);
+    }
 
     /*Hit to get the perm tour options, they will include each
     * location with all available details, don't need to pass
@@ -67,15 +75,7 @@ public class SherpaController {
 //        }
         return new ResponseEntity<Object>(pTourRepo.findAll(), HttpStatus.OK);
     }
-    /*hit this if user hits continue after being asked if they
-    * wished to continue an existing tour (if they opt not to continue
-    * then hit the /tour delete route and then hit the post /tour route again
-    * to display all the tours for the user to select a knew one
-    * just append 0 as the id in the , don't need anything there*/
-    @RequestMapping(path = "/tour/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Object> getCurrentTour(HttpSession session, @PathVariable("id") Integer id) {
-        return new ResponseEntity<Object>(tourRepo.findOne(id), HttpStatus.OK);
-    }
+
     //invalidates the session for the tour in progress, i.e. cancel/end
     @RequestMapping(path = "/tour/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> cancelTour(HttpSession session) {
@@ -94,7 +94,34 @@ public class SherpaController {
             tourLocRepo.save(new TourLocationJoin(loc, tour));
         }
         session.setAttribute("tourId", tour.getId());
-        return new ResponseEntity<Object>(tour, HttpStatus.OK);
+        return new ResponseEntity<Object>(tour.getId(), HttpStatus.OK);
+    }
+    /*hit this to create a custom tour based on 3 choices*/
+    @RequestMapping(path = "/tour", method = RequestMethod.POST)
+    public ResponseEntity<Object> buildTour(HttpSession session, @RequestBody HashMap map) {
+        List<Integer> locs = (List<Integer>) map.get("list");
+        Tour tour = new Tour();
+        tour = tourRepo.save(tour);
+        for (int id : locs) {
+            tourLocRepo.save(new TourLocationJoin(locRepo.findOne(id), tour));
+        }
+        session.setAttribute("tourId", tour.getId());
+        return new ResponseEntity<Object>(tour.getId(), HttpStatus.OK);
+    }
+
+    /*for updating a location during the tour as visited
+    * send the location join id as pathvar and returns the tour object*/
+    @RequestMapping(path = "/tour/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Object> updateTourLoc(@PathVariable("id") int id) {
+        TourLocationJoin tlj = tourLocRepo.findOne(id);
+        tlj.setIsVisited(true);
+        tourLocRepo.save(tlj);
+        return new ResponseEntity<Object>(HttpStatus.OK);
+    }
+    @RequestMapping(path = "/tour", method = RequestMethod.GET)
+    public ResponseEntity<Object> getLocJoins(HttpSession session) {
+        int id = (Integer) session.getAttribute("tourId");
+        return new ResponseEntity<Object>(tourLocRepo.findAllByTour(tourRepo.findOne(id)), HttpStatus.OK);
     }
     //choiceView stuff
     /*use this to get an array all the categories*/
@@ -107,16 +134,6 @@ public class SherpaController {
     @RequestMapping(path = "/category/{id}", method = RequestMethod.GET)
     public ResponseEntity<Object> getToursByCat(HttpSession session, @PathVariable("id") int id) {
         return new ResponseEntity<Object>(locCatRepo.findAllByCategory(catRepo.findOne(1)), HttpStatus.OK);
-    }
-    @RequestMapping(path = "/tour", method = RequestMethod.POST)
-    public ResponseEntity<Object> buildTour(@RequestBody HashMap<String, List<Integer>> map) {
-        List<Integer> locs = map.get("list");
-        Tour tour = new Tour();
-        tour = tourRepo.save(tour);
-        for (int id : locs) {
-            tourLocRepo.save(new TourLocationJoin(locRepo.findOne(id), tour));
-        }
-        return new ResponseEntity<Object>(tour, HttpStatus.OK);
     }
 
     public void populateCategoriesTable(String fileName) throws FileNotFoundException {
@@ -148,6 +165,9 @@ public class SherpaController {
             if (!columns[2].isEmpty()) {
                 location.setDescription(columns[2]);
             }
+            String[] points = columns[8].split(",");
+            location.setGeoFence(new GeoFence(Double.valueOf(points[0]), Double.valueOf(points[1]), Double.valueOf(points[2]), Double.valueOf(points[3]), Double.valueOf(points[4]), Double.valueOf(points[5]), Double.valueOf(points[6]), Double.valueOf(points[7])));
+            location.getGeoFence().setLocation(location);
             location = locRepo.save(location);
             String[] cats = columns[7].split(",");
             for (String cat : cats) {
@@ -156,13 +176,13 @@ public class SherpaController {
             }
         }
     }
-
     public void populatePermToursTable(String fileName) throws FileNotFoundException {
         File f = new File(fileName);
         Scanner fileScanner = new Scanner(f);
         fileScanner.nextLine();
         for (int i = 0; i < 4; i++) {
             PermTour permTour = new PermTour();
+            permTour.setName(String.format("tour%d", i+1));
             permTour = pTourRepo.save(permTour);
         }
         while (fileScanner.hasNext()) {
