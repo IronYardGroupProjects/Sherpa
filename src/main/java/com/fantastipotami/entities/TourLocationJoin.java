@@ -32,6 +32,9 @@ public class TourLocationJoin {
         this.tour = tour;
     }
 
+    public TourLocationJoin() {
+    }
+
     public Boolean getIsVisited() {
         return isVisited;
     }
