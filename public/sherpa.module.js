@@ -28,7 +28,9 @@ angular
           }
         }
       })
-      $urlRouterProvider.otherwise('/404');
+      $urlRouterProvider.otherwise('/404',{
+          templateUrl:'templates/404.html'
+        });
   });
 
 require('./js/curExp');
