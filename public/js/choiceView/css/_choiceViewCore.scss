@@ -9,6 +9,14 @@ body{
   padding:10px;
 }
 .choice-card{
-  padding:10px;
-  background: hsla(0,0%,0%,.1);
+  border:none;
+  background: yellow;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 5% 0;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  transition:.2s all;
+  &:hover{
+    background:orange;
+  }
 }

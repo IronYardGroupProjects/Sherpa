@@ -5,10 +5,6 @@ angular
   .module('map')
   .controller('MapController', function($scope, $state, MapService){
     var vm = this;
-    vm.mapOptions = {
-      center: {},
-      zoom: 15
-    }
     vm.tour = [];
     google.maps.event.addDomListener(window, 'load',
       MapService.getLocation().then(function(location){
@@ -26,10 +22,10 @@ angular
             32.778619, -79.931985
             ],
             [
-            32.778667, -79.931516
+            32.778685, -79.931333
             ],
             [
-            32.778418, -79.931489
+            32.778422, -79.931298
             ],
             [
             32.778376, -79.931961
@@ -44,16 +40,16 @@ angular
         vm.rect1 = vm.map.drawPolygon({
           paths: [
             [
-            32.824805, -80.042642
+            32.784823, -79.932315
             ],
             [
-            32.824780, -80.042641
+            32.784589, -79.932153
             ],
             [
-            32.824799, -80.042609
+            32.784376, -79.932662
             ],
             [
-            32.824761, -80.042607
+            32.784647, -79.932836﻿
             ],
           ],
           strokeColor: '#FF0000',

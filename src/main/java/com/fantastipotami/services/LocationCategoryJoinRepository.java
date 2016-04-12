@@ -11,5 +11,5 @@ import java.util.List;
  * Created by alexanderhughes on 4/6/16.
  */
 public interface LocationCategoryJoinRepository extends CrudRepository<LocationCategoryJoin, Integer> {
-    List<Location> findAllByCategory(Category category);
+    List<LocationCategoryJoin> findAllByCategory(Category category);
 }
