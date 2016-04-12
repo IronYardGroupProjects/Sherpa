@@ -9,26 +9,10 @@
 
 
 <!-- ng-repeat call directive and pass in tourobj -->
-
-<div ng-repeat="tour in tours">
-  <experience-directive tour="tour"></experience-directive>
-
-</div>
-
 <div class="curExp-container col-xs-12">
-    <div class="curExp-card-wrap .col-xs-6 .col-sm-4">
-      <div class="curExp-card col-xs-12">
-        Historical Tour
-      </div>
-    </div>
-    <div class="curExp-card-wrap .col-xs-6 .col-sm-4">
-      <div class="curExp-card col-xs-12">
-        Haunted Tour
-      </div>
-    </div>
-    <div class="curExp-card-wrap .col-xs-6 .col-sm-4">
-      <div class="curExp-card col-xs-12">
-        Architectural Tour
-      </div>
-    </div>
-  </div>
+
+<div ng-repeat="tour in ExpCtrl.tours" >
+  <experience-directive expTour="tour"></experience-directive>
+  
+</div>
+</div>

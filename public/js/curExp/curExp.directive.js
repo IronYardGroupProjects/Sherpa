@@ -5,9 +5,9 @@ angular
 
     return{
       restrict: 'EA',
-      templateUrl: 'curExp/templates/experience.directive.html',
+      templateUrl: 'js/curExp/templates/experience.directive.html',
     scope: {
-      tour: '=',
+      expTour: '=',
       tourID: '='
     },
   };
