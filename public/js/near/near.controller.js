@@ -10,7 +10,7 @@ angular
         vm.map = new google.maps.Map(document.getElementById('near-map'), {
           center: {lat: location.coords.latitude, lng: location.coords.longitude},
           zoom: 18
-        })
+        });
         vm.request = {
           location: {lat: location.coords.latitude, lng: location.coords.longitude},
           radius: '500',
