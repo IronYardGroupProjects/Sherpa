@@ -1,13 +1,53 @@
 .landing-wrap {
-  font-family: 'Lora', serif;
   text-align: center;
-  margin:10% 0;
+  // background-image:url('../../images/charlestonHero.jpg');
 }
 .logo-wrap{
-  h2{
-    padding:10%;
-    font-weight: 800;
-    letter-spacing: 4px;
-    font-size: 4em;
+  padding:10%;
+}
+.selection-wrap {
+  text-align: center;
   }
+h2{
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-size: 7em;
+}
+h3{
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-size: 5em;
+}
+.logo-container {
+  height:100vh;
+  // background-image:url('../../images/charlestonHero.jpg');
+  background:#00EE6F;
+  h2{
+  color:#fff;
+  text-align:right;
+  }
+}
+.welcome-container {
+  height:100vh;
+  padding: 0 5%;
+  h3{
+    color:#9DA3B3;
+  }
+}
+button {
+  width: 100%;
+  padding: 5%;
+  border: none;
+  font-size:1.5em;
+  color:#102665;
+  background: #00EE6F;
+  transition:.2s all;
+  border: 3px solid #102665;
+  &:hover {
+    background: #00EE6F;
+  }
+}
+hr{
+  border: 3px solid #00EE6F;
+  width: 35%;
 }
