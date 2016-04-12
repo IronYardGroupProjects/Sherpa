@@ -1,0 +1,33 @@
+.info-window .left {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.info-window .right {
+  width: 66%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.info-window h3{
+  margin: 0;
+  margin-bottom: 3%;
+}
+
+.info-action-link {
+  font-size: 1.25em;
+  margin-right: 10px;
+}
+
+.status {
+  font-size: 12px;
+}
+
+.closed {
+  color: red;
+}
+
+.open {
+  color: green;
+}

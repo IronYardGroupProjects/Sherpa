@@ -9,11 +9,56 @@ body {
   padding: 10px; }
 
 .choice-card {
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.1); }
+  border: none;
+  background: yellow;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 5% 0;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  transition: .2s all; }
+  .choice-card:hover {
+    background: orange; }
 
 body {
   color: black; }
+
+.info-window .left {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top; }
+
+.info-window .right {
+  width: 66%;
+  display: inline-block;
+  vertical-align: top; }
+
+.info-window h3 {
+  margin: 0;
+  margin-bottom: 3%; }
+
+.info-action-link {
+  font-size: 1.25em;
+  margin-right: 10px; }
+
+.status {
+  font-size: 12px; }
+
+.closed {
+  color: red; }
+
+.open {
+  color: green; }
+
+.landing-wrap {
+  font-family: 'Lora', serif;
+  text-align: center;
+  margin: 10% 0; }
+
+.logo-wrap h2 {
+  padding: 10%;
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-size: 4em; }
 
 * {
   margin: 0;
@@ -21,7 +66,9 @@ body {
   box-sizing: border-box; }
 
 body {
-  background-color: #efefef; }
+  background-color: #F4EDAB;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #2957D5; }
 
 .landing-splash img {
   width: 100%; }
