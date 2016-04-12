@@ -9,13 +9,15 @@ body{
   color:#102665;
   // border-top: 7px solid #00EE6F;
 }
+p{
+  font-size:18px;
+}
 .landing-splash img{
   width:100%;
 }
 .nav{
   margin-bottom:20px;
 }
-
 #main-map, #near-map {
   height: 500px;
 }
