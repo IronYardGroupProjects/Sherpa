@@ -51,92 +51,6 @@ public class SherpaController {
         populateCategoriesTable("categories.tsv");
         populateLocationsTable("locations.tsv");
         populatePermToursTable("permTours.tsv");
-        populateTourTable(new HttpSession() {
-            @Override
-            public long getCreationTime() {
-                return 0;
-            }
-
-            @Override
-            public String getId() {
-                return null;
-            }
-
-            @Override
-            public long getLastAccessedTime() {
-                return 0;
-            }
-
-            @Override
-            public ServletContext getServletContext() {
-                return null;
-            }
-
-            @Override
-            public void setMaxInactiveInterval(int interval) {
-
-            }
-
-            @Override
-            public int getMaxInactiveInterval() {
-                return 0;
-            }
-
-            @Override
-            public HttpSessionContext getSessionContext() {
-                return null;
-            }
-
-            @Override
-            public Object getAttribute(String name) {
-                return null;
-            }
-
-            @Override
-            public Object getValue(String name) {
-                return null;
-            }
-
-            @Override
-            public Enumeration<String> getAttributeNames() {
-                return null;
-            }
-
-            @Override
-            public String[] getValueNames() {
-                return new String[0];
-            }
-
-            @Override
-            public void setAttribute(String name, Object value) {
-
-            }
-
-            @Override
-            public void putValue(String name, Object value) {
-
-            }
-
-            @Override
-            public void removeAttribute(String name) {
-
-            }
-
-            @Override
-            public void removeValue(String name) {
-
-            }
-
-            @Override
-            public void invalidate() {
-
-            }
-
-            @Override
-            public boolean isNew() {
-                return false;
-            }
-        }, 2);
     }
 
     @PreDestroy
@@ -262,7 +176,7 @@ public class SherpaController {
                 location.setDescription(columns[2]);
             }
             String[] points = columns[8].split(",");
-            location.setGeoFence(new GeoFence(Double.valueOf(points[0]), Double.valueOf(points[1]), Double.valueOf(points[2]), Double.valueOf(points[3]), Double.valueOf(points[4]), Double.valueOf(points[5]), Double.valueOf(points[6]), Double.valueOf(points[7])));
+            location.setGeoFence(new GeoFence(Double.valueOf(points[1]), Double.valueOf(points[0]), Double.valueOf(points[3]), Double.valueOf(points[2]), Double.valueOf(points[5]), Double.valueOf(points[4]), Double.valueOf(points[7]), Double.valueOf(points[6])));
             location.getGeoFence().setLocation(location);
             location = locRepo.save(location);
             String[] cats = columns[7].split(",");
@@ -286,8 +200,5 @@ public class SherpaController {
             PermTourLocationJoin tlj = new PermTourLocationJoin(locRepo.findOne(Integer.valueOf(columns[1])), pTourRepo.findOne(Integer.valueOf(columns[0])));
             pTourLocRepo.save(tlj);
         }
-    }
-    public void populateTourTable(HttpSession session, int id) {
-        joinTour(session, id);
     }
 }
