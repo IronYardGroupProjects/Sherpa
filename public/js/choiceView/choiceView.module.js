@@ -12,7 +12,7 @@ angular
         views: {
           'container': {
             templateUrl:'./js/choiceView/templates/choiceView.html',
-            controllerAs: 'ChoiceViewController as choiceViewCtrl'
+            controller: 'choiceViewController as choiceViewCtrl'
           }
         }
       })
