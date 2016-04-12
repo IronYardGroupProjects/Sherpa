@@ -18,9 +18,6 @@ public class Tour {
     @GeneratedValue
     private int id;
 
-    @NotNull
-    private Boolean isPerm = false;
-
     @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TourLocationJoin> locations;
 
@@ -45,14 +42,6 @@ public class Tour {
 
     public void setLocations(List<TourLocationJoin> locations) {
         this.locations = locations;
-    }
-
-    public Boolean getisPerm() {
-        return isPerm;
-    }
-
-    public void setisPerm(Boolean isPerm) {
-        this.isPerm = isPerm;
     }
 
     public int getId() {
