@@ -197,13 +197,11 @@ categoryStr: "parks"
               return el.id === id;
             });
             if(!location[0].isVisited && vm.map.checkGeofence(vm.user.position.lat(), vm.user.position.lng(), el.fence)) {
-              alert("Geofence works!")
               var marker = vm.map.markers.filter(function(el){
                 return el.hasOwnProperty('location');
               }).filter(function(el){
                 return el.location.id === id;
-              })[0]
-              console.log(marker);
+              })[0];
               marker.location.isVisited = true;
               MapService.updateLocation(id);
               var modal = '#' + id;
