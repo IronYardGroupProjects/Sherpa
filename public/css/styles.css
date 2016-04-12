@@ -20,7 +20,21 @@ body {
     background: orange; }
 
 body {
-  color: black; }
+  background-color: blue; }
+
+.curExp-card-wrap {
+  padding: 10px; }
+
+.curExp-card {
+  border: none;
+  background: yellow;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 2% 0;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  transition: .2s all; }
+  .curExp-card:hover {
+    background: orange; }
 
 .info-window .left {
   width: 33%;
