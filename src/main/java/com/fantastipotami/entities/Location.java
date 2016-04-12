@@ -36,9 +36,9 @@ public class Location {
     private String streetAddress;
     //5
     @NotNull
-    double latitude;
+    private double latitude;
     @NotNull
-    double longitude;
+    private double longitude;
     //8
     @OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
     private GeoFence geoFence;
@@ -118,5 +118,21 @@ public class Location {
 
     public void setCategories(List<LocationCategoryJoin> categories) {
         this.categories = categories;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 }
