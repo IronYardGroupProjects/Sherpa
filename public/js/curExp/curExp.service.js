@@ -16,7 +16,7 @@ function getTours() {
   $http.get('/perm-tour')
     .then(function (data) {
       defer.resolve(data);
-      console.log("fuck you", data);
+      console.log("yay you", data);
     })
 return defer.promise;
 }

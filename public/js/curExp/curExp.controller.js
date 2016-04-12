@@ -11,7 +11,7 @@ angular
                 console.log("try it", data);
                 // $window.localStorage.setItem('tourId', response);
                 vm.tours = data.data;
-                window.glob=data.data;
+                // window.glob=data.data;
             });
 
     });

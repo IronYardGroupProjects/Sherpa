@@ -1,18 +1,24 @@
-<div class="nav col-xs-12">
-  <h1>CurExp</h1>
-  <a ui-sref="landing">Home</a>
-  <a ui-sref="home.map">Map</a>
-  <a ui-sref="home.choiceView">Choice View</a>
-  <a ui-sref="home.curExp">Curated Experience</a>
-  <a ui-sref="home.near">Near Me</a>
-</div>
+
+  <h1>Curated Experience</h1>
+
+
 
 
 <!-- ng-repeat call directive and pass in tourobj -->
-<div class="curExp-container col-xs-12">
+<div class="curExp-container col-md-12">
 
 <div ng-repeat="tour in ExpCtrl.tours" >
-  <experience-directive expTour="tour"></experience-directive>
-  
+  <experience-directive exp-tour="tour"></experience-directive>
 </div>
 </div>
+
+
+<footer>
+<div class="nav col-xs-12">
+<a ui-sref="landing">Home</a>
+<a ui-sref="home.map">Map</a>
+<a ui-sref="home.choiceView">Choice View</a>
+<a ui-sref="home.curExp">Curated Experience</a>
+<a ui-sref="home.near">Near Me</a>
+</div>
+</footer>
