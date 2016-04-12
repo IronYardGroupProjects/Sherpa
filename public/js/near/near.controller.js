@@ -37,9 +37,9 @@ angular
             console.log(result);
             var open = (function(){
               if(result.opening_hours && result.opening_hours.open_now){
-                  return 'Open</span>';
+                  return '<span class="status open"> Open Now</span>';
                 } else if (result.opening_hours && !result.opening_hours.open_now) {
-                    return 'Closed</span>';
+                    return '<span class="status closed"> Closed Now</span>';
                 } else {
                   return '</span>';
                 }
@@ -52,33 +52,36 @@ angular
               }
             })()
             vm.infowindow.setContent(
-              '<div class="infowindow">' +
-                '<div>' +
-                  '<a href="tel:' +
-                  result.formatted_phone_number +
-                  '"><span class="fa-stack fa-lg">' +
-                    '<i class="fa fa-circle fa-stack-2x"></i>' +
-                    '<i class="fa fa-phone fa-stack-1x fa-inverse"></i>' +
-                  '</span></a>' +
-                  '<a href="' +
-                  result.website +
-                  '" target="_blank"><span class="fa-stack fa-lg">' +
-                    '<i class="fa fa-circle fa-stack-2x"></i>' +
-                    '<i class="fa fa-laptop fa-stack-1x fa-inverse"></i>' +
-                  '</span></a>' +
-                '</div>' +
-                '<div>' +
-                  '<h2>' +
-                  result.name +
-                  '<span>' +
-                  rating +
-                  '</span><span>' +
-                  open +
-                  '</h2>' +
-                  '<p>' +
-                  result.formatted_address +
-                  '</p>' +
-                '</div></div>'
+              '<div class="info-window">'
+                + '<div class="info-wrap">'
+                + '<h3>'
+                + result.name
+                + '</h3>'
+                + '<div class="special-info">'
+                + open
+                + '<span class="rating"> Rating '
+                + rating
+                + '/5</span>'
+                + '</div>'
+                + '<p>'
+                + result.formatted_address
+                + '</p>'
+                + '</div>'
+                + '<div class="info-action-links-wrap">'
+                + '<a class="info-action-link" href="tel:'
+                + result.formatted_phone_number
+                + '"><span class="fa-stack fa-lg">'
+                + '<i class="fa fa-circle fa-stack-2x"></i>'
+                + '<i class="fa fa-phone fa-stack-1x fa-inverse"></i>'
+                + '</span></a>'
+                + '<a class="info-action-link" href="'
+                + result.website
+                + '" target="_blank"><span class="fa-stack fa-lg">'
+                + '<i class="fa fa-circle fa-stack-2x"></i>'
+                + '<i class="fa fa-link fa-stack-1x fa-inverse"></i>'
+                + '</span></a>'
+                + '</div>'
+                + '</div>'
             );
             vm.infowindow.open(vm.map, _this);
             vm.map.panTo(result.geometry.location);

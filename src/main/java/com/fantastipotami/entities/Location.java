@@ -36,9 +36,9 @@ public class Location {
     private String streetAddress;
     //5
     @NotNull
-    double latitude;
+    private double latitude;
     @NotNull
-    double longitude;
+    private double longitude;
     //8
     @OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
     private GeoFence geoFence;
