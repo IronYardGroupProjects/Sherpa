@@ -2,10 +2,10 @@ angular
   .module('choiceView')
   .directive('choiceViewDirective', function(){
     return {
-      templateUrl:'choiceView/templates/choiceViewDir.html',
+      templateUrl:'/js/choiceView/templates/choiceViewDir.html',
       restrict:'EA',
       scope:{
-        category: '='
+        cat: '='
       },
     }
   })
