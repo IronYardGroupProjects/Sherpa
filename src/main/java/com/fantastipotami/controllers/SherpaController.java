@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionContext;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by alexanderhughes on 4/6/16.
@@ -50,6 +51,92 @@ public class SherpaController {
         populateCategoriesTable("categories.tsv");
         populateLocationsTable("locations.tsv");
         populatePermToursTable("permTours.tsv");
+        populateTourTable(new HttpSession() {
+            @Override
+            public long getCreationTime() {
+                return 0;
+            }
+
+            @Override
+            public String getId() {
+                return null;
+            }
+
+            @Override
+            public long getLastAccessedTime() {
+                return 0;
+            }
+
+            @Override
+            public ServletContext getServletContext() {
+                return null;
+            }
+
+            @Override
+            public void setMaxInactiveInterval(int interval) {
+
+            }
+
+            @Override
+            public int getMaxInactiveInterval() {
+                return 0;
+            }
+
+            @Override
+            public HttpSessionContext getSessionContext() {
+                return null;
+            }
+
+            @Override
+            public Object getAttribute(String name) {
+                return null;
+            }
+
+            @Override
+            public Object getValue(String name) {
+                return null;
+            }
+
+            @Override
+            public Enumeration<String> getAttributeNames() {
+                return null;
+            }
+
+            @Override
+            public String[] getValueNames() {
+                return new String[0];
+            }
+
+            @Override
+            public void setAttribute(String name, Object value) {
+
+            }
+
+            @Override
+            public void putValue(String name, Object value) {
+
+            }
+
+            @Override
+            public void removeAttribute(String name) {
+
+            }
+
+            @Override
+            public void removeValue(String name) {
+
+            }
+
+            @Override
+            public void invalidate() {
+
+            }
+
+            @Override
+            public boolean isNew() {
+                return false;
+            }
+        }, 2);
     }
 
     @PreDestroy
@@ -75,6 +162,11 @@ public class SherpaController {
 //        }
         return new ResponseEntity<Object>(pTourRepo.findAll(), HttpStatus.OK);
     }
+    /*send as path variable the id of the location to get the categories associated with that loc*/
+    @RequestMapping(path = "/location/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getCats(@PathVariable("id") int id) {
+        return new ResponseEntity<Object>(locRepo.findOne(id), HttpStatus.OK);
+    }
 
     //invalidates the session for the tour in progress, i.e. cancel/end
     @RequestMapping(path = "/tour/{id}", method = RequestMethod.DELETE)
@@ -87,11 +179,11 @@ public class SherpaController {
     @RequestMapping(path = "/tour/{id}", method = RequestMethod.POST)
     public ResponseEntity<Object> joinTour(HttpSession session, @PathVariable("id") int id) {
         PermTour permTour = pTourRepo.findOne(id);
-        List<Location> locs = pTourLocRepo.findAllByPermTour(permTour);
+        List<PermTourLocationJoin> locs = pTourLocRepo.findAllByPermTour(permTour);
         Tour tour = new Tour();
         tour = tourRepo.save(tour);
-        for (Location loc : locs) {
-            tourLocRepo.save(new TourLocationJoin(loc, tour));
+        for (PermTourLocationJoin loc : locs) {
+            tourLocRepo.save(new TourLocationJoin(loc.getLocation(), tour));
         }
         session.setAttribute("tourId", tour.getId());
         return new ResponseEntity<Object>(tour.getId(), HttpStatus.OK);
@@ -133,7 +225,11 @@ public class SherpaController {
     * all the locations associated with that category*/
     @RequestMapping(path = "/category/{id}", method = RequestMethod.GET)
     public ResponseEntity<Object> getToursByCat(HttpSession session, @PathVariable("id") int id) {
-        return new ResponseEntity<Object>(locCatRepo.findAllByCategory(catRepo.findOne(1)), HttpStatus.OK);
+        List<Location> list =
+                locCatRepo.findAllByCategory(catRepo.findOne(id)).parallelStream()
+                .map(LocationCategoryJoin::getLocation)
+                .collect(Collectors.toCollection(ArrayList<Location>::new));
+        return new ResponseEntity<Object>(list, HttpStatus.OK);
     }
 
     public void populateCategoriesTable(String fileName) throws FileNotFoundException {
@@ -189,7 +285,9 @@ public class SherpaController {
             String[] columns = fileScanner.nextLine().split("\\t");
             PermTourLocationJoin tlj = new PermTourLocationJoin(locRepo.findOne(Integer.valueOf(columns[1])), pTourRepo.findOne(Integer.valueOf(columns[0])));
             pTourLocRepo.save(tlj);
-
         }
+    }
+    public void populateTourTable(HttpSession session, int id) {
+        joinTour(session, id);
     }
 }
