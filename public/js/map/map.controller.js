@@ -121,8 +121,7 @@ categoryStr: "parks"
         vm.map = new GMaps({
           div: '#main-map',
           lat: location.coords.latitude,
-          lng: location.coords.longitude,
-          zoom: 18
+          lng: location.coords.longitude
         });
         //Initialize User marker
         vm.user = vm.map.addMarker({
@@ -178,12 +177,18 @@ categoryStr: "parks"
             }
           });
         });
+        vm.map.fitZoom();
+        console.log(vm.map.zoom);
         vm.updateUserMarker = function(position){
           vm.user.setMap(null);
           vm.user = vm.map.addMarker({
             lat: position.coords.latitude,
             lng: position.coords.longitude,
-            icon: '../../images/sherpaPin.png'
+            icon: '../../images/sherpaPin.png',
+            click: function(){
+              vm.map.panTo({lat: vm.user.position.lat(), lng: vm.user.position.lng()});
+              vm.map.setZoom(18);
+            }
           });
           checkFences();
         }
@@ -206,7 +211,6 @@ categoryStr: "parks"
               MapService.updateLocation(id);
               var modal = '#' + id;
               $(modal).modal('show');
-              console.log(marker);
               marker.infoWindow.setContent(
                 '<div class="info-window">'
                               + '<h2>'

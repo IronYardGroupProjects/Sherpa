@@ -52,7 +52,7 @@ angular
               if(result.rating) {
                 return result.rating;
               } else {
-                return "";
+                return "No Rating";
               }
             })()
             vm.infowindow.setContent(
