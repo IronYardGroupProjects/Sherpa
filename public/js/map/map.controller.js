@@ -1,5 +1,7 @@
 var angular = require('angular');
 require('../gmaps.min.js');
+var $ = jQuery = require('jquery');
+var bootstrap = require('bootstrap');
 
 angular
   .module('map')
@@ -7,7 +9,7 @@ angular
     var vm = this;
     vm.tour = [
 {
-id: 4,
+id: 1,
 isVisited: false,
 location: {
 id: 3,
@@ -20,14 +22,14 @@ latitude: 32.790962,
 longitude: -79.925485,
 geoFence: {
 id: 3,
-point1Lat: -79.926256,
-point1Long: 32.791044,
-point2Lat: -79.925937,
-point2Long: 32.790519,
-point3Lat: -79.925376,
-point3Long: 32.790652,
-point4Lat: -79.925752,
-point4Long: 32.791276
+point1Lat: 32.780017,
+point1Long: -79.934372,
+point2Lat: 32.780040,
+point2Long: -79.934177,
+point3Lat: 32.779919,
+point3Long: -79.934154,
+point4Lat: 32.779876,
+point4Long: -79.934596
 },
 categories: [
 {
@@ -41,7 +43,7 @@ categoryStr: "entertainment"
 }
 },
 {
-id: 5,
+id: 2,
 isVisited: false,
 location: {
 id: 5,
@@ -54,14 +56,14 @@ latitude: 32.778061,
 longitude: -79.925759,
 geoFence: {
 id: 5,
-point1Lat: -79.926115,
-point1Long: 32.778138,
-point2Lat: -79.926095,
-point2Long: 32.777923,
-point3Lat: -79.925529,
-point3Long: 32.77795,
-point4Lat: -79.925557,
-point4Long: 32.778181
+point1Lat: 32.778138,
+point1Long: -79.926115,
+point2Lat: 32.777923,
+point2Long: -79.926095,
+point3Lat: 32.77795,
+point3Long: -79.925529,
+point4Lat: 32.778181,
+point4Long: -79.925557
 },
 categories: [
 {
@@ -75,7 +77,7 @@ categoryStr: "parks"
 }
 },
 {
-id: 6,
+id: 3,
 isVisited: false,
 location: {
 id: 6,
@@ -88,14 +90,14 @@ latitude: 32.800613,
 longitude: -79.953754,
 geoFence: {
 id: 6,
-point1Lat: -79.957917,
-point1Long: 32.797208,
-point2Lat: -79.953539,
-point2Long: 32.799553,
-point3Lat: -79.954505,
-point3Long: 32.801718,
-point4Lat: -79.959247,
-point4Long: 32.79977
+point1Lat: 32.797208,
+point1Long: -79.957917,
+point2Lat: 32.799553,
+point2Long: -79.953539,
+point3Lat: 32.801718,
+point3Long: -79.954505,
+point4Lat: 32.79977,
+point4Long: -79.959247
 },
 categories: [
 {
@@ -109,11 +111,12 @@ categoryStr: "parks"
 }
 }
 ];
+    vm.fences = [];
     google.maps.event.addDomListener(window, 'load',
       MapService.getLocation().then(function(location){
         vm.watchID;
         vm.options = {timeout: 1000, enableHighAccuracy: true};
-        vm.infowindow = new google.maps.InfoWindow();
+        vm.directionsService = new google.maps.DirectionsService();
         //Initialize Map
         vm.map = new GMaps({
           div: '#main-map',
@@ -125,64 +128,106 @@ categoryStr: "parks"
         vm.user = vm.map.addMarker({
           lat: location.coords.latitude,
           lng: location.coords.longitude,
+          icon: '../../images/sherpaPin.png'
         });
         //Initialize Tour
         vm.tour.forEach(function(el){
-          var fence = [
-            el.location.geoFence.point1Lat,
-            el.location.geoFence.point1Long,
-            el.location.geoFence.point2Lat,
-            el.location.geoFence.point2Long,
-            el.location.geoFence.point3Lat,
-            el.location.geoFence.point3Long,
-            el.location.geoFence.point4Lat,
-            el.location.geoFence.point4Long
-          ];
+          var fence = vm.map.drawPolygon({
+            paths: [
+              [
+                el.location.geoFence.point1Lat,
+                el.location.geoFence.point1Long
+              ],
+              [
+                el.location.geoFence.point2Lat,
+                el.location.geoFence.point2Long
+              ],
+              [
+                el.location.geoFence.point3Lat,
+                el.location.geoFence.point3Long
+              ],
+              [
+                el.location.geoFence.point4Lat,
+                el.location.geoFence.point4Long
+              ]
+            ],
+            strokeColor: '#FF0000',
+            strokeOpacity: 1,
+            strokeWeight: 1,
+            fillColor: '#FF0000',
+            fillOpacity: 0,
+          })
+          vm.fences.push({fence: fence, id: el.id});
           var marker = vm.map.addMarker({
             lat: el.location.latitude,
             lng: el.location.longitude,
-            fences: [fence],
-            location: el.location,
-          })
-          google.maps.event.addListener(marker, 'click', vm.showInfo)
-        })
-        //Show information for each point.
-        vm.showInfo = function(){
-          var _this = this;
-          vm.infowindow.setContent({
-            '<div class="infowindow">' +
-              '<h2>' +
-              _this.location.name +
-              '</h2>' +
-              '<p>' +
-              _this.location.streetAddress + 
-              '</p>' +
-            '</div>'
-          })
-        }
-        //Update User Marker Function
+            location: el,
+            fence: fence,
+            click: function(){
+              vm.map.panTo({lat: el.location.latitude, lng: el.location.longitude});
+            },
+            infoWindow: {
+              content: '<div class="info-window">'
+                            + '<h2>'
+                            + el.location.name
+                            + '</h2>'
+                            + '<p>'
+                            + el.location.streetAddress
+                            + '</p>'
+                          +'</div>'
+            }
+          });
+        });
         vm.updateUserMarker = function(position){
           vm.user.setMap(null);
           vm.user = vm.map.addMarker({
             lat: position.coords.latitude,
             lng: position.coords.longitude,
+            icon: '../../images/sherpaPin.png'
           });
-          if(vm.map.checkGeofence(position.coords.latitude, position.coords.longitude, vm.rect)){
-            console.log("geofence!");
-            alert("This worked!");
-          }
+          checkFences();
         }
         function errHandler(error){
-          console.log(err.code);
+          console.log(error.code);
         }
-        function checkFence(lat, lng, fence, visited){
-          if(vm.map.checkGeofence(lat, lng, fence) && !visited) {
-
-          }
+        function checkFences(){
+          vm.fences.forEach(function(el){
+            var id = el.id;
+            var location = vm.tour.filter(function(el){
+              return el.id === id;
+            });
+            if(!location[0].isVisited && vm.map.checkGeofence(vm.user.position.lat(), vm.user.position.lng(), el.fence)) {
+              alert("Geofence works!")
+              var marker = vm.map.markers.filter(function(el){
+                return el.hasOwnProperty('location');
+              }).filter(function(el){
+                return el.location.id === id;
+              })[0]
+              console.log(marker);
+              marker.location.isVisited = true;
+              MapService.updateLocation(id);
+              var modal = '#' + id;
+              $(modal).modal('show');
+              console.log(marker);
+              marker.infoWindow.setContent(
+                '<div class="info-window">'
+                              + '<h2>'
+                              + marker.location.location.name
+                              + '</h2>'
+                              + '<p>'
+                              + marker.location.location.streetAddress
+                              + '</p>'
+                              + '<button data-toggle="modal" data-target="'
+                              + modal
+                              + '">Details</button>'
+                            +'</div>'
+              )
+            } else {
+              console.log("no fence");
+            }
+          })
         }
         vm.watchID = navigator.geolocation.watchPosition(vm.updateUserMarker, errHandler, vm.options);
-
-
       })
     )
   });

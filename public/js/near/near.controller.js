@@ -11,6 +11,11 @@ angular
           center: {lat: location.coords.latitude, lng: location.coords.longitude},
           zoom: 18
         });
+        vm.user = new google.maps.Marker({
+          map: vm.map,
+          position: {lat: location.coords.latitude, lng: location.coords.longitude},
+          icon: '../../images/sherpaPin.png'
+        });
         vm.request = {
           location: {lat: location.coords.latitude, lng: location.coords.longitude},
           radius: '500',
@@ -34,7 +39,6 @@ angular
         vm.showInfo = function(){
           var _this = this;
           vm.service.getDetails({placeId: this.placeId}, function(result, status){
-            console.log(result);
             var open = (function(){
               if(result.opening_hours && result.opening_hours.open_now){
                   return '<span class="status open"> Open Now</span>';
