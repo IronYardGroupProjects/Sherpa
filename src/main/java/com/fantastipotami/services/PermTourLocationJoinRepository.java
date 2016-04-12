@@ -12,5 +12,5 @@ import java.util.List;
  * Created by alexanderhughes on 4/6/16.
  */
 public interface PermTourLocationJoinRepository extends CrudRepository<PermTourLocationJoin, Integer> {
-    List<Location> findAllByPermTour(PermTour permTour);
+    List<PermTourLocationJoin> findAllByPermTour(PermTour permTour);
 }
