@@ -1,0 +1,21 @@
+
+// Sherpa Curated Experience
+//
+// All style specific to Curated Experience should go here. Any global style should be placed in core.scss
+//
+//
+.curExp-card-wrap{
+  padding:10px;
+}
+.curExp-card{
+  border:none;
+  background: yellow;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 2% 0;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  transition:.2s all;
+  &:hover{
+    background:orange;
+  }
+}

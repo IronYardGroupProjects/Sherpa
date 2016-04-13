@@ -2,11 +2,18 @@ angular
   .module('choiceView')
   .controller('choiceViewController', function($rootScope, $scope, choiceViewService){
       var vm = this;
+
+      // getting all of the tour categories from the data to allow the user to build custom tour
       choiceViewService.getTourCategories()
         .then(function(data){
-          window.glob1 = data
           vm.categories = data.data;
-          console.log(vm.categories);
       })
+
+      // getting the values from the check boxes
+      checkedCategories = function(checkedBox){
+        console.log("choiceview controller checked", checkedBox)
+        choiceViewService.checkedCategories(checkedBox)
+        vm.checkedBox = {};
+      }
     }
 )
