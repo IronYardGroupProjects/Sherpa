@@ -7,22 +7,24 @@
 }
 .selection-wrap {
   text-align: center;
+  margin:0;
+  padding:0;
   }
 h1{
   font-weight: 800;
   letter-spacing: 4px;
-  font-size: 7em;
+  font-size: 7rem;
 }
 h3{
   font-weight: 800;
   letter-spacing: 4px;
-  font-size: 5em;
+  font-size: 5rem;
 }
 .logo-container {
   height:100vh;
   // background-image:url('../../images/charlestonHero.jpg');
-  background:#00EE6F;
-  h2{
+  background:$c-green;
+  h1{
   color:#fff;
   text-align:right;
   }
@@ -31,23 +33,28 @@ h3{
   height:100vh;
   padding: 0 5%;
   h3{
-    color:#9DA3B3;
+    color:$c-gray;
+    margin-top: 8%;
   }
 }
-button {
+.options button {
   width: 100%;
+  height:100vh;
+  margin:0;
   padding: 5%;
   border: none;
   font-size:1.5em;
-  color:#102665;
-  background: #00EE6F;
+  color:$c-blue;
+  background: $c-green;
   transition:.2s all;
-  border: 3px solid #102665;
+  border: 3px solid $c-blue;
   &:hover {
-    background: #00EE6F;
+    background: $c-blue;
+    color:#fff;
   }
 }
 hr{
-  border: 3px solid #00EE6F;
+  border: 3px solid $c-green;
   width: 35%;
+  margin-bottom:7%;
 }
