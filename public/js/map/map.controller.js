@@ -7,6 +7,8 @@ angular
   .module('map')
   .controller('MapController', function($scope, $state, MapService){
     var vm = this;
+    vm.colors = ['#00EE6F','#102665','#E27820','#00A94F', '#1749D6', '#FFB358','#9DA3B3'];
+    vm.routes = [];
     vm.tour = [
 {
 id: 1,
@@ -139,16 +141,10 @@ categoryStr: "parks"
           events: {
             click: function(){
               vm.map.fitZoom();
+              vm.map.hideInfoWindows();
             }
           }
         });
-        vm.directionsObj = {
-          origin: {lat:vm.user.position.lat(), lng: vm.user.position.lng()},
-          desination: {},
-          waypoints:[],
-          travelMode: google.maps.TravelMode.WALKING,
-          optimizeWaypoints: true
-        }
         //Initialize Tour
         vm.tour.forEach(function(el, idx, arr){
           var fence = vm.map.drawPolygon({
@@ -171,11 +167,11 @@ categoryStr: "parks"
               ]
             ],
             strokeColor: '#FF0000',
-            strokeOpacity: 1,
+            strokeOpacity: 0,
             strokeWeight: 1,
             fillColor: '#FF0000',
             fillOpacity: 0,
-          })
+          });
           vm.fences.push({fence: fence, id: el.id});
           var marker = vm.map.addMarker({
             lat: el.location.latitude,
@@ -188,24 +184,32 @@ categoryStr: "parks"
             },
             infoWindow: {
               content: '<div class="info-window">'
-                            + '<h2>'
-                            + el.location.name
-                            + '</h2>'
-                            + '<p>'
-                            + el.location.streetAddress
-                            + '</p>'
-                          +'</div>'
+                          + '<h2>'
+                          + el.location.name
+                          + '</h2>'
+                          + '<p>'
+                          + el.location.streetAddress
+                          + '</p>'
+                        +'</div>'
             }
           });
             vm.map.drawRoute({
               origin: [vm.user.position.lat(), vm.user.position.lng()],
               destination: [el.location.latitude, el.location.longitude],
               travelMode: 'walking',
-              strokeColor: '#131540',
+              strokeColor: vm.colors[idx],
               strokeOpacity: 0.6,
               strokeWeight: 6
             });
-        });
+            vm.routes.push({
+                origin: [vm.user.position.lat(), vm.user.position.lng()],
+                destination: [el.location.latitude, el.location.longitude],
+                travelMode: 'walking',
+                strokeColor: vm.colors[idx],
+                strokeOpacity: 0.6,
+                strokeWeight: 6
+            });
+          });
         vm.map.fitZoom();
         vm.updateUserMarker = function(position){
           vm.user.setMap(null);
@@ -218,39 +222,50 @@ categoryStr: "parks"
               vm.map.setZoom(18);
             }
           });
+          // updateRoutes();
           checkFences();
         }
         function errHandler(error){
           console.log(error.code);
         }
+        function updateRoutes(){
+          vm.map.cleanRoute();
+          var locations = vm.map.markers.filter(function(el){
+            return el.hasOwnProperty('location') && !el.location.isVisited;
+          }).forEach(function(el){
+            vm.map.drawRoute({
+
+            });
+          });
+
+        }
+
         function checkFences(){
           vm.fences.forEach(function(el){
             var id = el.id;
-            var location = vm.tour.filter(function(el){
-              return el.id === id;
+            var location = vm.map.markers.filter(function(el){
+              return el.hasOwnProperty('location');
+            }).filter(function(el){
+              return el.location.id === id;
             });
-            if(!location[0].isVisited && vm.map.checkGeofence(vm.user.position.lat(), vm.user.position.lng(), el.fence)) {
-              var marker = vm.map.markers.filter(function(el){
-                return el.hasOwnProperty('location');
-              }).filter(function(el){
-                return el.location.id === id;
-              })[0];
+            if(!location[0].location.isVisited && vm.map.checkGeofence(vm.user.position.lat(), vm.user.position.lng(), el.fence)) {
+              var marker = location[0];
               marker.location.isVisited = true;
               MapService.updateLocation(id);
               var modal = '#' + id;
               $(modal).modal('show');
               marker.infoWindow.setContent(
                 '<div class="info-window">'
-                              + '<h2>'
-                              + marker.location.location.name
-                              + '</h2>'
-                              + '<p>'
-                              + marker.location.location.streetAddress
-                              + '</p>'
-                              + '<button data-toggle="modal" data-target="'
-                              + modal
-                              + '">Details</button>'
-                            +'</div>'
+                + '<h2>'
+                + marker.location.location.name
+                + '</h2>'
+                + '<p>'
+                + marker.location.location.streetAddress
+                + '</p>'
+                + '<button data-toggle="modal" data-target="'
+                + modal
+                + '">Details</button>'
+                +'</div>'
               )
             } else {
               console.log("no fence");
