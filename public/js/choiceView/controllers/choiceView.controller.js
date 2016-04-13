@@ -10,10 +10,9 @@ angular
       })
 
       // getting the values from the check boxes
-      checkedCategories = function(checkedBox){
+      choiceViewService.chosenCategories = function(){
         console.log("choiceview controller checked", checkedBox)
-        choiceViewService.checkedCategories(checkedBox)
-        vm.checkedBox = {};
+        vm.categoryChoices = [];
       }
     }
 )

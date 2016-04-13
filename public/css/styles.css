@@ -1,6 +1,12 @@
-.checkbox-choice-wrap input[type="checkbox"] {
-  margin-right: 10px; }
-  .checkbox-choice-wrap input[type="checkbox"]:hover {
+.choice-button-wrap button {
+  border: none;
+  margin: 2% 0;
+  padding: 10%;
+  font-size: 18px;
+  background: #102665;
+  color: white;
+  transition: .2s all; }
+  .choice-button-wrap button:hover {
     background: #00EE6F; }
 
 .curExp-card-wrap {
