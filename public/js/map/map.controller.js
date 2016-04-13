@@ -173,11 +173,19 @@ categoryStr: "parks"
             fillOpacity: 0,
           });
           vm.fences.push({fence: fence, id: el.id});
+          var path = {
+                        destination: [el.location.latitude, el.location.longitude],
+                        travelMode: 'walking',
+                        strokeColor: vm.colors[idx],
+                        strokeOpacity: 0.6,
+                        strokeWeight: 6
+                      }
           var marker = vm.map.addMarker({
             lat: el.location.latitude,
             lng: el.location.longitude,
             location: el,
             fence: fence,
+            path: path,
             click: function(){
               vm.map.panTo({lat: el.location.latitude, lng: el.location.longitude});
               vm.map.setZoom(18);
@@ -193,21 +201,13 @@ categoryStr: "parks"
                         +'</div>'
             }
           });
-            vm.map.drawRoute({
+          vm.map.drawRoute({
               origin: [vm.user.position.lat(), vm.user.position.lng()],
               destination: [el.location.latitude, el.location.longitude],
               travelMode: 'walking',
               strokeColor: vm.colors[idx],
               strokeOpacity: 0.6,
               strokeWeight: 6
-            });
-            vm.routes.push({
-                origin: [vm.user.position.lat(), vm.user.position.lng()],
-                destination: [el.location.latitude, el.location.longitude],
-                travelMode: 'walking',
-                strokeColor: vm.colors[idx],
-                strokeOpacity: 0.6,
-                strokeWeight: 6
             });
           });
         vm.map.fitZoom();
@@ -222,7 +222,7 @@ categoryStr: "parks"
               vm.map.setZoom(18);
             }
           });
-          // updateRoutes();
+          updateRoutes();
           checkFences();
         }
         function errHandler(error){
@@ -233,9 +233,9 @@ categoryStr: "parks"
           var locations = vm.map.markers.filter(function(el){
             return el.hasOwnProperty('location') && !el.location.isVisited;
           }).forEach(function(el){
-            vm.map.drawRoute({
-
-            });
+            console.log(el);
+            el.path.origin = [vm.user.position.lat(), vm.user.position.lng()];
+            vm.map.drawRoute(el.path);
           });
 
         }
