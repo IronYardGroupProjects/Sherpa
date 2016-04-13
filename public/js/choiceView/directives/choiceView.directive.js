@@ -6,7 +6,7 @@ angular
       restrict:'EA',
       scope:{
         cat: '=',
-        thing: "&"
+        addToPage: "&",
       }
     }
   })

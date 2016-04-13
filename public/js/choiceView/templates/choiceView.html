@@ -6,14 +6,15 @@
     <hr>
     <p>pick three categories to start creating your own tour.</p>
   </div>
-  <div ng-model="choiceViewCtrl.categoryChoices">
+  <div ng-model="choiceViewCtrl.categoryChoice">
     <ol >
-      <li ng-repeat="choice in choiceViewCtrl.categoryChoices">{{choice}}</li>
+      <!-- using track by to allow duplicates from an ng-repeat https://docs.angularjs.org/api/ng/directive/ngRepeat -->
+      <li ng-repeat="choice in choiceViewCtrl.categoryChoice track by $index">{{choice.categoryStr}} <button ng-click="choiceViewCtrl.deleteChoice(choice)">x</button></li>
     </ol>
   </div>
   <form action="">
   <div ng-repeat="category in choiceViewCtrl.categories">
-    <choice-view-directive thing="choiceViewCtrl.addToChoices(category.categoryStr)" cat='category'></choice-view-directive>
+    <choice-view-directive add-to-page="choiceViewCtrl.addChoice(category)" cat='category'></choice-view-directive>
   </div>
   <button class="submit">submit</button></form>
 </div>

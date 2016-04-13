@@ -11,13 +11,7 @@ angular
         })
         return defer.promise;
     }
-
-    // getting the values from the checkbox and posting to build custom tour
-    function chosenCategories(){
-      console.log("category choices", categoryChoices)
-    }
     return{
-      getTourCategories:getTourCategories,
-      chosenCategories:chosenCategories
+      getTourCategories:getTourCategories
     }
   })
