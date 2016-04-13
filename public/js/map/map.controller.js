@@ -7,6 +7,8 @@ angular
   .module('map')
   .controller('MapController', function($scope, $state, MapService){
     var vm = this;
+    vm.colors = ['#00EE6F','#102665','#E27820','#00A94F', '#1749D6', '#FFB358','#9DA3B3'];
+    vm.routes = [];
     vm.tour = [
 {
 id: 1,
@@ -116,13 +118,11 @@ categoryStr: "parks"
       MapService.getLocation().then(function(location){
         vm.watchID;
         vm.options = {timeout: 1000, enableHighAccuracy: true};
-        vm.directionsService = new google.maps.DirectionsService();
         //Initialize Map
         vm.map = new GMaps({
           div: '#main-map',
           lat: location.coords.latitude,
-          lng: location.coords.longitude,
-          zoom: 18
+          lng: location.coords.longitude
         });
         //Initialize User marker
         vm.user = vm.map.addMarker({
@@ -130,8 +130,23 @@ categoryStr: "parks"
           lng: location.coords.longitude,
           icon: '../../images/sherpaPin.png'
         });
+        vm.map.addControl({
+          position: 'top_right',
+          content: '<i class="fa fa-2x fa-crosshairs"></i>',
+          style: {
+            margin: '5px',
+            padding: '1px 6px',
+            color: 'black'
+          },
+          events: {
+            click: function(){
+              vm.map.fitZoom();
+              vm.map.hideInfoWindows();
+            }
+          }
+        });
         //Initialize Tour
-        vm.tour.forEach(function(el){
+        vm.tour.forEach(function(el, idx, arr){
           var fence = vm.map.drawPolygon({
             paths: [
               [
@@ -152,11 +167,11 @@ categoryStr: "parks"
               ]
             ],
             strokeColor: '#FF0000',
-            strokeOpacity: 1,
+            strokeOpacity: 0,
             strokeWeight: 1,
             fillColor: '#FF0000',
             fillOpacity: 0,
-          })
+          });
           vm.fences.push({fence: fence, id: el.id});
           var marker = vm.map.addMarker({
             lat: el.location.latitude,
@@ -165,60 +180,92 @@ categoryStr: "parks"
             fence: fence,
             click: function(){
               vm.map.panTo({lat: el.location.latitude, lng: el.location.longitude});
+              vm.map.setZoom(18);
             },
             infoWindow: {
               content: '<div class="info-window">'
-                            + '<h2>'
-                            + el.location.name
-                            + '</h2>'
-                            + '<p>'
-                            + el.location.streetAddress
-                            + '</p>'
-                          +'</div>'
+                          + '<h2>'
+                          + el.location.name
+                          + '</h2>'
+                          + '<p>'
+                          + el.location.streetAddress
+                          + '</p>'
+                        +'</div>'
             }
           });
-        });
+            vm.map.drawRoute({
+              origin: [vm.user.position.lat(), vm.user.position.lng()],
+              destination: [el.location.latitude, el.location.longitude],
+              travelMode: 'walking',
+              strokeColor: vm.colors[idx],
+              strokeOpacity: 0.6,
+              strokeWeight: 6
+            });
+            vm.routes.push({
+                origin: [vm.user.position.lat(), vm.user.position.lng()],
+                destination: [el.location.latitude, el.location.longitude],
+                travelMode: 'walking',
+                strokeColor: vm.colors[idx],
+                strokeOpacity: 0.6,
+                strokeWeight: 6
+            });
+          });
+        vm.map.fitZoom();
         vm.updateUserMarker = function(position){
           vm.user.setMap(null);
           vm.user = vm.map.addMarker({
             lat: position.coords.latitude,
             lng: position.coords.longitude,
-            icon: '../../images/sherpaPin.png'
+            icon: '../../images/sherpaPin.png',
+            click: function(){
+              vm.map.panTo({lat: vm.user.position.lat(), lng: vm.user.position.lng()});
+              vm.map.setZoom(18);
+            }
           });
+          // updateRoutes();
           checkFences();
         }
         function errHandler(error){
           console.log(error.code);
         }
+        function updateRoutes(){
+          vm.map.cleanRoute();
+          var locations = vm.map.markers.filter(function(el){
+            return el.hasOwnProperty('location') && !el.location.isVisited;
+          }).forEach(function(el){
+            vm.map.drawRoute({
+
+            });
+          });
+
+        }
+
         function checkFences(){
           vm.fences.forEach(function(el){
             var id = el.id;
-            var location = vm.tour.filter(function(el){
-              return el.id === id;
+            var location = vm.map.markers.filter(function(el){
+              return el.hasOwnProperty('location');
+            }).filter(function(el){
+              return el.location.id === id;
             });
-            if(!location[0].isVisited && vm.map.checkGeofence(vm.user.position.lat(), vm.user.position.lng(), el.fence)) {
-              var marker = vm.map.markers.filter(function(el){
-                return el.hasOwnProperty('location');
-              }).filter(function(el){
-                return el.location.id === id;
-              })[0];
+            if(!location[0].location.isVisited && vm.map.checkGeofence(vm.user.position.lat(), vm.user.position.lng(), el.fence)) {
+              var marker = location[0];
               marker.location.isVisited = true;
               MapService.updateLocation(id);
               var modal = '#' + id;
               $(modal).modal('show');
-              console.log(marker);
               marker.infoWindow.setContent(
                 '<div class="info-window">'
-                              + '<h2>'
-                              + marker.location.location.name
-                              + '</h2>'
-                              + '<p>'
-                              + marker.location.location.streetAddress
-                              + '</p>'
-                              + '<button data-toggle="modal" data-target="'
-                              + modal
-                              + '">Details</button>'
-                            +'</div>'
+                + '<h2>'
+                + marker.location.location.name
+                + '</h2>'
+                + '<p>'
+                + marker.location.location.streetAddress
+                + '</p>'
+                + '<button data-toggle="modal" data-target="'
+                + modal
+                + '">Details</button>'
+                +'</div>'
               )
             } else {
               console.log("no fence");

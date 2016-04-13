@@ -9,7 +9,7 @@ angular
       MapService.getLocation().then(function(location){
         vm.map = new google.maps.Map(document.getElementById('near-map'), {
           center: {lat: location.coords.latitude, lng: location.coords.longitude},
-          zoom: 18
+          zoom: 17
         });
         vm.user = new google.maps.Marker({
           map: vm.map,
@@ -50,7 +50,7 @@ angular
               })()
             var rating = (function(){
               if(result.rating) {
-                return result.rating;
+                return ' Rating: ' + result.rating + '/5';
               } else {
                 return "";
               }
@@ -63,9 +63,9 @@ angular
                 + '</h3>'
                 + '<div class="special-info">'
                 + open
-                + '<span class="rating"> Rating '
+                + '<span class="rating">'
                 + rating
-                + '/5</span>'
+                + '</span>'
                 + '</div>'
                 + '<p>'
                 + result.formatted_address
