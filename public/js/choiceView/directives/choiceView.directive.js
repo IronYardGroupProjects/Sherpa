@@ -5,7 +5,8 @@ angular
       templateUrl:'/js/choiceView/templates/choiceViewDir.html',
       restrict:'EA',
       scope:{
-        cat: '='
-      },
+        cat: '=',
+        thing: "&"
+      }
     }
   })

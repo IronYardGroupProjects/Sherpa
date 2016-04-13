@@ -14,9 +14,10 @@ angular
 
     // getting the values from the checkbox and posting to build custom tour
     function chosenCategories(){
-      console.log("choiceview checked", checkedBox)
+      console.log("category choices", categoryChoices)
     }
     return{
-      getTourCategories:getTourCategories
+      getTourCategories:getTourCategories,
+      chosenCategories:chosenCategories
     }
   })

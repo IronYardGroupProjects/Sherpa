@@ -6,9 +6,14 @@
     <hr>
     <p>pick three categories to start creating your own tour.</p>
   </div>
+  <div ng-model="choiceViewCtrl.categoryChoices">
+    <ol >
+      <li ng-repeat="choice in choiceViewCtrl.categoryChoices">{{choice}}</li>
+    </ol>
+  </div>
   <form action="">
   <div ng-repeat="category in choiceViewCtrl.categories">
-    <choice-view-directive cat='category'></choice-view-directive>
+    <choice-view-directive thing="choiceViewCtrl.addToChoices(category.categoryStr)" cat='category'></choice-view-directive>
   </div>
   <button class="submit">submit</button></form>
 </div>
