@@ -10,13 +10,12 @@ body{
 }
 .choice-card{
   border:none;
-  background: yellow;
-  color: rgba(0, 0, 0, 0.5);
+  background: $c-blue;
+  color: #fff;
   padding: 5% 0;
   font-size: 1.5em;
-  text-transform: uppercase;
   transition:.2s all;
   &:hover{
-    background:orange;
+    background:$c-green;
   }
 }

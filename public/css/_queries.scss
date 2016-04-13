@@ -1,11 +1,24 @@
 // small
 @media screen and (max-width: 40em) {
+  //splash view
   .logo-container {
+    height:35vh;
+    h1{
+      text-align:left;
+    }
+  }
+  //options
+  .options button{
     height:35vh;
   }
 } //@media small end
 
 // medium
-@media only screen and (min-width: 40.063em) {
-
+@media only screen and (max-width:47.875em) {
+  .logo-container {
+    height:50vh;
+    h1{
+      text-align:left;
+    }
+  }
 }//@media medium end
