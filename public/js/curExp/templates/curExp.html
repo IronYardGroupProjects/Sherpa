@@ -4,7 +4,8 @@
 <!-- <div class="curExp-container col-md-12"> -->
 
 <div ng-repeat="tour in ExpCtrl.tours" >
-  <experience-directive exp-tour="tour"></experience-directive>
+  <experience-directive submit = "ExpCtrl.sendTour(tour.id)" exp-tour="tour"></experience-directive>
+
 </div>
 <!-- </div> -->
 
