@@ -1,25 +1,7 @@
-body {
-  background-color: blue; }
-
-.choice-container {
-  background: rgba(0, 0, 0, 0.1);
-  padding: 10px; }
-
-.choice-card-wrap {
-  padding: 10px; }
-
-.choice-card {
-  border: none;
-  background: #102665;
-  color: #fff;
-  padding: 5% 0;
-  font-size: 1.5em;
-  transition: .2s all; }
-  .choice-card:hover {
+.checkbox-choice-wrap input[type="checkbox"] {
+  margin-right: 10px; }
+  .checkbox-choice-wrap input[type="checkbox"]:hover {
     background: #00EE6F; }
-
-body {
-  background-color: blue; }
 
 .curExp-card-wrap {
   padding: 10px; }
@@ -103,7 +85,7 @@ h3 {
 
 .options button {
   width: 100%;
-  height: 100vh;
+  height: 75vh;
   margin: 0;
   padding: 5%;
   border: none;

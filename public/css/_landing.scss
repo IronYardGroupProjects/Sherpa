@@ -1,3 +1,9 @@
+// Sherpa Landing
+//
+// Style for the landing page. Any global style should be placed in core.scss
+//
+//
+
 .landing-wrap {
   text-align: center;
   // background-image:url('../../images/charlestonHero.jpg');
@@ -39,7 +45,7 @@ h3{
 }
 .options button {
   width: 100%;
-  height:100vh;
+  height:75vh;
   margin:0;
   padding: 5%;
   border: none;
