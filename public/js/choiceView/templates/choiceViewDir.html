@@ -1,5 +1,4 @@
-<div class="choice-card-wrap col-xs-12 col-sm-6 col-md-4">
-  <a href="#"><button class="choice-card col-xs-12">
-    {{cat.categoryStr}}
-  </button></a>
+<!-- This template is each returned element from the 'choiceView.html' ng-repeat. It populates the page with checkboxes that allow the user to build their own tour. -->
+<div class="checkbox-choice-wrap col-xs-12 col-sm-6 col-md-4">
+  <label><input type="checkbox" name="{{cat.id}}" ng.model="checkedBox.{{cat.id}}" ng.value="{{cat.categoryStr}}" />{{cat.categoryStr}}</label>
 </div>
