@@ -1,13 +1,17 @@
-<div class="nav col-xs-12">
+<!-- <div class="nav col-xs-12">
   <h2>Choice View</h2>
   <a ui-sref="landing">Home</a>
   <a ui-sref="home.map">Map</a>
   <a ui-sref="home.choiceView">Choice View</a>
   <a ui-sref="home.curExp">Curated Experience</a>
   <a ui-sref="home.near">Near Me</a>
-</div>
-
-<div class="choice-container col-xs-12">
+</div> -->
+<div class="container">
+  <h1>sherpa</h1>
+  <div class="breadcrumb">
+    <a ui-sref="landing">home</a>
+    <hr>
+  </div>
   <div ng-repeat="category in choiceViewCtrl.categories">
     <choice-view-directive cat='category'></choice-view-directive>
   </div>
