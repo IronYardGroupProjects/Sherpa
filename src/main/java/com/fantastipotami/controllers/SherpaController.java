@@ -44,7 +44,11 @@ public class SherpaController {
 
     Server dbui = null;
 
-    //will read csv files that store our prebuilt tour data
+    /**
+     * reads csv files that store our prebuilt tour data
+     * @throws SQLException
+     * @throws FileNotFoundException
+     */
     @PostConstruct
     public void init() throws SQLException, FileNotFoundException {
         dbui = Server.createWebServer().start();
@@ -53,12 +57,21 @@ public class SherpaController {
         populatePermToursTable("permTours.tsv");
     }
 
+    /**
+     * destroys database gui server
+     */
     @PreDestroy
     public void destroy() {
         dbui.stop();
     }
     /*a pseudo login, the tourId from local storage is passed to
     * recreate the session if needed*/
+    /**
+     * Re-join a tour that is in progress
+     * @param session the session of the client hitting this route
+     * @param id in client local storage passed as a path variable
+     * @return locations of tour in progress
+     */
     @RequestMapping(path = "/re-join/{id}", method = RequestMethod.POST)
     public ResponseEntity<Object> getTourLocs(HttpSession session, @PathVariable("id") int id) {
         session.setAttribute("tourId", id);
@@ -76,7 +89,12 @@ public class SherpaController {
 //        }
         return new ResponseEntity<Object>(pTourRepo.findAll(), HttpStatus.OK);
     }
-    /*send as path variable the id of the location to get the categories associated with that loc*/
+
+    /**
+     * for a location id returns that location from the database
+     * @param id location id as a path variable
+     * @return location object
+     */
     @RequestMapping(path = "/location/{id}", method = RequestMethod.GET)
     public ResponseEntity<Object> getCats(@PathVariable("id") int id) {
         return new ResponseEntity<Object>(locRepo.findOne(id), HttpStatus.OK);
@@ -84,8 +102,9 @@ public class SherpaController {
 
     //invalidates the session for the tour in progress, i.e. cancel/end
     @RequestMapping(path = "/tour/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> cancelTour(HttpSession session) {
+    public ResponseEntity<Object> cancelTour(HttpSession session, @PathVariable("id") int id) {
         session.invalidate();
+        tourRepo.delete(id);
         return new ResponseEntity<Object>(HttpStatus.OK);
     }
     /*hit this to start a tour based on one of the pre-made tours
@@ -124,7 +143,7 @@ public class SherpaController {
         tourLocRepo.save(tlj);
         return new ResponseEntity<Object>(HttpStatus.OK);
     }
-    @RequestMapping(path = "/tour", method = RequestMethod.GET)
+    @RequestMapping(path = "/location", method = RequestMethod.GET)
     public ResponseEntity<Object> getLocJoins(HttpSession session) {
         int id = (Integer) session.getAttribute("tourId");
         return new ResponseEntity<Object>(tourLocRepo.findAllByTour(tourRepo.findOne(id)), HttpStatus.OK);
@@ -138,7 +157,7 @@ public class SherpaController {
     /*give as a path variable the category id from the user selection to get
     * all the locations associated with that category*/
     @RequestMapping(path = "/category/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Object> getToursByCat(HttpSession session, @PathVariable("id") int id) {
+    public ResponseEntity<Object> getToursByCat (@PathVariable("id") int id) {
         List<Location> list =
                 locCatRepo.findAllByCategory(catRepo.findOne(id)).parallelStream()
                 .map(LocationCategoryJoin::getLocation)
@@ -190,7 +209,7 @@ public class SherpaController {
         File f = new File(fileName);
         Scanner fileScanner = new Scanner(f);
         fileScanner.nextLine();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             PermTour permTour = new PermTour();
             permTour.setName(String.format("tour%d", i+1));
             permTour = pTourRepo.save(permTour);
