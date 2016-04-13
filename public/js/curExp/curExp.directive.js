@@ -8,7 +8,7 @@ angular
       templateUrl: 'js/curExp/templates/experience.directive.html',
     scope: {
       expTour: '=',
-      tourID: '='
+      submit: '&'
     },
   };
 });
