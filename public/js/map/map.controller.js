@@ -116,7 +116,6 @@ categoryStr: "parks"
       MapService.getLocation().then(function(location){
         vm.watchID;
         vm.options = {timeout: 1000, enableHighAccuracy: true};
-        vm.directionsService = new google.maps.DirectionsService();
         //Initialize Map
         vm.map = new GMaps({
           div: '#main-map',
@@ -129,8 +128,29 @@ categoryStr: "parks"
           lng: location.coords.longitude,
           icon: '../../images/sherpaPin.png'
         });
+        vm.map.addControl({
+          position: 'top_right',
+          content: '<i class="fa fa-2x fa-crosshairs"></i>',
+          style: {
+            margin: '5px',
+            padding: '1px 6px',
+            color: 'black'
+          },
+          events: {
+            click: function(){
+              vm.map.fitZoom();
+            }
+          }
+        });
+        vm.directionsObj = {
+          origin: {lat:vm.user.position.lat(), lng: vm.user.position.lng()},
+          desination: {},
+          waypoints:[],
+          travelMode: google.maps.TravelMode.WALKING,
+          optimizeWaypoints: true
+        }
         //Initialize Tour
-        vm.tour.forEach(function(el){
+        vm.tour.forEach(function(el, idx, arr){
           var fence = vm.map.drawPolygon({
             paths: [
               [
@@ -164,6 +184,7 @@ categoryStr: "parks"
             fence: fence,
             click: function(){
               vm.map.panTo({lat: el.location.latitude, lng: el.location.longitude});
+              vm.map.setZoom(18);
             },
             infoWindow: {
               content: '<div class="info-window">'
@@ -176,9 +197,16 @@ categoryStr: "parks"
                           +'</div>'
             }
           });
+            vm.map.drawRoute({
+              origin: [vm.user.position.lat(), vm.user.position.lng()],
+              destination: [el.location.latitude, el.location.longitude],
+              travelMode: 'walking',
+              strokeColor: '#131540',
+              strokeOpacity: 0.6,
+              strokeWeight: 6
+            });
         });
         vm.map.fitZoom();
-        console.log(vm.map.zoom);
         vm.updateUserMarker = function(position){
           vm.user.setMap(null);
           vm.user = vm.map.addMarker({

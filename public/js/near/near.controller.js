@@ -9,7 +9,7 @@ angular
       MapService.getLocation().then(function(location){
         vm.map = new google.maps.Map(document.getElementById('near-map'), {
           center: {lat: location.coords.latitude, lng: location.coords.longitude},
-          zoom: 18
+          zoom: 14
         });
         vm.user = new google.maps.Marker({
           map: vm.map,
