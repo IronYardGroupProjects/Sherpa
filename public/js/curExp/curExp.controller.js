@@ -1,5 +1,5 @@
 var angular = require('angular');
-var $ = jquery = require('jquery');
+var $ = jQuery = require('jquery');
 var bootstrap = require('bootstrap');
 angular
     .module('curExp')
@@ -18,7 +18,8 @@ angular
             });
 
         vm.sendTour = function (id) {
-        CurExpService.sendSelectedTour(id)  
+        CurExpService.sendSelectedTour(id)
+        console.log("yay!!!");
         }
     });
 
