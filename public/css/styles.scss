@@ -1,6 +1,16 @@
+// Sherpa App
+//
+// Sherpa Color Variables
+$c-green:#00EE6F;
+$c-blue:#102665;
+$c-gray:#9DA3B3;
+
+// Sherpa Partials
+//
 @import "js/choiceView/css/_choiceViewCore.scss";
 @import "js/curExp/css/_curExp.scss";
 @import "js/near/css/_infoWindow.scss";
+@import "_maps.scss";
 @import "_landing.scss";
 @import "_core.scss";
 @import "_queries.scss";

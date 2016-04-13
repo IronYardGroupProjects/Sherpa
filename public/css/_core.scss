@@ -1,3 +1,9 @@
+// Sherpa Core
+//
+// All global style lives here. Be sure to place view or feature specific style in its respective partial.
+//
+//
+
 *{
   margin:0;
   padding:0;
@@ -6,16 +12,33 @@
 body{
   background-color: #FFF;
   font-family: 'Source Sans Pro', sans-serif;
-  color:#102665;
+  color:$c-blue;
   // border-top: 7px solid #00EE6F;
 }
-.landing-splash img{
-  width:100%;
+p{
+  font-size:18px;
+}
+a {
+  color: $c-blue;
+  font-size: 18px;
+  font-weight:bold;
+  transition:.2s all;
+  &:hover{
+    color:$c-green;
+    text-decoration:none;
+  }
 }
 .nav{
   margin-bottom:20px;
 }
-
-#main-map, #near-map {
-  height: 500px;
+.breadcrumb{
+  background:none;
+  margin:3% 0;
+  padding:0;
+  a{
+    color:$c-gray;
+    &:hover{
+      color:$c-green;
+    }
+  }
 }

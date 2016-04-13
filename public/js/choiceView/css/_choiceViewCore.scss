@@ -1,22 +1,14 @@
-body{
-  background-color:blue;
-}
-.choice-container {
-  background: hsla(0,0%,0%,.1);
-  padding:10px;
-}
-.choice-card-wrap{
-  padding:10px;
-}
-.choice-card{
-  border:none;
-  background: yellow;
-  color: rgba(0, 0, 0, 0.5);
-  padding: 5% 0;
-  font-size: 1.5em;
-  text-transform: uppercase;
-  transition:.2s all;
-  &:hover{
-    background:orange;
+//
+// Sherpa Choice View
+//
+// All Choice View specific style goes here. Any global style should be placed in core.scss
+//
+//
+.checkbox-choice-wrap{
+  input[type="checkbox"]{
+    margin-right:10px;
+    &:hover{
+      background:$c-green;
+    }
   }
 }

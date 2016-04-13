@@ -1,26 +1,7 @@
-body {
-  background-color: blue; }
-
-.choice-container {
-  background: rgba(0, 0, 0, 0.1);
-  padding: 10px; }
-
-.choice-card-wrap {
-  padding: 10px; }
-
-.choice-card {
-  border: none;
-  background: yellow;
-  color: rgba(0, 0, 0, 0.5);
-  padding: 5% 0;
-  font-size: 1.5em;
-  text-transform: uppercase;
-  transition: .2s all; }
-  .choice-card:hover {
-    background: orange; }
-
-body {
-  background-color: blue; }
+.checkbox-choice-wrap input[type="checkbox"] {
+  margin-right: 10px; }
+  .checkbox-choice-wrap input[type="checkbox"]:hover {
+    background: #00EE6F; }
 
 .curExp-card-wrap {
   padding: 10px; }
@@ -63,6 +44,10 @@ body {
 .open {
   color: green; }
 
+#main-map, #near-map {
+  border-top: 3px solid #102665;
+  height: 100vh; }
+
 .landing-wrap {
   text-align: center; }
 
@@ -70,22 +55,24 @@ body {
   padding: 10%; }
 
 .selection-wrap {
-  text-align: center; }
+  text-align: center;
+  margin: 0;
+  padding: 0; }
 
-h2 {
+h1 {
   font-weight: 800;
   letter-spacing: 4px;
-  font-size: 7em; }
+  font-size: 7rem; }
 
 h3 {
   font-weight: 800;
   letter-spacing: 4px;
-  font-size: 5em; }
+  font-size: 5rem; }
 
 .logo-container {
   height: 100vh;
   background: #00EE6F; }
-  .logo-container h2 {
+  .logo-container h1 {
     color: #fff;
     text-align: right; }
 
@@ -93,10 +80,13 @@ h3 {
   height: 100vh;
   padding: 0 5%; }
   .welcome-container h3 {
-    color: #9DA3B3; }
+    color: #9DA3B3;
+    margin-top: 8%; }
 
-button {
+.options button {
   width: 100%;
+  height: 75vh;
+  margin: 0;
   padding: 5%;
   border: none;
   font-size: 1.5em;
@@ -104,12 +94,14 @@ button {
   background: #00EE6F;
   transition: .2s all;
   border: 3px solid #102665; }
-  button:hover {
-    background: #00EE6F; }
+  .options button:hover {
+    background: #102665;
+    color: #fff; }
 
 hr {
   border: 3px solid #00EE6F;
-  width: 35%; }
+  width: 35%;
+  margin-bottom: 7%; }
 
 * {
   margin: 0;
@@ -121,15 +113,40 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: #102665; }
 
-.landing-splash img {
-  width: 100%; }
+p {
+  font-size: 18px; }
+
+a {
+  color: #102665;
+  font-size: 18px;
+  font-weight: bold;
+  transition: .2s all; }
+  a:hover {
+    color: #00EE6F;
+    text-decoration: none; }
 
 .nav {
   margin-bottom: 20px; }
 
-#main-map, #near-map {
-  height: 500px; }
+.breadcrumb {
+  background: none;
+  margin: 3% 0;
+  padding: 0; }
+  .breadcrumb a {
+    color: #9DA3B3; }
+    .breadcrumb a:hover {
+      color: #00EE6F; }
 
 @media screen and (max-width: 40em) {
   .logo-container {
+    height: 35vh; }
+    .logo-container h1 {
+      text-align: left; }
+  .options button {
     height: 35vh; } }
+
+@media only screen and (max-width: 47.875em) {
+  .logo-container {
+    height: 50vh; }
+    .logo-container h1 {
+      text-align: left; } }

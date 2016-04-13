@@ -1,11 +1,31 @@
-// small
+// Sherpa Queries
+//
+// This partial is responsible for handling the device specific queries that will override individual elements. Any global style should be placed in core.scss
+//
+//
+
+// device size xs
 @media screen and (max-width: 40em) {
+  //splash view
   .logo-container {
     height:35vh;
+    h1{
+      text-align:left;
+    }
   }
-} //@media small end
+  //options
+  .options button{
+    height:35vh;
+  }
+} //@media xs end
 
-// medium
-@media only screen and (min-width: 40.063em) {
-
-}//@media medium end
+// device size md
+@media only screen and (max-width:47.875em) {
+  // splash view
+  .logo-container {
+    height:50vh;
+    h1{
+      text-align:left;
+    }
+  }
+}//@media md end
