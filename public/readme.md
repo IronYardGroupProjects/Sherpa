@@ -1,14 +1,13 @@
 Charleston Tour Guide App
-
-
+=====================
 Value Statement - A single source for city exploration.
 
-Technologies
-Java/Spring
-Angular/Ionic
-Google Map APIs
+## Technologies
+[Java/Spring](https://spring.io/)
+[Angular/Ionic](https://angularjs.org/)
+[Google Map APIs](https://developers.google.com/maps/)
 
-MVP Features
+## MVP Features
 Choice mode
 Prefab mode
 Plotted Map
@@ -16,9 +15,9 @@ Geofence
 Description
 Sidetrack/pit stop
 
-GUIDED TOURS
+## GUIDED TOURS
 
-USER STORY - “Home View”
+## USER STORY - “Home View”
 
 A user will be able to select a pre defined adventure or choose their own adventure  in order to select their desired experience.
 Whichever option is selected that corresponding view will display
@@ -33,7 +32,7 @@ Wire Frames:
 
 Size: 0
 
-USER STORY - “Prefab View”
+## USER STORY - “Prefab View”
 
 A user will be able to select an experience from a predefined list of experiences
 A user will be able to select an item from the list to view more information about the experience in a modal.
@@ -57,7 +56,7 @@ Wire Frames:
 
 Size: 8
 
-USER STORY - “Choice View”
+## USER STORY - “Choice View”
 
 A user will be provided with categories from which they can build their own adventures.
 Will provide a list of categories
@@ -80,7 +79,7 @@ User must be able to confirm and start experience.
 
 Size: 8
 
-USER STORY - “Map View”
+## USER STORY - “Map View”
 
 A user will be provided with a tour that’s mapped out with descriptive data
 Will provide a map that contains every location and is linked together in numerical order.
@@ -89,7 +88,7 @@ Will provide a details view button once a user has visited that location (broken
 
 Assumptions:
 Data available
-Google Maps available
+'Google Maps' available
 User’s location is available
 Routes available
 
@@ -103,7 +102,7 @@ Wire Frames:
 
 Size: 13
 
-USER STORY - “Details View”
+## USER STORY - “Details View”
 
 A user will be able to view detailed information about each location in order to better know the location.
 Will provide images, quick facts, and a detailed description for each location.
@@ -126,7 +125,7 @@ Wire Frames:
 
 Size: 8
 
-USER STORY - “App Menu”
+## USER STORY - “App Menu”
 
 A user will be able to leave the current running experience and start a new one.
 Menu will have a new experience button that will cancel the current experience and return them to the home view.
@@ -145,7 +144,7 @@ Wire Frames:
 
 Size: 5
 
-USER STORY - “Near Me View”
+## USER STORY - “Near Me View”
 
 A user will be able to view things that are near them based on a selected category.
 Will be based on a user’s current location, and will return matches in our database within a predefined radius.
@@ -153,7 +152,7 @@ User can select which things they want to appear (categories).
 User can select a point on the map and get information about the location.
 
 Assumptions:
-Google Maps Api
+'Google Maps Api'
 Geolocation
 Data available
 Routes available
@@ -168,7 +167,7 @@ Wire Frames:
 Size: 8
 
 
-Stretch Goals:
+## Stretch Goals:
 Step by step directions to any point on the map.
 User location plotted on map.
 More control and options for user choice.
@@ -178,7 +177,7 @@ Authentication/User login
 Able to create and share experiences
 Rate locations or experiences
 
-NOTES :
+## NOTES :
 
 Home screen to choose a pre-fixed experience or create your own experience
 If pre-fixed is chosen then user will have list of thematic experiences to choose from
