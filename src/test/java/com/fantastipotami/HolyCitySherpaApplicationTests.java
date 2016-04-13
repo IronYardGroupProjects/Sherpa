@@ -1,5 +1,6 @@
 //package com.fantastipotami;
 //
+//import com.fantastipotami.entities.Location;
 //import com.fantastipotami.entities.PermTour;
 //import com.fantastipotami.entities.Tour;
 //import com.fantastipotami.entities.TourLocationJoin;
@@ -69,7 +70,7 @@
 //
 //        MvcResult result =
 //                mockMvc.perform(
-//                    MockMvcRequestBuilders.get("/perm-tour")
+//                        MockMvcRequestBuilders.get("/perm-tour")
 //                ).andReturn();
 //        ArrayList<PermTour> responseArray = mapper.readValue(result.getResponse().getContentAsString(), ArrayList.class);
 //        Assert.assertTrue(responseArray.size() == properSize);
@@ -82,19 +83,20 @@
 //        Tour tour = tourRepo.findOne(responseInt);
 //        //functional way to ensure that all the locations of the new tour are set to not visited
 //        Assert.assertTrue(tour.getLocations().stream()
-//                            .filter(TourLocationJoin::getIsVisited)
-//                            .collect(Collectors.toCollection(ArrayList<TourLocationJoin>::new)).size() == 0);
+//                .filter(TourLocationJoin::getIsVisited)
+//                .collect(Collectors.toCollection(ArrayList<TourLocationJoin>::new)).size() == 0);
 //        mockMvc.perform(
 //                MockMvcRequestBuilders.put("/tour/" + tour.getLocations().get(0).getLocation().getId())
 //        );
 //        Assert.assertTrue(tour.getLocations().get(0).getIsVisited());
 //        MvcResult result2 =
 //                mockMvc.perform(
-//                        MockMvcRequestBuilders.get("/tour")
-//                        .sessionAttr("tourId", tour.getId())
+//                        MockMvcRequestBuilders.get("/location")
+//                                .sessionAttr("tourId", tour.getId())
 //                ).andReturn();
+//        ArrayList<Location> responseArray1 = mapper.readValue(result.getResponse().getContentAsString(), ArrayList.class);
+//        Assert.assertTrue(responseArray1.get(0).getId() == tour.getLocations().get(0).getId());
+//        Assert.assertTrue(responseArray1.get(0).get == tour.getLocations().get(0).getId());
 //
-//}
-//
-//
+//    }
 //}

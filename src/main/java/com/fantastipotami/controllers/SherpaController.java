@@ -146,11 +146,7 @@ public class SherpaController {
     @RequestMapping(path = "/location", method = RequestMethod.GET)
     public ResponseEntity<Object> getLocJoins(HttpSession session) {
         int id = (Integer) session.getAttribute("tourId");
-        List<Location> list = tourLocRepo.findAllByTour(tourRepo.findOne(id))
-                .stream()
-                .map(TourLocationJoin::getLocation)
-                .collect(Collectors.toCollection(ArrayList<Location>::new));
-        return new ResponseEntity<Object>(list, HttpStatus.OK);
+        return new ResponseEntity<Object>(tourLocRepo.findAllByTour(tourRepo.findOne(id)), HttpStatus.OK);
     }
     //choiceView stuff
     /*use this to get an array all the categories*/
@@ -161,7 +157,7 @@ public class SherpaController {
     /*give as a path variable the category id from the user selection to get
     * all the locations associated with that category*/
     @RequestMapping(path = "/category/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Object> getToursByCat(@PathVariable("id") int id) {
+    public ResponseEntity<Object> getToursByCat (@PathVariable("id") int id) {
         List<Location> list =
                 locCatRepo.findAllByCategory(catRepo.findOne(id)).parallelStream()
                 .map(LocationCategoryJoin::getLocation)
