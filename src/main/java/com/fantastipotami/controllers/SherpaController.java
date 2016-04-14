@@ -166,6 +166,7 @@ public class SherpaController {
                 locCatRepo.findAllByCategory(catRepo.findOne(id)).parallelStream()
                 .map(LocationCategoryJoin::getLocation)
                 .collect(Collectors.toCollection(ArrayList<Location>::new));
+        Collections.shuffle(list);
         return new ResponseEntity<Object>(list, HttpStatus.OK);
     }
 
