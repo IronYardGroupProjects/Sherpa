@@ -9,6 +9,8 @@ angular
     var vm = this;
     vm.colors = ['#00EE6F','#102665','#E27820','#00A94F', '#1749D6', '#FFB358','#9DA3B3'];
     vm.fences = [];
+    vm.watchID;
+    vm.options = {timeout: 1000, enableHighAccuracy: true};
     vm.tour = [
 {
 id: 1,
@@ -116,8 +118,6 @@ categoryStr: "parks"
 
 
 
-        vm.watchID;
-        vm.options = {timeout: 1000, enableHighAccuracy: true};
         //Initialize Map
         vm.map = new GMaps({
           div: '#main-map',
@@ -241,10 +241,10 @@ categoryStr: "parks"
         function checkFences(){
           vm.fences.forEach(function(el){
             var id = el.id;
-            var location = vm.map.markers.filter(function(el){
-              return el.hasOwnProperty('location');
-            }).filter(function(el){
-              return el.location.id === id;
+            var location = vm.map.markers.filter(function(item){
+              return item.hasOwnProperty('location');
+            }).filter(function(item){
+              return item.location.id === id;
             });
             if(!location[0].location.isVisited && vm.map.checkGeofence(vm.user.position.lat(), vm.user.position.lng(), el.fence)) {
               var marker = location[0];
