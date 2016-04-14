@@ -7,6 +7,7 @@ angular
       scope:{
         cat: '=',
         addToPage: "&",
+        location: '='
       }
     }
   })
