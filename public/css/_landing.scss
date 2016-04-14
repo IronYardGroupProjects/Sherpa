@@ -4,43 +4,21 @@
 //
 //
 
-.landing-wrap {
-  text-align: center;
-  // background-image:url('../../images/charlestonHero.jpg');
-}
-.logo-wrap{
-  padding:10%;
-}
 .selection-wrap {
   text-align: center;
   margin:0;
   padding:0;
   }
-h1{
-  font-weight: 800;
-  letter-spacing: 4px;
-  font-size: 7rem;
-}
-h3{
-  font-weight: 800;
-  letter-spacing: 4px;
-  font-size: 5rem;
-}
-.logo-container {
-  height:100vh;
-  // background-image:url('../../images/charlestonHero.jpg');
-  background:$c-green;
-  h1{
-  color:#fff;
-  text-align:right;
-  }
-}
+
 .welcome-container {
-  height:100vh;
-  padding: 0 5%;
+  display:flex;
+  align-items:center;
   h3{
     color:$c-gray;
     margin-top: 8%;
+  }
+  .description{
+    // @include vertical-align();
   }
 }
 .options button {

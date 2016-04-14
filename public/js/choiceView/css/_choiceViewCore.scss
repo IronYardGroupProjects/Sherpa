@@ -4,11 +4,18 @@
 // All Choice View specific style goes here. Any global style should be placed in core.scss
 //
 //
-.checkbox-choice-wrap{
-  input[type="checkbox"]{
-    margin-right:10px;
-    &:hover{
-      background:$c-green;
+
+.choice-button-wrap {
+  button {
+    border: none;
+    margin: 2% 0;
+    padding: 10%;
+    font-size: 18px;
+    background: #102665;
+    color: white;
+    transition: .2s all;
+    &:hover {
+      background: #00EE6F;
     }
   }
 }

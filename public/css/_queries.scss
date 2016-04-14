@@ -6,13 +6,14 @@
 
 // device size xs
 @media screen and (max-width: 40em) {
-  //splash view
-  .logo-container {
-    height:35vh;
-    h1{
-      text-align:left;
-    }
+  //welcome view
+.welcome-container{
+  display:inline-block;
+  align-items:none;
+  p{
+    margin-bottom:10%;
   }
+}
   //options
   .options button{
     height:35vh;
@@ -22,10 +23,11 @@
 // device size md
 @media only screen and (max-width:47.875em) {
   // splash view
-  .logo-container {
-    height:50vh;
-    h1{
-      text-align:left;
+  .welcome-container{
+    display:inline-block;
+    align-items:none;
+    p{
+      margin-bottom:10%;
     }
   }
 }//@media md end
