@@ -53,7 +53,7 @@ angular
           $state.go('home.choiceViewSlider')
       }
 
-      // iterate over the returned data to
+      // iterate over the returned data
       vm.addChoicesToView = function(){
         vm.categoryChoice.forEach(function(el){
           return vm.choiceLocations.push(el.id)
