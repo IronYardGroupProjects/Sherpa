@@ -1,6 +1,11 @@
 <h5>choiceview slider</h5>
 
-{{choiceViewCtrl.locations | json}}
-<!-- <div ng-repeat="location in choiceViewCtrl.locations">
+
+<div ng-repeat="location in locations">
   <h1>hello</h1>
-</div> -->
+  <div ng-repeat="place in location.data">
+
+      {{place.name}}
+  </div>
+
+</div>
