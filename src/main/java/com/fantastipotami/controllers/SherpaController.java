@@ -75,7 +75,11 @@ public class SherpaController {
     @RequestMapping(path = "/re-join/{id}", method = RequestMethod.POST)
     public ResponseEntity<Object> getTourLocs(HttpSession session, @PathVariable("id") int id) {
         session.setAttribute("tourId", id);
-        return new ResponseEntity<Object>(tourLocRepo.findAllByTour(tourRepo.findOne(id)), HttpStatus.OK);
+        List<TourLocationJoin> list = tourLocRepo.findAllByTour(tourRepo.findOne(id));
+        if (list != null) {
+            return new ResponseEntity<Object>(list, HttpStatus.TEMPORARY_REDIRECT);
+        }
+        else return new ResponseEntity<Object>("No existing tour", HttpStatus.CONTINUE);
     }
 
     /*Hit to get the perm tour options, they will include each
@@ -162,6 +166,7 @@ public class SherpaController {
                 locCatRepo.findAllByCategory(catRepo.findOne(id)).parallelStream()
                 .map(LocationCategoryJoin::getLocation)
                 .collect(Collectors.toCollection(ArrayList<Location>::new));
+        Collections.shuffle(list);
         return new ResponseEntity<Object>(list, HttpStatus.OK);
     }
 
