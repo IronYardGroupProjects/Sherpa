@@ -16,4 +16,14 @@ angular
           }
         }
       })
+      .state('home.choiceViewSlider', {
+        url: '/choiceViewSlider',
+        views: {
+          'container': {
+            templateUrl:'./js/choiceView/templates/choiceViewSlider.html',
+            controller: 'choiceViewController as choiceViewCtrl'
+          }
+        },
+
+      })
   });

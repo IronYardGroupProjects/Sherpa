@@ -1,9 +1,27 @@
 // Sherpa App
 //
+
 // Sherpa Color Variables
+//
 $c-green:#00EE6F;
 $c-blue:#102665;
 $c-gray:#9DA3B3;
+
+// Sherpa Animate Variables
+//
+$a-duration:1s;
+
+// Sherpa Mixins
+//
+
+// Credit: http://goo.gl/Gujbp4
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 
 // Sherpa Partials
 //
@@ -12,5 +30,6 @@ $c-gray:#9DA3B3;
 @import "js/near/css/_infoWindow.scss";
 @import "_maps.scss";
 @import "_landing.scss";
+@import "_animate.scss";
 @import "_core.scss";
 @import "_queries.scss";
