@@ -5,10 +5,10 @@ var bootstrap = require('bootstrap');
 
 angular
   .module('map')
-  .controller('MapController', function($scope, $state, MapService){
+  .controller('MapController', function($scope, $rootScope, $state, MapService, location){
     var vm = this;
     vm.colors = ['#00EE6F','#102665','#E27820','#00A94F', '#1749D6', '#FFB358','#9DA3B3'];
-    vm.routes = [];
+    vm.fences = [];
     vm.tour = [
 {
 id: 1,
@@ -113,9 +113,9 @@ categoryStr: "parks"
 }
 }
 ];
-    vm.fences = [];
-    google.maps.event.addDomListener(window, 'load',
-      MapService.getLocation().then(function(location){
+
+
+
         vm.watchID;
         vm.options = {timeout: 1000, enableHighAccuracy: true};
         //Initialize Map
@@ -233,11 +233,9 @@ categoryStr: "parks"
           var locations = vm.map.markers.filter(function(el){
             return el.hasOwnProperty('location') && !el.location.isVisited;
           }).forEach(function(el){
-            console.log(el);
             el.path.origin = [vm.user.position.lat(), vm.user.position.lng()];
             vm.map.drawRoute(el.path);
           });
-
         }
 
         function checkFences(){
@@ -273,6 +271,4 @@ categoryStr: "parks"
           })
         }
         vm.watchID = navigator.geolocation.watchPosition(vm.updateUserMarker, errHandler, vm.options);
-      })
-    )
   });

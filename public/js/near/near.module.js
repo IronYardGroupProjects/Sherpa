@@ -15,5 +15,14 @@ angular
               controller: 'NearController as NearCtrl'
             }
           },
+          resolve: {
+            location: function($q){
+              var defer = $q.defer();
+              navigator.geolocation.getCurrentPosition(function(position){
+                defer.resolve(position);
+              })
+              return defer.promise;
+            }
+          }
         })
   })

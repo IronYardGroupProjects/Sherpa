@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "serve & node_modules/.bin/watchify --entry sherpa.module.js -o bundle.js & node-sass -w css/styles.scss css/styles.css ",
     "build": "node_modules/.bin/browserify --entry sherpa.module.js -o bundle.js & node-sass css/styles.scss css/styles.css",
