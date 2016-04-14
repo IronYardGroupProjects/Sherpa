@@ -247,34 +247,42 @@ angular
     function checkFences(){
       vm.fences.forEach(function(el){
         var id = el.id;
-        var location = vm.map.markers.filter(function(item){
-          return item.hasOwnProperty('location');
-        }).filter(function(item){
-          return item.location.id === id;
-        });
-        if(!location[0].location.isVisited && vm.map.checkGeofence(vm.user.position.lat(), vm.user.position.lng(), el.fence)) {
-          var marker = location[0];
-          marker.location.isVisited = true;
-          MapService.updateLocation(id);
-          var modal = '#' + id;
-          $(modal).modal('show');
-          marker.infoWindow.setContent(
-            '<div class="info-window">'
-            + '<h2>'
-            + marker.location.location.name
-            + '</h2>'
-            + '<p>'
-            + marker.location.location.streetAddress
-            + '</p>'
-            + '<button data-toggle="modal" data-target="'
-            + modal
-            + '">Details</button>'
-            +'</div>'
-          )
+        var marker = getFenceLocation(id);
+        if(!marker.location.isVisited && vm.map.checkGeofence(vm.user.position.lat(), vm.user.position.lng(), el.fence)) {
+          geofenceTrigger(location, id);
         } else {
           console.log("no fence");
         }
       })
+    }
+    //Get a location associated with a fence
+    function getFenceLocation(id){
+      var result = vm.map.markers.filter(function(item){
+        return item.hasOwnProperty('location');
+      }).filter(function(item){
+        return item.location.id === id;
+      });
+      return result[0];
+    }
+    //Event that triggers when a geofence is tripped
+    function geofenceTrigger(marker, id){
+      marker.location.isVisited = true;
+      MapService.updateLocation(id);
+      var modal = '#' + id;
+      $(modal).modal('show');
+      marker.infoWindow.setContent(
+        '<div class="info-window">'
+        + '<h2>'
+        + marker.location.location.name
+        + '</h2>'
+        + '<p>'
+        + marker.location.location.streetAddress
+        + '</p>'
+        + '<button data-toggle="modal" data-target="'
+        + modal
+        + '">Details</button>'
+        +'</div>'
+      )
     }
     //Monitor User location and use updateUserMarker callback to move marker and trigger fences.
     vm.watchID = navigator.geolocation.watchPosition(vm.updateUserMarker, errHandler, vm.options);
