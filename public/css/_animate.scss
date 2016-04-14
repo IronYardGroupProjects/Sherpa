@@ -1,0 +1,50 @@
+.scroll {
+   transform: translate3d(0, 0, 0);
+   display: block;
+   overflow-x: hidden;
+   height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+  .page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    > div {
+      min-height: 100%;
+      padding: 1em;
+    }
+  }
+
+.scrolled {
+  transition: transform $a-duration ease;
+  transform: translate3d(0, 0, 0);
+  &.ng-enter {
+    transform: translate3d(100%, 0, 0);
+  }
+  &.ng-enter-active {
+    transform: translate3d(0, 0, 0);
+  }
+  &.ng-leave {
+    transform: translate3d(0, 0, 0);
+  }
+  &.ng-leave-active {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.backward {
+  .scrolled {
+    &.ng-enter {
+        transform: translate3d(-100%, 0, 0);
+    }
+    &.ng-enter-active {
+        transform: translate3d(0, 0, 0);
+    }
+    &.ng-leave {
+        transform: translate3d(0, 0, 0);
+    }
+    &.ng-leave-active {
+        transform: translate3d(100%, 0, 0);
+    }
+  }
+}

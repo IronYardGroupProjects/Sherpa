@@ -11,7 +11,28 @@ angular
         })
         return defer.promise;
     }
+
+    // gets all locations for a single category
+    function getCategoryLoc(id){
+      var defer = $q.defer();
+      $http.get('/category/' + id)
+        .then(function(data){
+          defer.resolve(data)
+        })
+        return defer.promise;
+    }
+
+    // gets all locations for multiple categories
+    function getAllCategoryLocs(ids){
+      var promises = [];
+      ids.forEach(function(el){
+        promises.push(getCategoryLoc(el))
+      })
+      return $q.all(promises)
+    }
     return{
-      getTourCategories:getTourCategories
+      getTourCategories:getTourCategories,
+      getCategoryLoc:getCategoryLoc,
+      getAllCategoryLocs:getAllCategoryLocs
     }
   })

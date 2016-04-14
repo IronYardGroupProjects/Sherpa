@@ -54,37 +54,14 @@
   border-top: 3px solid #102665;
   height: 100vh; }
 
-.landing-wrap {
-  text-align: center; }
-
-.logo-wrap {
-  padding: 10%; }
-
 .selection-wrap {
   text-align: center;
   margin: 0;
   padding: 0; }
 
-h1 {
-  font-weight: 800;
-  letter-spacing: 4px;
-  font-size: 7rem; }
-
-h3 {
-  font-weight: 800;
-  letter-spacing: 4px;
-  font-size: 5rem; }
-
-.logo-container {
-  height: 100vh;
-  background: #00EE6F; }
-  .logo-container h1 {
-    color: #fff;
-    text-align: right; }
-
 .welcome-container {
-  height: 100vh;
-  padding: 0 5%; }
+  display: flex;
+  align-items: center; }
   .welcome-container h3 {
     color: #9DA3B3;
     margin-top: 8%; }
@@ -109,6 +86,45 @@ hr {
   width: 35%;
   margin-bottom: 7%; }
 
+.scroll {
+  transform: translate3d(0, 0, 0);
+  display: block;
+  overflow-x: hidden;
+  height: 100%;
+  -webkit-overflow-scrolling: touch; }
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+  .page > div {
+    min-height: 100%;
+    padding: 1em; }
+
+.scrolled {
+  transition: transform 1s ease;
+  transform: translate3d(0, 0, 0); }
+  .scrolled.ng-enter {
+    transform: translate3d(100%, 0, 0); }
+  .scrolled.ng-enter-active {
+    transform: translate3d(0, 0, 0); }
+  .scrolled.ng-leave {
+    transform: translate3d(0, 0, 0); }
+  .scrolled.ng-leave-active {
+    transform: translate3d(-100%, 0, 0); }
+
+.backward .scrolled.ng-enter {
+  transform: translate3d(-100%, 0, 0); }
+
+.backward .scrolled.ng-enter-active {
+  transform: translate3d(0, 0, 0); }
+
+.backward .scrolled.ng-leave {
+  transform: translate3d(0, 0, 0); }
+
+.backward .scrolled.ng-leave-active {
+  transform: translate3d(100%, 0, 0); }
+
 * {
   margin: 0;
   padding: 0;
@@ -131,6 +147,16 @@ a {
     color: #00EE6F;
     text-decoration: none; }
 
+h1 {
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-size: 7rem; }
+
+h3 {
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-size: 4rem; }
+
 .nav {
   margin-bottom: 20px; }
 
@@ -144,15 +170,17 @@ a {
       color: #00EE6F; }
 
 @media screen and (max-width: 40em) {
-  .logo-container {
-    height: 35vh; }
-    .logo-container h1 {
-      text-align: left; }
+  .welcome-container {
+    display: inline-block;
+    align-items: none; }
+    .welcome-container p {
+      margin-bottom: 10%; }
   .options button {
     height: 35vh; } }
 
 @media only screen and (max-width: 47.875em) {
-  .logo-container {
-    height: 50vh; }
-    .logo-container h1 {
-      text-align: left; } }
+  .welcome-container {
+    display: inline-block;
+    align-items: none; }
+    .welcome-container p {
+      margin-bottom: 10%; } }

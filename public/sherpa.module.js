@@ -1,5 +1,6 @@
 var angular = require('angular');
 require('angular-ui-router');
+require('angular-animate');
 
 angular
   .module('sherpa', [
@@ -7,7 +8,8 @@ angular
     'map',
     'choiceView',
     'curExp',
-    'near'
+    'near',
+    'ngAnimate'
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider

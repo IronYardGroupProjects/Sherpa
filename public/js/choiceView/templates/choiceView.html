@@ -16,5 +16,7 @@
   <div ng-repeat="category in choiceViewCtrl.categories">
     <choice-view-directive add-to-page="choiceViewCtrl.addChoice(category)" cat='category'></choice-view-directive>
   </div>
-  <button class="submit">submit</button></form>
+  <button
+    ng-click="choiceViewCtrl.submitChoice()"
+    class="submit">submit</button></form>
 </div>
