@@ -15,5 +15,5 @@ angular
                         controller: 'curExpController as ExpCtrl'
                     }
                 }
-            })
+            });
     })

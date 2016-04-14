@@ -21,7 +21,16 @@ function getTours() {
 return defer.promise;
 }
 
+function sendSelectedTour(id){
+var defer = $q.defer();
+$http.post('/tour/' + id)
+  .then(function (data) {
+    defer.resolve(data);
+  })
+return defer.promise;
+}
   return {
-    getTours: getTours
+    getTours: getTours,
+    sendSelectedTour: sendSelectedTour
   }
 });

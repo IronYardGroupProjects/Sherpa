@@ -9,16 +9,20 @@
 
 <div id="main-map" class="col-xs-12"></div>
 <div ng-repeat="tour in MapCtrl.tour">
-  <div id="{{tour.id}}" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <h2>{{tour.location.name}}</h2>
+  <div class="modal fade" id="{{tour.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title" id="myModalLabel">{{tour.location.name}}</h2>
+      </div>
+      <div class="modal-body">
         <div class="img img-responsive">
           <img src="{{tour.location.imageUrl}}"/>
         </div>
         <ul class="list-group">
-          <li class="list-group-item"><i class="fa-li fa fa-map-marker" aria-hidden="true"></i>Address: {{tour.location.streetAddress}}</li>
-          <li class="list-group-item"><i class="fa-li fa fa-link" aria-hidden="true"></i>Website: <a href="{{tour.location.siteUrl}}" target="_blank">{{tour.location.siteUrl}}</a></li>
+          <li class="list-group-item"><i class=" fa fa-map-marker" aria-hidden="true"></i> Address: {{tour.location.streetAddress}}</li>
+          <li class="list-group-item"><i class="fa fa-link" aria-hidden="true"></i> Website: <a href="{{tour.location.siteUrl}}" target="_blank">{{tour.location.siteUrl}}</a></li>
         </ul>
         <div class="well">
           {{tour.location.description}}
