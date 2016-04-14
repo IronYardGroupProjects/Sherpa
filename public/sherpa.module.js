@@ -22,25 +22,7 @@ angular
         abstract: true,
         templateUrl: 'templates/main.html'
       })
-      .state('home.options',{
-        url:'/options',
-        views:{
-            'container': {
-              templateUrl:'templates/options.html'
-            }
-        }
-      })
-      .state('home.main', {
-        url: '/main',
-        views: {
-          'container': {
-            templateUrl: 'templates/landing.html'
-          }
-        }
-      })
-      $urlRouterProvider.otherwise('/404',{
-          templateUrl:'templates/404.html'
-        });
+      $urlRouterProvider.otherwise('/',{});
   });
 
 require('./js/curExp');
