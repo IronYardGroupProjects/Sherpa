@@ -38,15 +38,15 @@ angular
         vm.categoryChoice.forEach(function(el){
           return id.push(el.id)
         })
-
+        console.log("IDS", id);
         // clean ids to remove duplicates
-        var cleanId = _.uniqBy(id);
+        // var cleanId = _.uniqBy(id);
 
         // pass the cleanId param into the getAllCategoryLocs function (found in the choiceViewService) then we return the data associated with that id via 'category/{id}' route.
         choiceViewService.getAllCategoryLocs(id)
           .then(function(data){
-            $scope.locations = data;
-            console.log("location data", vm.locations)
+            $rootScope.locations = data;
+            console.log("location data", $rootScope.locations)
             window.glob = data;
             // vm.addChoicesToView();
           })
@@ -56,9 +56,12 @@ angular
 
       }
 
-      // iterate over the returned data to
-
-
+      // // iterate over the returned data
+      // vm.addChoicesToView = function(){
+      //   vm.categoryChoice.forEach(function(el){
+      //     return vm.choiceLocations.push(el.id)
+      //   })
+      // }
 
     }
 )
