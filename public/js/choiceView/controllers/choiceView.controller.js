@@ -45,7 +45,7 @@ angular
         // pass the cleanId param into the getAllCategoryLocs function (found in the choiceViewService) then we return the data associated with that id via 'category/{id}' route.
         choiceViewService.getAllCategoryLocs(id)
           .then(function(data){
-            vm.locations = data;
+            $scope.locations = data;
             console.log("location data", vm.locations)
             window.glob = data;
             // vm.addChoicesToView();

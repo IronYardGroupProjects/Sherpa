@@ -23,6 +23,7 @@ angular
             templateUrl:'./js/choiceView/templates/choiceViewSlider.html',
             controller: 'choiceViewController as choiceViewCtrl'
           }
-        }
+        },
+
       })
   });
