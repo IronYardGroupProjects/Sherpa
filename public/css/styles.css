@@ -125,6 +125,10 @@ a {
     color: #00EE6F;
     text-decoration: none; }
 
+.loading {
+  text-align: center;
+  margin-top: 25%; }
+
 .nav {
   margin-bottom: 20px; }
 
