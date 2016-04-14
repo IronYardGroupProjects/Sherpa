@@ -101,10 +101,10 @@ public class SherpaController {
     }
 
     //invalidates the session for the tour in progress, i.e. cancel/end
-    @RequestMapping(path = "/tour/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> cancelTour(HttpSession session, @PathVariable("id") int id) {
+    @RequestMapping(path = "/tour", method = RequestMethod.DELETE)
+    public ResponseEntity<Object> cancelTour(HttpSession session) {
+        tourRepo.delete((Integer) session.getAttribute("tourId"));
         session.invalidate();
-        tourRepo.delete(id);
         return new ResponseEntity<Object>(HttpStatus.OK);
     }
     /*hit this to start a tour based on one of the pre-made tours
