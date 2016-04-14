@@ -114,7 +114,6 @@ categoryStr: "parks"
 }
 ];
     vm.fences = [];
-    google.maps.event.addDomListener(window, 'load',
       MapService.getLocation().then(function(location){
         vm.watchID;
         vm.options = {timeout: 1000, enableHighAccuracy: true};
@@ -233,11 +232,9 @@ categoryStr: "parks"
           var locations = vm.map.markers.filter(function(el){
             return el.hasOwnProperty('location') && !el.location.isVisited;
           }).forEach(function(el){
-            console.log(el);
             el.path.origin = [vm.user.position.lat(), vm.user.position.lng()];
             vm.map.drawRoute(el.path);
           });
-
         }
 
         function checkFences(){
@@ -274,5 +271,4 @@ categoryStr: "parks"
         }
         vm.watchID = navigator.geolocation.watchPosition(vm.updateUserMarker, errHandler, vm.options);
       })
-    )
   });
