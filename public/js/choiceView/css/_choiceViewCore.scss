@@ -4,25 +4,38 @@
 // All Choice View specific style goes here. Any global style should be placed in core.scss
 //
 //
-
-.choice-button-wrap {
-  button {
-    border: none;
-    margin: 2% 0;
-    padding: 10%;
-    font-size: 18px;
-    background: #102665;
-    color: white;
-    transition: .2s all;
-    &:hover {
-      background: #00EE6F;
-    }
+.choice-btn {
+  margin: 2% 0;
+  padding: 10%;
+  background: #CBCED6;
+  color: #5B6580;
+  &:hover {
+    background: $c-green;
+    color:white;
+  }
+  &:focus {
+    outline: none;
   }
 }
 
-.choices li {
-  display: inline;
-  margin: 0px 10px;
-  padding: 5px;
+.choices {
+  ol{
+    margin:2% 0;
+  }
+  li {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 5px 10px;
+  font-size:1.5rem;
   color:$c-gray;
+  border-radius:3px;
+  background:#F3F3F3;
+}
+  button {
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    margin-left: 10px;
+    color:#E85353;
+  }
 }
