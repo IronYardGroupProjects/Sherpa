@@ -120,7 +120,7 @@ public class HolyCitySherpaApplicationTests {
     public void test5() throws Exception {
         MvcResult result =
                 mockMvc.perform(
-                        MockMvcRequestBuilders.get("/location")
+                        MockMvcRequestBuilders.get("/tour/locations")
                                 .sessionAttr("tourId", 1)
                 ).andReturn();
         ArrayList<LinkedHashMap> responseArray = mapper.readValue(result.getResponse().getContentAsString(), ArrayList.class);
@@ -213,7 +213,7 @@ public class HolyCitySherpaApplicationTests {
         Assert.assertTrue(tourRepo.findOne(responseInt).getLocations().get(0).getIsVisited());
         MvcResult result =
             mockMvc.perform(
-                    MockMvcRequestBuilders.get("/location")
+                    MockMvcRequestBuilders.get("/tour/locations")
                             .sessionAttr("tourId", responseInt)
             ).andReturn();
         ArrayList<LinkedHashMap> responseArray = mapper.readValue(result.getResponse().getContentAsString(), ArrayList.class);
