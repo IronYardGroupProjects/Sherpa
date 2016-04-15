@@ -18,16 +18,24 @@ angular
           resolve: {
             location: function($q){
               var defer = $q.defer();
-              navigator.geolocation.getCurrentPosition(function(position){
-                defer.resolve(position);
-              })
+              navigator.geolocation.getCurrentPosition(
+                function(position){
+                  defer.resolve(position);
+                }
+              )
               return defer.promise;
             },
-            tour: function($q, $http){
+            tour: function($q, $http, $state){
               var defer = $q.defer();
-              $http.get('/tour/locations').then(function(tour){
-                defer.resolve(tour);
-              });
+              $http.get('/tour/locations').then(
+                function(tour){
+                  defer.resolve(tour);
+                },
+                function(error){
+                  console.log(error);
+                  $state.go('landing');
+                }
+              );
               return defer.promise;
             }
           }
