@@ -14,7 +14,9 @@ public class PermTour {
     @Id
     @GeneratedValue
     private int id;
-
+    @NotNull
+    String description;
+    String imgUrl;
     @NotNull
     private String name;
 
@@ -22,6 +24,12 @@ public class PermTour {
     private List<PermTourLocationJoin> locations;
 
     public PermTour() {
+    }
+
+    public PermTour(String name, String description, String imgUrl) {
+        this.description = description;
+        this.imgUrl = imgUrl;
+        this.name = name;
     }
 
     public List<PermTourLocationJoin> getLocations() {
@@ -46,5 +54,21 @@ public class PermTour {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }
