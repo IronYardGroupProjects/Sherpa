@@ -1,17 +1,12 @@
-<h5>choiceview slider</h5>
-
-
+<h5>Select Your Locations</h5>
+<button ng-click="choiceViewCtrl.startTour()">Start Tour</button>
 <div ng-repeat="location in locations">
   <choice-view-slider-directive
     location="location"
-    advance="choiceViewCtrl.advance(location, index)"
-    rewind="choiceViewCtrl.rewind(location, index)"
     index="0"
+    location-display="{{location.data[0].name}}"
+    category="{{location.data[0].categories[0].category.categoryStr}}"
+    loc-id="{{location.data[0].id}}"
   >
-</choice-view-slider-directive>
-  <!-- <div ng-repeat="place in location.data">
-    <h1>choice</h1>
-      {{place.name}}
-  </div> -->
-
+  </choice-view-slider-directive>
 </div>

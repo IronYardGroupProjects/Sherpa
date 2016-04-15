@@ -1,5 +1,6 @@
-<div>
+<div ng-swipe-left="rewind()" ng-swipe-right="advance()">
+  <h4>{{category}}</h4>
   <i class="fa fa-chevron-left" ng-click="rewind()"></i>
-    <div ng-model="index">{{location.data[index].name}}</div>
+    <div class="location" data-loc-id="{{locId}}" ng-model="locationDisplay">{{locationDisplay}}</div>
   <i class="fa fa-chevron-right" ng-click="advance()"></i>
 </div>

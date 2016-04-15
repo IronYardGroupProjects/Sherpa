@@ -30,9 +30,20 @@ angular
       })
       return $q.all(promises)
     }
+
+    // starts the tour
+    function startTour(ids){
+      var defer = $q.defer();
+      $http.post('/tour', {list: ids})
+        .then(fuction(data){
+          defer.resolve(data)
+        })
+        return defer.promise;
+    }
     return{
       getTourCategories:getTourCategories,
       getCategoryLoc:getCategoryLoc,
-      getAllCategoryLocs:getAllCategoryLocs
+      getAllCategoryLocs:getAllCategoryLocs,
+      startTour: startTour
     }
   })

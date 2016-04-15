@@ -1,4 +1,4 @@
-var _ = require('lodash')
+var _ = require('lodash');
 angular
   .module('choiceView')
   .controller('choiceViewController', function($state, $rootScope, $scope, choiceViewService){
@@ -47,34 +47,26 @@ angular
           .then(function(data){
             $rootScope.locations = data;
             console.log("location data", $rootScope.locations)
-            window.glob = data;
-            // vm.addChoicesToView();
           })
 
           // change views from choiceView to choiceViewSlider
           $state.go('home.choiceViewSlider');
 
       }
+      //{list: [ids]}
+      vm.startTour = function(){
+        var ids = [];
+        var locations = document.querySelectorAll('.location');
+        locations = [].slice.call(locations);
+        locations.forEach(function(el){
+          ids.push(el.dataset.locId);
+        })
+        choiceViewService.startTour(ids).then(function(data){
+          localStorage.setItem('activeTour', JSON.stringify(data));
+          $state.go('home.map');
+        });
 
-      vm.advance = function(location, index){
-        console.log(location, index);
-        if(index !== location.data.length){
-          index + 1;
-        }
       }
-      vm.rewind = function(location, index){
-        console.log(index);
-        if(index !== 0) {
-          index - 1;
-        }
-      }
-
-      // // iterate over the returned data
-      // vm.addChoicesToView = function(){
-      //   vm.categoryChoice.forEach(function(el){
-      //     return vm.choiceLocations.push(el.id)
-      //   })
-      // }
 
     }
 )

@@ -1,6 +1,7 @@
 var angular = require('angular');
 require('angular-ui-router');
 require('angular-animate');
+require('angular-touch');
 
 angular
   .module('sherpa', [
@@ -9,7 +10,8 @@ angular
     'choiceView',
     'curExp',
     'near',
-    'ngAnimate'
+    'ngAnimate',
+    'ngTouch'
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
