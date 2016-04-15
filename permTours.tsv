@@ -1,10 +1,4 @@
-perm_tour_id	location_id
-1	7
-1	4
-1	1
-2	3
-2	5
-2	6
-3	4
-3	5
-3	1
+name	location_id	description	img_url
+Churches	39,40,41,42,43	Charleston is the Holy City for a reason! Experience the beautiful architecture and rich history of the many churches of Charleston.	http://thewanderingscot.com/photos/2009%20Florida-Washington/Charleston/midis/IMG_8415.JPG
+Historic Houses	13,14,32,33,38	Charleston is one of the oldest cities in the United States and has been the home to many important historical figures. Visit the historic homes of Charleston's most important histro	http://www.playle.com/pictures/NORVELL1623.jpg
+Haunted	31,11,12,10,29	Charleson is home to some of the most haunted places in the United States. Gird your loins and see for yourself if the ghosts are real. If you dare. 	http://www.syfy.com/sites/syfy/files/1416398898-s08_e0814_01_134686869585___CC___1920x1080.jpg

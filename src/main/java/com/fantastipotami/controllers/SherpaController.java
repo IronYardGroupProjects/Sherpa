@@ -215,15 +215,14 @@ public class SherpaController {
         File f = new File(fileName);
         Scanner fileScanner = new Scanner(f);
         fileScanner.nextLine();
-        for (int i = 0; i < 3; i++) {
-            PermTour permTour = new PermTour();
-            permTour.setName(String.format("tour%d", i+1));
-            permTour = pTourRepo.save(permTour);
-        }
         while (fileScanner.hasNext()) {
             String[] columns = fileScanner.nextLine().split("\\t");
-            PermTourLocationJoin tlj = new PermTourLocationJoin(locRepo.findOne(Integer.valueOf(columns[1])), pTourRepo.findOne(Integer.valueOf(columns[0])));
-            pTourLocRepo.save(tlj);
+            PermTour tour = new PermTour(columns[0], columns[2], columns[3]);
+            tour = pTourRepo.save(tour);
+            String[] locs = columns[1].split(",");
+            for (String loc : locs) {
+                pTourLocRepo.save(new PermTourLocationJoin(locRepo.findOne(Integer.valueOf(loc)), tour));
+            }
         }
     }
 }
