@@ -56,6 +56,19 @@ angular
 
       }
 
+      vm.advance = function(location, index){
+        console.log(location, index);
+        if(index !== location.data.length){
+          index + 1;
+        }
+      }
+      vm.rewind = function(location, index){
+        console.log(index);
+        if(index !== 0) {
+          index - 1;
+        }
+      }
+
       // // iterate over the returned data
       // vm.addChoicesToView = function(){
       //   vm.categoryChoice.forEach(function(el){

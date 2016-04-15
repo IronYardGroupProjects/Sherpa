@@ -2,9 +2,16 @@
 
 
 <div ng-repeat="location in locations">
-  <div ng-repeat="place in location.data">
+  <choice-view-slider-directive
+    location="location"
+    advance="choiceViewCtrl.advance(location, index)"
+    rewind="choiceViewCtrl.rewind(location, index)"
+    index="0"
+  >
+</choice-view-slider-directive>
+  <!-- <div ng-repeat="place in location.data">
     <h1>choice</h1>
       {{place.name}}
-  </div>
+  </div> -->
 
 </div>
