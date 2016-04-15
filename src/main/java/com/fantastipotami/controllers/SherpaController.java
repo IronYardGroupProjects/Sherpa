@@ -147,7 +147,7 @@ public class SherpaController {
         tourLocRepo.save(tlj);
         return new ResponseEntity<Object>(HttpStatus.OK);
     }
-    @RequestMapping(path = "/location", method = RequestMethod.GET)
+    @RequestMapping(path = "/tour/locations", method = RequestMethod.GET)
     public ResponseEntity<Object> getLocJoins(HttpSession session) {
         int id = (Integer) session.getAttribute("tourId");
         return new ResponseEntity<Object>(tourLocRepo.findAllByTour(tourRepo.findOne(id)), HttpStatus.OK);
@@ -190,6 +190,7 @@ public class SherpaController {
         while (fileScanner.hasNext()) {
             String[] columns = fileScanner.nextLine().split("\\t");
             Location location = new Location(columns[3], columns[4], Double.valueOf(columns[5]), Double.valueOf(columns[6]));
+
             if (!columns[0].isEmpty()) {
                 location.setImageUrl(columns[0]);
             }
