@@ -9,6 +9,12 @@
   .choice-button-wrap button:hover {
     background: #00EE6F; }
 
+.choices li {
+  display: inline;
+  margin: 0px 10px;
+  padding: 5px;
+  color: #9DA3B3; }
+
 .curExp-card-wrap {
   padding: 10px; }
 
