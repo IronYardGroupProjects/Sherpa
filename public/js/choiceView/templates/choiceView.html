@@ -9,14 +9,16 @@
   <div ng-model="choiceViewCtrl.categoryChoice" class="choices">
     <ol class="col-xs-12">
       <!-- using track by to allow duplicates from an ng-repeat https://docs.angularjs.org/api/ng/directive/ngRepeat -->
-      <li ng-repeat="choice in choiceViewCtrl.categoryChoice track by $index">{{choice.categoryStr}} <button ng-click="choiceViewCtrl.deleteChoice(choice)"><i class="fa fa-times-circle" aria-hidden="true"></i></button></li>
+      <li ng-repeat="choice in choiceViewCtrl.categoryChoice track by $index">{{choice.categoryStr}} <button ng-click="choiceViewCtrl.deleteChoice(choice)" class="choice-delete-btn"><i class="fa fa-times-circle" aria-hidden="true"></i></button></li>
     </ol>
+    <button
+      ng-click="choiceViewCtrl.submitChoice()"
+      class="submit">submit
+    </button>
   </div>
   <form action="">
   <div ng-repeat="category in choiceViewCtrl.categories">
     <choice-view-directive add-to-page="choiceViewCtrl.addChoice(category)" cat='category'></choice-view-directive>
   </div>
-  <button
-    ng-click="choiceViewCtrl.submitChoice()"
-    class="submit">submit</button></form>
+  </form>
 </div>

@@ -9,6 +9,7 @@
   padding: 10%;
   background: #CBCED6;
   color: #5B6580;
+  border-radius:0;
   &:hover {
     background: $c-green;
     color:white;
@@ -31,12 +32,13 @@
   border-radius:3px;
   background:#F3F3F3;
 }
-  button {
+  .choice-delete-btn {
     -webkit-appearance: none;
     background: none;
     border: none;
+    padding:0;
     margin-left: 10px;
-    color:#E85353;
+    color:#656975;
     &:hover{
       background:none;
       color:#E85353;

@@ -65,6 +65,8 @@ button {
   transition: .2s all;
   background: $c-green;
   color: white;
+  border-radius: 3px;
+  padding: 1% 2%;
   &:hover {
     background-color: $c-darkGreen;
     color:white;

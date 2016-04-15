@@ -2,7 +2,8 @@
   margin: 2% 0;
   padding: 10%;
   background: #CBCED6;
-  color: #5B6580; }
+  color: #5B6580;
+  border-radius: 0; }
   .choice-btn:hover {
     background: #00EE6F;
     color: white; }
@@ -21,13 +22,14 @@
   border-radius: 3px;
   background: #F3F3F3; }
 
-.choices button {
+.choices .choice-delete-btn {
   -webkit-appearance: none;
   background: none;
   border: none;
+  padding: 0;
   margin-left: 10px;
-  color: #E85353; }
-  .choices button:hover {
+  color: #656975; }
+  .choices .choice-delete-btn:hover {
     background: none;
     color: #E85353; }
 
@@ -226,7 +228,9 @@ button {
   font-size: 18px;
   transition: .2s all;
   background: #00EE6F;
-  color: white; }
+  color: white;
+  border-radius: 3px;
+  padding: 1% 2%; }
   button:hover {
     background-color: #12D66E;
     color: white; }
