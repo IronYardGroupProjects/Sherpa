@@ -1,0 +1,30 @@
+
+// Sherpa Modals
+//
+// All style specific to Modals should go here. Any global style should be placed in core.scss
+//
+//
+.modal-dialog {
+  width: 80%;
+}
+
+.modal-content {
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  background: none;
+}
+
+.modal-header {
+  border: none;
+  padding: 0;
+}
+
+.modal-footer {
+  border: none;
+  padding: 0;
+}
+
+.modal {
+  background: $c-green;
+}
