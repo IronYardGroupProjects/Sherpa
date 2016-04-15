@@ -1,15 +1,15 @@
 <!-- This template iterates over the '/category' route data to provide a list of choices for the user to build their own tour. -->
 <div class="container">
-  <h1>sherpa</h1>
-  <div class="breadcrumb">
+  <div class="logo col-xs-12"><h1>sherpa</h1></div>
+  <div class="bread-crumb col-xs-12">
     <a ui-sref="landing">home</a>
     <hr>
     <p>pick three categories to start creating your own tour.</p>
   </div>
   <div ng-model="choiceViewCtrl.categoryChoice" class="choices">
-    <ol >
+    <ol class="col-xs-12">
       <!-- using track by to allow duplicates from an ng-repeat https://docs.angularjs.org/api/ng/directive/ngRepeat -->
-      <li ng-repeat="choice in choiceViewCtrl.categoryChoice track by $index"><p>{{choice.categoryStr}}</p> <button ng-click="choiceViewCtrl.deleteChoice(choice)">x</button></li>
+      <li ng-repeat="choice in choiceViewCtrl.categoryChoice track by $index">{{choice.categoryStr}} <button ng-click="choiceViewCtrl.deleteChoice(choice)"><i class="fa fa-times-circle" aria-hidden="true"></i></button></li>
     </ol>
   </div>
   <form action="">

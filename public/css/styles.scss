@@ -4,6 +4,7 @@
 // Sherpa Color Variables
 //
 $c-green:#00EE6F;
+$c-darkGreen:#12D66E;
 $c-blue:#102665;
 $c-gray:#9DA3B3;
 
@@ -29,6 +30,7 @@ $a-duration:1s;
 @import "js/curExp/css/_curExp.scss";
 @import "js/near/css/_infoWindow.scss";
 @import "_maps.scss";
+@import "_modal.scss";
 @import "_landing.scss";
 @import "_animate.scss";
 @import "_core.scss";

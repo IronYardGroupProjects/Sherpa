@@ -14,14 +14,17 @@
     margin-bottom:10%;
   }
 }
-  //options
-  .options button{
-    height:35vh;
-  }
+
 } //@media xs end
 
 // device size md
 @media only screen and (max-width:47.875em) {
+  // choices view
+  .choices{
+    li{
+      margin-bottom:3%;
+    }
+  }
   // splash view
   .welcome-container{
     display:inline-block;
@@ -29,5 +32,9 @@
     p{
       margin-bottom:10%;
     }
+  }
+  // experience view
+  .experience-btn{
+    height:30vh;
   }
 }//@media md end

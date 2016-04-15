@@ -42,17 +42,34 @@ h3{
   letter-spacing: 4px;
   font-size: 4rem;
 }
+hr{
+  border: 3px solid $c-green;
+  width: 35%;
+  margin-bottom:3%;
+}
 .nav{
   margin-bottom:20px;
 }
-.breadcrumb{
-  background:none;
-  margin:3% 0;
-  padding:0;
+.bread-crumb{
   a{
     color:$c-gray;
     &:hover{
       color:$c-green;
     }
+  }
+}
+
+button {
+  border: none;
+  font-size: 18px;
+  transition: .2s all;
+  background: $c-green;
+  color: white;
+  &:hover {
+    background-color: $c-darkGreen;
+    color:white;
+  }
+  &:focus {
+    outline: none;
   }
 }
