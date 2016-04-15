@@ -59,7 +59,7 @@ angular
         var locations = document.querySelectorAll('.location');
         locations = [].slice.call(locations);
         locations.forEach(function(el){
-          ids.push(el.dataset.locId);
+          ids.push(parseInt(el.dataset.locId));
         })
         choiceViewService.startTour(ids).then(function(data){
           localStorage.setItem('activeTour', JSON.stringify(data));
