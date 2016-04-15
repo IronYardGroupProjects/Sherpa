@@ -1,5 +1,6 @@
 var angular = require('angular');
-require('angular-ui-router')
+require('angular-ui-router');
+var $ = jQuery = require('jquery');
 
 angular
   .module('choiceView', [
