@@ -27,6 +27,9 @@
   border: none;
   margin-left: 10px;
   color: #E85353; }
+  .choices button:hover {
+    background: none;
+    color: #E85353; }
 
 .curExp-choice-wrap {
   padding: 10px; }
