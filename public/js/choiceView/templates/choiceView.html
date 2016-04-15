@@ -12,6 +12,7 @@
       <li ng-repeat="choice in choiceViewCtrl.categoryChoice track by $index">{{choice.categoryStr}} <button ng-click="choiceViewCtrl.deleteChoice(choice)" class="choice-delete-btn"><i class="fa fa-times-circle" aria-hidden="true"></i></button></li>
     </ol>
     <button
+      type="button"
       ng-click="choiceViewCtrl.submitChoice()"
       class="submit">submit
     </button>
