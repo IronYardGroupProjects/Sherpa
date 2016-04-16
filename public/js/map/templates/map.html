@@ -5,6 +5,24 @@
   <a ui-sref="home.choiceView">Choice View</a>
   <a ui-sref="home.curExp">Curated Experience</a>
   <a ui-sref="home.near">Near Me</a>
+  <button type="button" data-toggle="modal" data-target="#quit">Quit</button>
+  <div class="modal fade" id="quit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h2 class="modal-title" id="myModalLabel">Quit</h2>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to quit? You will be unable to resume your tour.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
+          <button type="button" ng-click="MapCtrl.quit()">Quit Tour</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="main-map" class="col-xs-12"></div>

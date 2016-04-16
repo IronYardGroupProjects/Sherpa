@@ -20,8 +20,8 @@ angular
           CurExpService.sendSelectedTour(id).then(function(data){;
             localStorage.setItem('activeTour', JSON.stringify(data));
             var modal = '#' + id;
-            $(modal).modal('hide');
             $state.go('home.map');
+            $(modal).modal('hide');
           });
         }
     });
