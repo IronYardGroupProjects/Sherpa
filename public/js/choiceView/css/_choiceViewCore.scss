@@ -21,18 +21,20 @@
 }
 
 .choices {
+  margin-bottom: 3%;
+  padding: 0;
   ol{
-    margin:2% 0;
+    margin-bottom:0;
   }
   li {
-  display: inline-block;
-  margin-right: 10px;
-  padding: 5px 10px;
-  font-size:1.5rem;
-  color:$c-gray;
-  border-radius:3px;
-  background:#F3F3F3;
-}
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    font-size:1.5rem;
+    color:$c-gray;
+    border-radius:3px;
+    background:#F3F3F3;
+  }
 .submit-wrap {
   text-align: right;
 }

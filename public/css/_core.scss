@@ -47,8 +47,14 @@ hr{
   width: 35%;
   margin-bottom:3%;
 }
-.nav{
-  margin-bottom:20px;
+.header-container {
+  display:flex;
+  align-items:center;
+  padding:3% 0 5%;
+  h3{
+    color:$c-gray;
+    margin-top: 8%;
+  }
 }
 .bread-crumb{
   a{

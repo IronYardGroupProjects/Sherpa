@@ -8,20 +8,8 @@
   text-align: center;
   margin:0;
   padding:0;
-  }
-
-.header-container {
-  display:flex;
-  align-items:center;
-  padding:3% 0 7%;
-  h3{
-    color:$c-gray;
-    margin-top: 8%;
-  }
-  .description{
-    // @include vertical-align();
-  }
 }
+
 .options button {
   width: 100%;
   height:75vh;

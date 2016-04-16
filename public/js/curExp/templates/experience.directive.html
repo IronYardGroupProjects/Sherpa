@@ -1,32 +1,28 @@
+<div class="curExp-choice-wrap .col-xs-6 .col-sm-4">
+  <div class="curExp-choice col-xs-12">
+    <button
+      class="col-xs-12 experience-btn"
+      data-toggle="modal"
+      data-target= "#{{ expTour.id }}">
+      {{ expTour.name }}
+    </button>
+  </div>
+</div>
 
-
-    <div class="curExp-choice-wrap .col-xs-6 .col-sm-4">
-      <div class="curExp-choice col-xs-12">
-        <button
-          class="col-xs-12 experience-btn"
-          data-toggle="modal"
-          data-target= "#{{ expTour.id }}">
-          {{ expTour.name }}
-        </button>
+<div class="modal fade" tabindex="-1" id="{{ expTour.id }}" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{ expTour.name }} Tour</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{ expTour.description }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">back</button>
+        <button type="button" ng-click="submit()" class="btn btn-primary">Start Tour</button>
       </div>
     </div>
-
-
-    <div class="modal fade" tabindex="-1" id="{{ expTour.id }}" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">{{ expTour.name }}</h4>
-          </div>
-          <div class="modal-body">
-            <p>{{ expTour.description }}</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" ng-click="submit()" class="btn btn-primary">Select Tour</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
+  </div>
+</div>

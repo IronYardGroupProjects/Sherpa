@@ -11,31 +11,31 @@
   .choice-btn:focus {
     outline: none; }
 
-.choices ol {
-  margin: 2% 0; }
-
-.choices li {
-  display: inline-block;
-  margin-right: 10px;
-  padding: 5px 10px;
-  font-size: 1.5rem;
-  color: #9DA3B3;
-  border-radius: 3px;
-  background: #F3F3F3; }
-
-.choices .submit-wrap {
-  text-align: right; }
-
-.choices .choice-delete-btn {
-  -webkit-appearance: none;
-  background: none;
-  border: none;
-  padding: 0;
-  margin-left: 10px;
-  color: #E85353; }
-  .choices .choice-delete-btn:hover {
+.choices {
+  margin-bottom: 3%;
+  padding: 0; }
+  .choices ol {
+    margin-bottom: 0; }
+  .choices li {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+    color: #9DA3B3;
+    border-radius: 3px;
+    background: #F3F3F3; }
+  .choices .submit-wrap {
+    text-align: right; }
+  .choices .choice-delete-btn {
+    -webkit-appearance: none;
     background: none;
+    border: none;
+    padding: 0;
+    margin-left: 10px;
     color: #E85353; }
+    .choices .choice-delete-btn:hover {
+      background: none;
+      color: #E85353; }
 
 .curExp-choice-wrap {
   padding: 10px; }
@@ -93,7 +93,8 @@
   height: 100vh; }
 
 .modal-dialog {
-  width: 80%; }
+  width: 80%;
+  margin-top: 10%; }
 
 .modal-content {
   box-shadow: none;
@@ -105,9 +106,21 @@
   border: none;
   padding: 0; }
 
+.modal-title {
+  font-size: 2.25rem;
+  font-weight: 800; }
+
+.modal-body {
+  padding: 5% 0; }
+
 .modal-footer {
   border: none;
   padding: 0; }
+  .modal-footer button {
+    border: none;
+    background: rgba(0, 0, 0, 0.2);
+    font-size: 1.75rem;
+    color: white; }
 
 .modal {
   background: #00EE6F; }
@@ -116,14 +129,6 @@
   text-align: center;
   margin: 0;
   padding: 0; }
-
-.header-container {
-  display: flex;
-  align-items: center;
-  padding: 3% 0 7%; }
-  .header-container h3 {
-    color: #9DA3B3;
-    margin-top: 8%; }
 
 .options button {
   width: 100%;
@@ -221,8 +226,13 @@ hr {
   width: 35%;
   margin-bottom: 3%; }
 
-.nav {
-  margin-bottom: 20px; }
+.header-container {
+  display: flex;
+  align-items: center;
+  padding: 3% 0 5%; }
+  .header-container h3 {
+    color: #9DA3B3;
+    margin-top: 8%; }
 
 .bread-crumb a {
   color: #9DA3B3; }
@@ -244,11 +254,30 @@ button {
     outline: none; }
 
 @media screen and (max-width: 40em) {
+  .header-container {
+    display: inline-block;
+    padding: 3% 15px; }
+  .description {
+    padding-top: 7%;
+    padding-bottom: 4%; }
+  .modal-dialog {
+    margin: 0 auto;
+    margin-top: 10%; }
   .welcome-container {
     display: inline-block;
     align-items: none; }
     .welcome-container p {
-      margin-bottom: 10%; } }
+      margin-bottom: 10%; }
+  .options button {
+    height: 50vh; }
+  .curExp-choice {
+    padding: 3% 0; }
+  .choices {
+    padding: 0; }
+    .choices .submit-wrap button {
+      width: 100%;
+      padding: 3% 0;
+      margin: 3% 0; } }
 
 @media only screen and (max-width: 47.875em) {
   .choices li {
