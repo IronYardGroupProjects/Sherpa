@@ -6,15 +6,44 @@
 
 // device size xs
 @media screen and (max-width: 40em) {
-  //welcome view
-.welcome-container{
-  display:inline-block;
-  align-items:none;
-  p{
-    margin-bottom:10%;
+  // global
+  .header-container{
+    display:inline-block;
+    padding:3% 15px;
   }
-}
+  .description {
+    padding-top: 7%;
+    padding-bottom: 4%;
+  }
+  .modal-dialog {
+    margin: 0 auto;
+    margin-top: 10%;
+  }
 
+  //welcome view
+  .welcome-container{
+    display:inline-block;
+    align-items:none;
+    p{
+      margin-bottom:10%;
+    }
+  }
+  .options button{
+    height: 50vh;
+  }
+  // experience view
+  .curExp-choice{
+    padding: 3% 0;
+  }
+  // choice view
+  .choices{
+    padding:0;
+    .submit-wrap button {
+      width: 100%;
+      padding: 3% 0;
+      margin:3% 0;
+    }
+  }
 } //@media xs end
 
 // device size md

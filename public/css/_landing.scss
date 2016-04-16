@@ -8,20 +8,8 @@
   text-align: center;
   margin:0;
   padding:0;
-  }
-
-.welcome-container {
-  display:flex;
-  align-items:center;
-  padding:3% 0 7%;
-  h3{
-    color:$c-gray;
-    margin-top: 8%;
-  }
-  .description{
-    // @include vertical-align();
-  }
 }
+
 .options button {
   width: 100%;
   height:75vh;
@@ -33,6 +21,7 @@
   background: $c-green;
   transition:.2s all;
   border: 3px solid $c-blue;
+  border-radius:0;
   &:hover {
     background: $c-blue;
     color:#fff;
