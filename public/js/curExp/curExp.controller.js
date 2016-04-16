@@ -10,7 +10,6 @@ angular
 
         CurExpService.getTours()
             .then(function(data) {
-                console.log("try it", data);
                 // $window.localStorage.setItem('tourId', response);
                 vm.tours = data.data;
                 // window.glob=data.data;
@@ -18,9 +17,10 @@ angular
             });
 
         vm.sendTour = function (id) {
-          console.log(id);
           CurExpService.sendSelectedTour(id).then(function(data){;
             localStorage.setItem('activeTour', JSON.stringify(data));
+            var modal = '#' + id;
+            $(modal).modal('hide');
             $state.go('home.map');
           });
         }
