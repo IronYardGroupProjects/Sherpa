@@ -13,7 +13,7 @@ angular
       },
       controller: function($scope) {
         $scope.advance = function(){
-          if($scope.index !== $scope.location.data.length){
+          if($scope.index !== ($scope.location.data.length -1)){
             $scope.index++;
             $scope.locationDisplay = $scope.location.data[$scope.index].name;
             $scope.locId = $scope.location.data[$scope.index].id;

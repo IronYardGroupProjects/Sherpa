@@ -25,6 +25,13 @@ angular
         defer.resolve(status);
       });
       return defer.promise;
+    },
+    quitTour: function(){
+      var defer = $q.defer();
+      $http.delete('/tour').then(function(response){
+        defer.resolve(response);
+      });
+      return defer.promise;
     }
   }
   return MapService;
