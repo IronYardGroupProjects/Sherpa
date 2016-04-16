@@ -3,7 +3,8 @@
   padding: 10%;
   background: #CBCED6;
   color: #5B6580;
-  border-radius: 0; }
+  border-radius: 0;
+  font-size: 2rem; }
   .choice-btn:hover {
     background: #00EE6F;
     color: white; }
@@ -22,13 +23,16 @@
   border-radius: 3px;
   background: #F3F3F3; }
 
+.choices .submit-wrap {
+  text-align: right; }
+
 .choices .choice-delete-btn {
   -webkit-appearance: none;
   background: none;
   border: none;
   padding: 0;
   margin-left: 10px;
-  color: #656975; }
+  color: #E85353; }
   .choices .choice-delete-btn:hover {
     background: none;
     color: #E85353; }
@@ -113,11 +117,11 @@
   margin: 0;
   padding: 0; }
 
-.welcome-container {
+.header-container {
   display: flex;
   align-items: center;
   padding: 3% 0 7%; }
-  .welcome-container h3 {
+  .header-container h3 {
     color: #9DA3B3;
     margin-top: 8%; }
 
@@ -131,7 +135,8 @@
   color: #102665;
   background: #00EE6F;
   transition: .2s all;
-  border: 3px solid #102665; }
+  border: 3px solid #102665;
+  border-radius: 0; }
   .options button:hover {
     background: #102665;
     color: #fff; }
@@ -226,7 +231,7 @@ hr {
 
 button {
   border: none;
-  font-size: 18px;
+  font-size: 1.5rem;
   transition: .2s all;
   background: #00EE6F;
   color: white;
