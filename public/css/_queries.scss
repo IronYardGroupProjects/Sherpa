@@ -19,7 +19,11 @@
     margin: 0 auto;
     margin-top: 10%;
   }
-
+  button.submit {
+    width: 100%;
+    padding: 3% 0;
+    margin:3% 0;
+  }
   //welcome view
   .welcome-container{
     display:inline-block;
@@ -38,11 +42,6 @@
   // choice view
   .choices{
     padding:0;
-    .submit-wrap button {
-      width: 100%;
-      padding: 3% 0;
-      margin:3% 0;
-    }
   }
 } //@media xs end
 
