@@ -64,5 +64,9 @@ angular
 
       }
 
+      vm.stickyRelocate = function(){
+        
+      }
+
     }
 )
