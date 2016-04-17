@@ -189,6 +189,7 @@ angular
       MapService.quitTour().then(function(response){
         $('#quit').modal('hide');
         localStorage.removeItem('activeTour');
+        navigator.geolocation.clearWatch(vm.watchID);
         $state.go('landing');
       })
     }
