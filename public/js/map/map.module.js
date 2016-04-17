@@ -1,9 +1,11 @@
 var angular = require('angular');
 require('angular-ui-router');
+require('angular-loading-bar');
 
 angular
   .module('map', [
-    'ui.router'
+    'ui.router',
+    'angular-loading-bar'
   ])
   .config(function($stateProvider) {
       $stateProvider
