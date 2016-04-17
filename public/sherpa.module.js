@@ -3,6 +3,7 @@ require('angular-ui-router');
 require('angular-animate');
 require('angular-touch');
 require('angular-loading-bar');
+require('ngSticky');
 
 angular
   .module('sherpa', [
@@ -13,7 +14,8 @@ angular
     'near',
     'ngAnimate',
     'ngTouch',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'sticky'
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider

@@ -15,7 +15,10 @@
 
 .choices {
   margin-bottom: 3%;
-  padding: 0; }
+  padding: 0;
+  background: whitesmoke;
+  padding-top: 3%;
+  height: inherit !important; }
   .choices ol {
     margin-bottom: 0; }
   .choices li {
@@ -116,7 +119,7 @@
 
 #main-map, #near-map {
   border-top: 3px solid #102665;
-  height: 100vh; }
+  height: 90vh; }
 
 .modal-dialog {
   width: 80%;
@@ -305,7 +308,9 @@ button {
   .curExp-choice {
     padding: 3% 0; }
   .choices {
-    padding: 0; } }
+    padding: 0; }
+  .location {
+    width: 81%; } }
 
 @media only screen and (max-width: 47.875em) {
   .choices li {
