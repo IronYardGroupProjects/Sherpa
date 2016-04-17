@@ -28,6 +28,8 @@
   background: whitesmoke;
   padding-top: 3%;
   height:inherit !important;
+  padding-bottom: 3%;
+  border-bottom: 1px solid #EFEFEF;
   ol{
     margin-bottom:0;
   }
@@ -49,11 +51,11 @@
     border: none;
     padding:0;
     margin-left: 10px;
-    color:#E85353;
+    color:$c-red;
     box-shadow:none;
     &:hover{
       background:none;
-      color:#E85353;
+      color:darken($c-red, 20%);
     }
   }
 }
@@ -61,10 +63,10 @@
 // choice view slider
 
 .location {
-  width: 80%;
+  width: 93%;
   display: inline-block;
-  padding: 3%;
-  margin: 5%;
+  padding: 1%;
+  margin: 2%;
   font-size:2rem;
 }
 
@@ -73,6 +75,10 @@
     padding: 0 4%;
     i{
       color:$c-gray;
+      cursor:pointer;
+      &:hover{
+        color:$c-green;
+      }
     }
 }
 .collection-item-wrap {
@@ -80,9 +86,13 @@
   h4 {
     font-size: 2rem;
     font-weight: 600;
-    padding: 5%;
+    padding: 3%;
     background: white;
     margin: 0;
     border-bottom: 1px solid whitesmoke;
   }
+}
+
+.finish-collection .submit-wrap {
+    text-align: left;
 }

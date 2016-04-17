@@ -3,6 +3,7 @@ require('angular-ui-router');
 require('angular-animate');
 require('angular-touch');
 require('angular-loading-bar');
+// using ngSticky so the users collection scrolls with them https://github.com/d-oliveros/ngSticky
 require('ngSticky');
 
 angular
