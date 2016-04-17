@@ -3,7 +3,9 @@
     <button
       class="col-xs-12 experience-btn"
       data-toggle="modal"
-      data-target= "#{{ expTour.id }}">
+      data-target= "#{{ expTour.id }}"
+      ng-style="{'background-image': 'url({{expTour.imgUrl}})'}"
+      >
       {{ expTour.name }}
     </button>
   </div>
