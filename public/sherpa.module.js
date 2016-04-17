@@ -22,12 +22,6 @@ angular
       .state('landing',{
         url:'/',
         templateUrl:'templates/landing.html',
-        // controller: function($rootScope, $state){
-        //   $rootScope.$on('redirect', function(event, data){
-        //     console.log(data);
-        //     $state.go('home.map');
-        //   })
-        // },
         resolve: {
           existingTour: function($state, $http, $rootScope, $timeout){
             var tour = JSON.parse(localStorage.getItem('activeTour'));
@@ -35,11 +29,7 @@ angular
               var id = tour.data;
               $http.post('/re-join/' + id).then(
                 function(data){
-                  console.log(data);
                   $rootScope.$broadcast('change-state', 'home.map');
-                  // $timeout(function() {
-                  //     $state.go('home.map')
-                  //  },0);
                 },
                 function(err){
                   console.log(err);
@@ -54,18 +44,11 @@ angular
         url: '/home',
         abstract: true,
         templateUrl: 'templates/main.html',
-        // controller: function($rootScope, $state){
-        //   $rootScope.$on('redirect', function(event, data){
-        //     console.log(data);
-        //     $state.go('home.map');
-        //   })
-        // }
       });
       $urlRouterProvider.otherwise('/',{});
   })
   .run(function($rootScope, $state){
     $rootScope.$on('change-state', function (e, stateName) {
-      console.log(e);
       $state.go('home.map');
      });
   })
