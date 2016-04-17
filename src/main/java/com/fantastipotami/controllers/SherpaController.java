@@ -79,7 +79,7 @@ public class SherpaController {
         if (list != null) {
             return new ResponseEntity<Object>(list, HttpStatus.TEMPORARY_REDIRECT);
         }
-        else return new ResponseEntity<Object>("No existing tour", HttpStatus.CONTINUE);
+        else return new ResponseEntity<Object>(HttpStatus.GONE);
     }
 
     /*Hit to get the perm tour options, they will include each
