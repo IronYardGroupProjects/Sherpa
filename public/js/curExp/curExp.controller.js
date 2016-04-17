@@ -3,14 +3,13 @@ var $ = jQuery = require('jquery');
 var bootstrap = require('bootstrap');
 angular
     .module('curExp')
-    .controller('curExpController', function($rootScope, $scope, CurExpService) {
+    .controller('curExpController', function($rootScope, $state, $scope, CurExpService) {
         var vm = this;
         // vm.tours = CurExpService.showTours();
         // vm.tour = CurExpService.showTour();
 
         CurExpService.getTours()
             .then(function(data) {
-                console.log("try it", data);
                 // $window.localStorage.setItem('tourId', response);
                 vm.tours = data.data;
                 // window.glob=data.data;
@@ -18,8 +17,12 @@ angular
             });
 
         vm.sendTour = function (id) {
-        CurExpService.sendSelectedTour(id)
-        console.log("yay!!!");
+          CurExpService.sendSelectedTour(id).then(function(data){;
+            localStorage.setItem('activeTour', JSON.stringify(data));
+            var modal = '#' + id;
+            $state.go('home.map');
+            $(modal).modal('hide');
+          });
         }
     });
 

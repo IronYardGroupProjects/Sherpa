@@ -12,7 +12,7 @@ angular
     vm.watchID;
     vm.options = {timeout: 5000, enableHighAccuracy: false};
     vm.tour = tour.data;
-    
+
     //Initialize Map
     vm.map = new GMaps({
       div: '#main-map',
@@ -25,7 +25,7 @@ angular
       lng: location.coords.longitude,
       icon: '../../images/sherpaPin.png'
     });
-    //Add custom map control.
+    //Add zoom fit custom map control.
     vm.map.addControl({
       position: 'top_right',
       content: '<i class="fa fa-2x fa-crosshairs"></i>',
@@ -184,4 +184,12 @@ angular
     }
     //Monitor User location and use updateUserMarker callback to move marker and trigger fences.
     vm.watchID = navigator.geolocation.watchPosition(vm.updateUserMarker, errHandler, vm.options);
+    //Quit tour
+    vm.quit = function(){
+      MapService.quitTour().then(function(response){
+        $('#quit').modal('hide');
+        localStorage.removeItem('activeTour');
+        $state.go('landing');
+      })
+    }
 });

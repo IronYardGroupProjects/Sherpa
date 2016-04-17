@@ -16,44 +16,39 @@ angular
 
       // add choices to the category choice array, limited to 3 choices.
       vm.addChoice = function(item) {
-          console.log("BEFORE", vm.categoryChoice);
           if(vm.categoryChoice.length < 3){
             vm.categoryChoice.push(item);
           }
-          console.log("After", vm.categoryChoice);
       }
 
       // delete choices made and removed from category choice array
       vm.deleteChoice = function(choice){
         var index = vm.categoryChoice.indexOf(choice);
         vm.categoryChoice.splice(index, 1);
-        console.log(choice)
       }
 
       // submit choices added to the category choice array via the getAllCategoryLocs function from choiceViewService, ids cleaned to prevent multiple calls, and changing views to choiceViewSLider.
       vm.submitChoice = function(){
-        var id = []
+        if(vm.categoryChoice.length !== 0){
+          var id = []
 
-        // iterate over the array pulling out the id and adds it to the id array.
-        vm.categoryChoice.forEach(function(el){
-          return id.push(el.id)
-        })
-        console.log("IDS", id);
-        // clean ids to remove duplicates
-        // var cleanId = _.uniqBy(id);
-
-        // pass the cleanId param into the getAllCategoryLocs function (found in the choiceViewService) then we return the data associated with that id via 'category/{id}' route.
-        choiceViewService.getAllCategoryLocs(id)
-          .then(function(data){
-            $rootScope.locations = data;
-            console.log("location data", $rootScope.locations)
+          // iterate over the array pulling out the id and adds it to the id array.
+          vm.categoryChoice.forEach(function(el){
+            return id.push(el.id)
           })
 
-          // change views from choiceView to choiceViewSlider
-          $state.go('home.choiceViewSlider');
+          // pass the id array into the getAllCategoryLocs function (found in the choiceViewService) then we return the data associated with that id via 'category/{id}' route.
+          choiceViewService.getAllCategoryLocs(id)
+            .then(function(data){
+              $rootScope.locations = data;
+              console.log("location data", $rootScope.locations)
+            })
 
+            // change views from choiceView to choiceViewSlider
+            $state.go('home.choiceViewSlider');
+        }
       }
-      //{list: [ids]}
+      //selects all the active locations in the view, puts them into an array, and passes them into a startTour method.
       vm.startTour = function(){
         var ids = [];
         var locations = document.querySelectorAll('.location');
@@ -61,6 +56,7 @@ angular
         locations.forEach(function(el){
           ids.push(parseInt(el.dataset.locId));
         })
+        //stores the active tour into localStorage for later reference.
         choiceViewService.startTour(ids).then(function(data){
           localStorage.setItem('activeTour', JSON.stringify(data));
           $state.go('home.map');

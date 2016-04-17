@@ -9,6 +9,8 @@
   padding: 10%;
   background: #CBCED6;
   color: #5B6580;
+  border-radius:0;
+  font-size:2rem;
   &:hover {
     background: $c-green;
     color:white;
@@ -19,23 +21,33 @@
 }
 
 .choices {
+  margin-bottom: 3%;
+  padding: 0;
   ol{
-    margin:2% 0;
+    margin-bottom:0;
   }
   li {
-  display: inline-block;
-  margin-right: 10px;
-  padding: 5px 10px;
-  font-size:1.5rem;
-  color:$c-gray;
-  border-radius:3px;
-  background:#F3F3F3;
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    font-size:1.5rem;
+    color:$c-gray;
+    border-radius:3px;
+    background:#F3F3F3;
+  }
+.submit-wrap {
+  text-align: right;
 }
-  button {
+  .choice-delete-btn {
     -webkit-appearance: none;
     background: none;
     border: none;
+    padding:0;
     margin-left: 10px;
     color:#E85353;
+    &:hover{
+      background:none;
+      color:#E85353;
+    }
   }
 }

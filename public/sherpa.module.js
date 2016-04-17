@@ -17,7 +17,24 @@ angular
     $stateProvider
       .state('landing',{
         url:'/',
-        templateUrl:'templates/landing.html'
+        templateUrl:'templates/landing.html',
+        resolve: {
+          existingTour: function($state, $http){
+            var tour = JSON.parse(localStorage.getItem('activeTour'));
+            if(tour){
+              var id = tour.data;
+              $http.post('/re-join/' + id).then(
+                function(tour){
+                  $state.go('home.map');
+                },
+                function(err){
+                  console.log("Could not get tour data");
+                  localStorage.removeItem('activeTour');
+                }
+              )
+            }
+          }
+        }
       })
       .state('home', {
         url: '/home',

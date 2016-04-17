@@ -2,31 +2,40 @@
   margin: 2% 0;
   padding: 10%;
   background: #CBCED6;
-  color: #5B6580; }
+  color: #5B6580;
+  border-radius: 0;
+  font-size: 2rem; }
   .choice-btn:hover {
     background: #00EE6F;
     color: white; }
   .choice-btn:focus {
     outline: none; }
 
-.choices ol {
-  margin: 2% 0; }
-
-.choices li {
-  display: inline-block;
-  margin-right: 10px;
-  padding: 5px 10px;
-  font-size: 1.5rem;
-  color: #9DA3B3;
-  border-radius: 3px;
-  background: #F3F3F3; }
-
-.choices button {
-  -webkit-appearance: none;
-  background: none;
-  border: none;
-  margin-left: 10px;
-  color: #E85353; }
+.choices {
+  margin-bottom: 3%;
+  padding: 0; }
+  .choices ol {
+    margin-bottom: 0; }
+  .choices li {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+    color: #9DA3B3;
+    border-radius: 3px;
+    background: #F3F3F3; }
+  .choices .submit-wrap {
+    text-align: right; }
+  .choices .choice-delete-btn {
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 10px;
+    color: #E85353; }
+    .choices .choice-delete-btn:hover {
+      background: none;
+      color: #E85353; }
 
 .curExp-choice-wrap {
   padding: 10px; }
@@ -39,6 +48,7 @@
 .experience-btn {
   margin: 2% 0;
   padding: 10%;
+  border-radius: 0;
   font-size: 3rem;
   color: #5B6580;
   height: 100vh;
@@ -83,7 +93,8 @@
   height: 100vh; }
 
 .modal-dialog {
-  width: 80%; }
+  width: 80%;
+  margin-top: 10%; }
 
 .modal-content {
   box-shadow: none;
@@ -95,9 +106,21 @@
   border: none;
   padding: 0; }
 
+.modal-title {
+  font-size: 2.25rem;
+  font-weight: 800; }
+
+.modal-body {
+  padding: 5% 0; }
+
 .modal-footer {
   border: none;
   padding: 0; }
+  .modal-footer button {
+    border: none;
+    background: rgba(0, 0, 0, 0.2);
+    font-size: 1.75rem;
+    color: white; }
 
 .modal {
   background: #00EE6F; }
@@ -106,14 +129,6 @@
   text-align: center;
   margin: 0;
   padding: 0; }
-
-.welcome-container {
-  display: flex;
-  align-items: center;
-  padding: 3% 0 7%; }
-  .welcome-container h3 {
-    color: #9DA3B3;
-    margin-top: 8%; }
 
 .options button {
   width: 100%;
@@ -125,7 +140,8 @@
   color: #102665;
   background: #00EE6F;
   transition: .2s all;
-  border: 3px solid #102665; }
+  border: 3px solid #102665;
+  border-radius: 0; }
   .options button:hover {
     background: #102665;
     color: #fff; }
@@ -210,8 +226,13 @@ hr {
   width: 35%;
   margin-bottom: 3%; }
 
-.nav {
-  margin-bottom: 20px; }
+.header-container {
+  display: flex;
+  align-items: center;
+  padding: 3% 0 5%; }
+  .header-container h3 {
+    color: #9DA3B3;
+    margin-top: 8%; }
 
 .bread-crumb a {
   color: #9DA3B3; }
@@ -220,10 +241,12 @@ hr {
 
 button {
   border: none;
-  font-size: 18px;
+  font-size: 1.5rem;
   transition: .2s all;
   background: #00EE6F;
-  color: white; }
+  color: white;
+  border-radius: 3px;
+  padding: 1% 2%; }
   button:hover {
     background-color: #12D66E;
     color: white; }
@@ -231,11 +254,30 @@ button {
     outline: none; }
 
 @media screen and (max-width: 40em) {
+  .header-container {
+    display: inline-block;
+    padding: 3% 15px; }
+  .description {
+    padding-top: 7%;
+    padding-bottom: 4%; }
+  .modal-dialog {
+    margin: 0 auto;
+    margin-top: 10%; }
   .welcome-container {
     display: inline-block;
     align-items: none; }
     .welcome-container p {
-      margin-bottom: 10%; } }
+      margin-bottom: 10%; }
+  .options button {
+    height: 50vh; }
+  .curExp-choice {
+    padding: 3% 0; }
+  .choices {
+    padding: 0; }
+    .choices .submit-wrap button {
+      width: 100%;
+      padding: 3% 0;
+      margin: 3% 0; } }
 
 @media only screen and (max-width: 47.875em) {
   .choices li {
