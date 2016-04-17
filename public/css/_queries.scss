@@ -40,11 +40,16 @@
     padding: 3% 0;
   }
   // choice view
-  .choices{
-    padding:0;
-  }
   .location{
     width:81%;
+    padding: 3%;
+    margin: 5%;
+  }
+  // choice view slider
+  .collection-item-wrap {
+    h4 {
+      padding: 5%;
+    }
   }
 } //@media xs end
 
