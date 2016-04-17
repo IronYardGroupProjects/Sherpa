@@ -10,10 +10,10 @@
   .header-container{
     display:inline-block;
     padding:3% 15px;
+    padding-bottom:0;
   }
   .description {
     padding-top: 7%;
-    padding-bottom: 4%;
   }
   .modal-dialog {
     margin: 0 auto;
@@ -23,6 +23,7 @@
     width: 100%;
     padding: 3% 0;
     margin:3% 0;
+    margin-bottom:10%;
   }
   //welcome view
   .welcome-container{
@@ -32,12 +33,18 @@
       margin-bottom:10%;
     }
   }
+  .options {
+    padding-top: 10%;
+  }
   .options button{
     height: 50vh;
   }
   // experience view
   .curExp-choice{
     padding: 3% 0;
+  }
+  .dismiss{
+    display:none;
   }
   // choice view
   .location{

@@ -51,11 +51,11 @@
     border: none;
     padding:0;
     margin-left: 10px;
-    color:#E85353;
+    color:$c-red;
     box-shadow:none;
     &:hover{
       background:none;
-      color:#E85353;
+      color:darken($c-red, 20%);
     }
   }
 }
