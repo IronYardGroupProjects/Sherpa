@@ -77,7 +77,7 @@ public class SherpaController {
         session.setAttribute("tourId", id);
         List<TourLocationJoin> list = tourLocRepo.findAllByTour(tourRepo.findOne(id));
         if (list != null) {
-            return new ResponseEntity<Object>(list, HttpStatus.TEMPORARY_REDIRECT);
+            return new ResponseEntity<Object>(list, HttpStatus.ACCEPTED);
         }
         else return new ResponseEntity<Object>(HttpStatus.GONE);
     }
