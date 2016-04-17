@@ -13,7 +13,12 @@
 </div>
 <!-- End Header Container -->
 
-<div class="container">
+<div class="container finish-collection">
+  <div class="col-xs-12 choices">
+    <div class="col-xs-12 col-sm-6 submit-wrap">
+      <button ng-click="choiceViewCtrl.startTour()" class="submit">Start Tour</button>
+    </div>
+  </div>
   <div class="collection-list-wrap">
     <div ng-repeat="location in locations" >
       <choice-view-slider-directive
@@ -25,8 +30,5 @@
       >
       </choice-view-slider-directive>
     </div>
-  </div>
-  <div class="col-xs-12 col-sm-6 submit-wrap">
-    <button ng-click="choiceViewCtrl.startTour()" class="submit">Start Tour</button>
   </div>
 </div>
