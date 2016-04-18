@@ -126,7 +126,24 @@
 
 #main-map, #near-map {
   border-top: 3px solid #102665;
-  height: 90vh; }
+  height: 85vh; }
+
+.map-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5%; }
+  .map-header .description {
+    text-align: right; }
+  .map-header button {
+    background: #E85353;
+    padding: 1% 10%; }
+    .map-header button:hover {
+      background: #e22626; }
+  .map-header h1 {
+    font-size: 4rem; }
+  .map-header h3 {
+    color: #9DA3B3;
+    margin-top: 8%; }
 
 .modal-dialog {
   width: 80%;
@@ -137,11 +154,25 @@
   border-radius: 0;
   border: none;
   background: white;
-  padding: 7%; }
+  padding: 4%; }
 
 .modal-header {
   border: none;
   padding: 0; }
+  .modal-header .close {
+    background: none;
+    box-shadow: none;
+    opacity: 1;
+    color: #E85353;
+    border-radius: 0;
+    padding: 10px; }
+    .modal-header .close:hover {
+      color: white;
+      opacity: 1;
+      text-shadow: none;
+      background: #E85353; }
+    .modal-header .close span {
+      padding: 10px; }
 
 .modal-title {
   font-size: 2.25rem;
@@ -160,7 +191,23 @@
 
 .modal {
   background: rgba(18, 214, 110, 0.85);
-  border-top: 3px solid #12D66E; }
+  border-top: 3px solid #12D66E;
+  word-wrap: break-word; }
+  .modal a {
+    color: #12D66E; }
+    .modal a:hover {
+      color: #0a783e; }
+  .modal img {
+    width: 100%;
+    margin-bottom: 5%; }
+  .modal .well {
+    font-size: 1.75rem;
+    box-shadow: none;
+    border-radius: 0;
+    background: #F3F6FF;
+    border: 1px solid #E5E9F7;
+    font-weight: 600;
+    line-height: 2.5rem; }
 
 .dismiss {
   background: none;
@@ -310,11 +357,15 @@ button {
   .modal-dialog {
     margin: 0 auto;
     margin-top: 10%; }
+  .modal-content {
+    padding: 7%; }
   button.submit {
     width: 100%;
     padding: 3% 0;
     margin: 3% 0;
     margin-bottom: 10%; }
+  #main-map, #near-map {
+    height: 80vh; }
   .welcome-container {
     display: inline-block;
     align-items: none; }
