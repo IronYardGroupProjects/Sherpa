@@ -13,6 +13,7 @@ angular
       },
       controller: function($scope) {
         $scope.advance = function(){
+          console.log($scope)
           if($scope.index !== ($scope.location.data.length -1)){
             $scope.index++;
             $scope.locationDisplay = $scope.location.data[$scope.index].name;

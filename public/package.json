@@ -28,6 +28,7 @@
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
+    "protractor": "^3.2.2",
     "watchify": "^3.7.0"
   }
 }
