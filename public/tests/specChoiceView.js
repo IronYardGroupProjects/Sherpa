@@ -24,4 +24,20 @@ describe('Choice View', function() {
     expect(element(by.css('li')).isPresent()).toBe(false);
   });
 
+  it('should not allow a user to add more than 3 options', function(){
+    for(var i = 0; i < 4; i++){
+      element(by.buttonText('entertainment')).click();
+    }
+    element.all(by.css('li')).then(function(items){
+      expect(items.length).toBe(3);
+    });
+  });
+
+  it('should navigate to the choice view slider', function(){
+    element(by.buttonText('entertainment')).click();
+    element(by.buttonText('finish building tour')).click();
+    expect(browser.getLocationAbsUrl())
+      .toBe('/home/choiceViewSlider');
+  })
+
 });

@@ -4,6 +4,7 @@
     </h4>
     <div class="collection-item">
       <i
+        ng-hide="index === 0"
         class="fa fa-chevron-left"
         ng-click="rewind()"
       >
@@ -13,10 +14,12 @@
             ng-swipe-right="advance()"
             class="location"
             data-loc-id="{{locId}}"
-            ng-model="locationDisplay">
+            ng-model="locationDisplay"
+            >
             {{locationDisplay}}
         </div>
       <i
+        ng-hide="index === (location.data.length - 1)"
         class="fa fa-chevron-right"
         ng-click="advance()"
       >
