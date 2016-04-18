@@ -12,7 +12,7 @@
   </div>
 </div>
 <div class="container">
-  <div ng-model="choiceViewCtrl.categoryChoice" class="choices col-xs-12">
+  <div ng-model="choiceViewCtrl.categoryChoice" class="choices col-xs-12" sticky>
     <div class="collection col-xs-12 col-sm-6">
       <ol>
         <!-- using track by to allow duplicates from an ng-repeat https://docs.angularjs.org/api/ng/directive/ngRepeat -->
@@ -23,7 +23,7 @@
       <button
         type="button"
         ng-click="choiceViewCtrl.submitChoice()"
-        class="submit">submit tour
+        class="submit">finish building tour
       </button>
     </div>
   </div>

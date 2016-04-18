@@ -3,7 +3,9 @@
     <button
       class="col-xs-12 experience-btn"
       data-toggle="modal"
-      data-target= "#{{ expTour.id }}">
+      data-target= "#{{ expTour.id }}"
+      ng-style="{'background-image': 'url({{expTour.imgUrl}})'}"
+      >
       {{ expTour.name }}
     </button>
   </div>
@@ -20,8 +22,8 @@
         <p>{{ expTour.description }}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">back</button>
-        <button type="button" ng-click="submit()" class="btn btn-primary">Start Tour</button>
+        <button type="button" class="dismiss" data-dismiss="modal">back</button>
+        <button type="button" ng-click="submit()" class="submit">Start Tour</button>
       </div>
     </div>
   </div>
