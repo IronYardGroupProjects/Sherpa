@@ -13,11 +13,28 @@
   border-radius: 0;
   border: none;
   background: white;
-  padding: 7%;
+  padding: 4%;
 }
 .modal-header {
   border: none;
   padding: 0;
+  .close{
+    background: none;
+    box-shadow: none;
+    opacity:1;
+    color:$c-red;
+    border-radius:0;
+    padding:10px;
+    &:hover{
+      color:white;
+      opacity:1;
+      text-shadow:none;
+      background:$c-red;
+    }
+    span{
+      padding:10px;
+    }
+  }
 }
 .modal-title {
   font-size: 2.25rem;
@@ -39,8 +56,27 @@
 .modal {
   background: rgba($c-green,.85);
   border-top:3px solid $c-green;
+  word-wrap: break-word;
+  a{
+    color:$c-green;
+    &:hover{
+      color:darken($c-green, 20%);
+    }
+  }
+  img {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+  .well {
+    font-size: 1.75rem;
+    box-shadow: none;
+    border-radius: 0;
+    background: #F3F6FF;
+    border: 1px solid #E5E9F7;
+    font-weight: 600;
+    line-height: 2.5rem;
+  }
 }
-
 .dismiss {
   background: none;
   box-shadow: none;

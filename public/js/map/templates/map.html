@@ -1,25 +1,26 @@
-<div class="nav col-xs-12">
-  <h2>Map View</h2>
-  <a ui-sref="landing">Home</a>
-  <a ui-sref="home.map">Map</a>
-  <a ui-sref="home.choiceView">Choice View</a>
-  <a ui-sref="home.curExp">Curated Experience</a>
-  <a ui-sref="home.near">Near Me</a>
-  <button type="button" data-toggle="modal" data-target="#quit">Quit</button>
-  <div class="modal fade" id="quit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h2 class="modal-title" id="myModalLabel">Quit</h2>
-        </div>
-        <div class="modal-body">
-          <p>Are you sure you want to quit? You will be unable to resume your tour.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
-          <button type="button" ng-click="MapCtrl.quit()">Quit Tour</button>
-        </div>
+<div class="container map-header">
+  <div class="logo col-xs-6">
+    <h1>sherpa</h1>
+    <a ui-sref="home.near"><i class="fa fa-location-arrow" aria-hidden="true"></i> Near Me?</a>
+    <hr>
+  </div>
+  <div class="description col-xs-6">
+    <button type="button" data-toggle="modal" data-target="#quit">End Tour</button>
+  </div>
+</div>
+<div class="modal fade" id="quit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title" id="myModalLabel">Hold Up</h2>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to quit? You will be unable to resume your tour.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="dismiss" data-dismiss="modal">Cancel</button>
+        <button type="button" ng-click="MapCtrl.quit()">I'm Sure</button>
       </div>
     </div>
   </div>
