@@ -175,13 +175,12 @@ public class SherpaController {
         Scanner fileScanner = new Scanner(f);
         fileScanner.nextLine();
         while (fileScanner.hasNext()) {
-            String[] columns = fileScanner.nextLine().split("\\t");
-            for (String cat : columns) {
-                Category category = new Category(cat);
-                catRepo.save(category);
-            }
+            String row = fileScanner.nextLine();
+            Category category = new Category(row);
+            catRepo.save(category);
         }
     }
+
 
     public void populateLocationsTable(String fileName) throws FileNotFoundException {
         File f = new File(fileName);
