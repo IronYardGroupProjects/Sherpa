@@ -4,7 +4,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,20 +23,17 @@ public class Tour {
 
     @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TourLocationJoin> locations;
-
-    private String name;
-
-    private LocalDateTime timeStamp = LocalDateTime.now();
-
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date = Calendar.getInstance().getTime();
     public Tour() {
     }
 
-    public LocalDateTime getTimeStamp() {
-        return timeStamp;
+    public Date getDate() {
+        return date;
     }
 
-    public void setTimeStamp(LocalDateTime timeStamp) {
-        this.timeStamp = timeStamp;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public List<TourLocationJoin> getLocations() {
