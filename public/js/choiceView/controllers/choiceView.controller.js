@@ -40,6 +40,7 @@ angular
           // pass the id array into the getAllCategoryLocs function (found in the choiceViewService) then we return the data associated with that id via 'category/{id}' route.
           choiceViewService.getAllCategoryLocs(id)
             .then(function(data){
+              console.log("PRE", data);
               $rootScope.locations = data;
               console.log("location data", $rootScope.locations)
             })

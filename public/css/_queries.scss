@@ -19,11 +19,18 @@
     margin: 0 auto;
     margin-top: 10%;
   }
+  .modal-content{
+    padding:7%;
+  }
   button.submit {
     width: 100%;
     padding: 3% 0;
     margin:3% 0;
     margin-bottom:10%;
+  }
+  // maps
+  #main-map, #near-map{
+    height:80vh;
   }
   //welcome view
   .welcome-container{

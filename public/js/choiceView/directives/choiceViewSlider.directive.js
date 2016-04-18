@@ -6,7 +6,7 @@ angular
       restrict:'EA',
       scope:{
         location: '=',
-        index: "@",
+        index: "=",
         locationDisplay: '@',
         category: '@',
         locId: '@'
