@@ -1,15 +1,11 @@
 package com.fantastipotami.entities;
 
-import org.hibernate.annotations.GenericGenerator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by alexanderhughes on 4/6/16.
@@ -23,17 +19,19 @@ public class Tour {
 
     @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TourLocationJoin> locations;
+    @JsonIgnore
     @Temporal(TemporalType.TIMESTAMP)
-    private Date date = Calendar.getInstance().getTime();
+    private Date timestamp = Calendar.getInstance().getTime();
+
     public Tour() {
     }
 
-    public Date getDate() {
-        return date;
+    public Date getTimestamp() {
+        return timestamp;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 
     public List<TourLocationJoin> getLocations() {
