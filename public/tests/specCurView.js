@@ -20,14 +20,16 @@ describe('Curated View', function(){
 
   it('should close the modal when the close button is clicked', function(){
     element(by.buttonText('Churches')).click();
-    element(by.css('div.in div.modal-header button.close')).click();
+    var close = element(by.css('div.in div.modal-header button.close')).click();
+    browser.wait(until.
+
     expect(element(by.css('.modal')).getCssValue('display'))
       .toBe('none');
   });
 
   it('should start a tour when the start tour button is clicked', function(){
     element(by.buttonText('Churches')).click();
-    element(by.css('div.in div.modal-footer button.submit')).click();
+
     expect(browser.getLocationAbsUrl())
       .toBe('/home/map');
   })
