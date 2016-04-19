@@ -19,6 +19,8 @@ public class Location {
     @Id
     @GeneratedValue
     private int id;
+    @NotNull
+    private String name;
     //0
     @Column(length = 500)
     private String imageUrl;
@@ -29,8 +31,7 @@ public class Location {
     @Column(length = 10000)
     private String description;
     //3
-    @NotNull
-    private String name;
+
     //4
     @NotNull
     private String streetAddress;

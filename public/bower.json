@@ -15,11 +15,14 @@
     "test",
     "tests"
   ],
-  "devDependencies": {},
+  "devDependencies": {
+    "angular-mocks": "^1.5.5"
+  },
   "dependencies": {
     "font-awesome": "fontawesome#^4.5.0",
     "bootstrap": "^3.3.6",
     "angular-touch": "^1.5.3",
-    "ngSticky": "^1.8.10"
+    "ngSticky": "^1.8.10",
+    "animate.css": "^3.5.1"
   }
 }
