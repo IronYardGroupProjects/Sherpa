@@ -24,7 +24,7 @@ a {
   font-weight:bold;
   transition:.2s all;
   &:hover{
-    color:darken($c-green,20%);
+    color:darken($c-green, 20%);
     text-decoration:none;
   }
 }
