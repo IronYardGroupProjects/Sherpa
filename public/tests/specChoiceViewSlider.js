@@ -29,11 +29,5 @@ describe('Choice View', function() {
       .toBe(false);
   });
 
-  it('should start a tour when the start tour button is clicked', function(){
-    element(by.buttonText('Start Tour')).click();
-    webdriver.wait(webdriver.until.elementLocated(By.id('main-map')).isDisplayed(), 10000)
-    expect(browser.getLocationAbsUrl())
-      .toBe('/home/map');
-  });
 
 });
