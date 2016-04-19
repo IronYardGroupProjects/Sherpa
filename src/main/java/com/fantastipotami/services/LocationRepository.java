@@ -10,4 +10,6 @@ import java.util.List;
  * Created by alexanderhughes on 4/6/16.
  */
 public interface LocationRepository extends CrudRepository<Location, Integer> {
+    Location findFirstByName(String name);
+
 }

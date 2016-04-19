@@ -226,7 +226,8 @@ public class SherpaController {
             tour = pTourRepo.save(tour);
             String[] locs = columns[1].split(",");
             for (String loc : locs) {
-                pTourLocRepo.save(new PermTourLocationJoin(locRepo.findOne(Integer.valueOf(loc)), tour));
+                Location location = locRepo.findFirstByName(loc);
+                pTourLocRepo.save(new PermTourLocationJoin(location, tour));
             }
         }
     }
