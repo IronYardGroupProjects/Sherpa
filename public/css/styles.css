@@ -125,12 +125,12 @@
 
 #main-map, #near-map {
   border-top: 3px solid #102665;
-  height: 85vh; }
+  height: 80vh; }
 
 .map-header {
   display: flex;
   align-items: center;
-  padding-bottom: 5%; }
+  padding-bottom: 3%; }
   .map-header .description {
     text-align: right; }
   .map-header button {
@@ -199,13 +199,23 @@
   .modal img {
     width: 100%;
     margin-bottom: 5%; }
+  .modal .list-group-item {
+    border: 2px solid #9DA3B3; }
+    .modal .list-group-item:first-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0; }
+    .modal .list-group-item:last-child {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top: 0; }
   .modal .well {
     font-size: 1.75rem;
+    color: #666e84;
     box-shadow: none;
     border-radius: 0;
-    background: #F3F6FF;
-    border: 1px solid #E5E9F7;
-    font-weight: 600;
+    background: rgba(157, 163, 179, 0.15);
+    border: 2px solid #9DA3B3;
+    font-weight: 400;
     line-height: 2.5rem; }
 
 .dismiss {
@@ -290,12 +300,12 @@ p {
   font-size: 18px; }
 
 a {
-  color: #102665;
+  color: #12D66E;
   font-size: 18px;
   font-weight: bold;
   transition: .2s all; }
   a:hover {
-    color: #12D66E;
+    color: #0a783e;
     text-decoration: none; }
 
 .loading {
