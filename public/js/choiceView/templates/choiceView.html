@@ -21,6 +21,7 @@
     </div>
     <div class="col-xs-12 col-sm-6 submit-wrap">
       <button
+        ng-hide="choiceViewCtrl.categoryChoice.length === 0"
         type="button"
         ng-click="choiceViewCtrl.submitChoice()"
         class="submit">finish building tour
