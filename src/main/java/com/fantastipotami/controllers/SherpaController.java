@@ -49,27 +49,27 @@ public class SherpaController {
      * @throws SQLException
      * @throws FileNotFoundException
      */
-    @PostConstruct
-    public void init() throws SQLException, FileNotFoundException {
-        //dbui = Server.createWebServer().start();
-        if (catRepo.count() == 0) {
-            populateCategoriesTable("categories.tsv");
-        }
-        if (locRepo.count() == 0) {
-            populateLocationsTable("locations.tsv");
-        }
-        if (pTourRepo.count() == 0) {
-            populatePermToursTable("permTours.tsv");
-        }
-    }
+//    @PostConstruct
+//    public void init() throws SQLException, FileNotFoundException {
+//        //dbui = Server.createWebServer().start();
+//        if (catRepo.count() == 0) {
+//            populateCategoriesTable("categories.tsv");
+//        }
+//        if (locRepo.count() == 0) {
+//            populateLocationsTable("locations.tsv");
+//        }
+//        if (pTourRepo.count() == 0) {
+//            populatePermToursTable("permTours.tsv");
+//        }
+//    }
 
     /**
      * destroys database gui server
      */
-    @PreDestroy
-    public void destroy() {
-//        dbui.stop();
-    }
+//    @PreDestroy
+//    public void destroy() {
+////        dbui.stop();
+//    }
     /*a pseudo login, the tourId from local storage is passed to
     * recreate the session if needed*/
     /**
