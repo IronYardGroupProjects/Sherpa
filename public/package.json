@@ -20,12 +20,15 @@
     "angular-simple-logger": "^0.1.7",
     "angular-ui-router": "^0.2.18",
     "jquery": "^2.2.3",
-    "lodash": "^4.9.0",
-    "underscore": "^1.8.3"
+    "lodash": "^4.9.0"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
     "chai": "^3.5.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-jasmine": "^0.3.8",
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
     "protractor": "^3.2.2",
