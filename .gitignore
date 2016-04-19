@@ -4,6 +4,8 @@
 
 public/node_modules/
 public/bundle.js
+public/npm-debug.log
+npm-debug.log
 *.iml
 *.db
 .DS_Store
