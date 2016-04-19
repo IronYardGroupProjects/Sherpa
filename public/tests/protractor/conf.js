@@ -6,7 +6,6 @@ exports.config = {
     'specChoiceView.js',
     'specCurView.js',
     'specChoiceViewSlider.js'
-
   ],
   multiCapabilities: [{
     browserName: 'firefox'
