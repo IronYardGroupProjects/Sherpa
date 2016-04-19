@@ -23,6 +23,7 @@
   background:$c-gray;
   background-position:center center;
   transition:.2s all;
+  background-size: cover;
   &:hover{
     transform: scale(.9);
   }
