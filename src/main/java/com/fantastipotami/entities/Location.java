@@ -20,13 +20,13 @@ public class Location {
     @GeneratedValue
     private int id;
     //0
-    @Column(length = 500)
+    @Column(length = 250)
     private String imageUrl;
     //1
-    @Column(length = 500)
+    @Column(length = 250)
     private String siteUrl;
     //2
-    @Column(length = 10000)
+    @Lob
     private String description;
     //3
     @NotNull
