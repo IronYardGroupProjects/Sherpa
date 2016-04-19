@@ -42,7 +42,7 @@ public class SherpaController {
     PermTourRepository pTourRepo;
 
 
-    Server dbui = null;
+    //Server dbui = null;
 
     /**
      * reads csv files that store our prebuilt tour data
@@ -51,10 +51,16 @@ public class SherpaController {
      */
     @PostConstruct
     public void init() throws SQLException, FileNotFoundException {
-        dbui = Server.createWebServer().start();
-        populateCategoriesTable("categories.tsv");
-        populateLocationsTable("locations.tsv");
-        populatePermToursTable("permTours.tsv");
+        //dbui = Server.createWebServer().start();
+        if (catRepo.count() == 0) {
+            populateCategoriesTable("categories.tsv");
+        }
+        if (locRepo.count() == 0) {
+            populateLocationsTable("locations.tsv");
+        }
+        if (pTourRepo.count() == 0) {
+            populatePermToursTable("permTours.tsv");
+        }
     }
 
     /**
@@ -62,7 +68,7 @@ public class SherpaController {
      */
     @PreDestroy
     public void destroy() {
-        dbui.stop();
+//        dbui.stop();
     }
     /*a pseudo login, the tourId from local storage is passed to
     * recreate the session if needed*/
@@ -220,7 +226,8 @@ public class SherpaController {
             tour = pTourRepo.save(tour);
             String[] locs = columns[1].split(",");
             for (String loc : locs) {
-                pTourLocRepo.save(new PermTourLocationJoin(locRepo.findOne(Integer.valueOf(loc)), tour));
+                Location location = locRepo.findFirstByName(loc);
+                pTourLocRepo.save(new PermTourLocationJoin(location, tour));
             }
         }
     }
