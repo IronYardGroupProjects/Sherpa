@@ -40,4 +40,8 @@ describe('Choice View', function() {
       .toBe('/home/choiceViewSlider');
   })
 
+  it('should not display the finish tour button if no options are selected', function(){
+    expect(element(by.css('.submit')).isDisplayed()).toBe(false);
+  })
+
 });
