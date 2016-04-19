@@ -4,7 +4,8 @@ exports.config = {
   specs: [
     'specLanding.js',
     'specChoiceView.js',
-    'specCurView.js'
+    'specCurView.js',
+    'specChoiceViewSlider.js'
 
   ],
   multiCapabilities: [{
