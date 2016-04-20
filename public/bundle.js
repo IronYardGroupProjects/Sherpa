@@ -70340,7 +70340,14 @@ angular
     $rootScope.$on('change-state', function (e, stateName) {
       $state.go('home.map');
      });
-  })
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+      $rootScope.stateLoading = true;
+    })
+    $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+      $rootScope.stateLoading = false;
+    })
+  });
+
 
 require('./js/curExp');
 require('./js/choiceView');
