@@ -59,6 +59,7 @@
   word-wrap: break-word;
   a{
     color:$c-green;
+    font-size: 14px;
     &:hover{
       color:darken($c-green, 20%);
     }
@@ -88,6 +89,8 @@
     border: 2px solid $c-gray;
     font-weight: 400;
     line-height: 2.5rem;
+    overflow-y: scroll;
+    height: 300px;
   }
 }
 .dismiss {
