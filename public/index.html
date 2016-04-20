@@ -12,11 +12,10 @@
     <title>Sherpa</title>
   </head>
   <body ng-app="sherpa">
-      <ui-view>
-        <div class="loading">
-          <i class="fa fa-cog fa-spin fa-3x fa-fw margin-bottom"></i>
-          <span class="sr-only">Loading...</span>
+      <ui-view class="uiview">
+        <div class="loading ui-view-container" ng-hide="stateLoading">
         </div>
+        <i class="fa fa-cog fa-spin fa-3x fa-fw margin-bottom" ng-show="stateLoading"></i>
       </ui-view>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDYqypuGrpUQn2SCTzz9mvwy6-Eb55UZA&libraries=places"></script>
     <script src="js/gmaps.min.js" charset="utf-8"></script>
