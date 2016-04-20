@@ -42,7 +42,7 @@ public class SherpaController {
     PermTourRepository pTourRepo;
 
 
-    Server dbui = null;
+//    Server dbui = null;
 
     /**
      * reads csv files that store our prebuilt tour data
@@ -51,7 +51,7 @@ public class SherpaController {
      */
     @PostConstruct
     public void init() throws SQLException, FileNotFoundException {
-        dbui = Server.createWebServer().start();
+//        dbui = Server.createWebServer().start();
         if (catRepo.count() == 0) {
             populateCategoriesTable("categories.tsv");
         }
@@ -66,10 +66,10 @@ public class SherpaController {
     /**
      * destroys database gui server
      */
-    @PreDestroy
-    public void destroy() {
-        dbui.stop();
-    }
+//    @PreDestroy
+//    public void destroy() {
+//        dbui.stop();
+//    }
     /*a pseudo login, the tourId from local storage is passed to
     * recreate the session if needed*/
     /**
