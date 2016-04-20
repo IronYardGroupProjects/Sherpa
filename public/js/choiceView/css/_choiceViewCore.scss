@@ -63,7 +63,7 @@
 // choice view slider
 
 .location {
-  width: 93%;
+  width: 91%;
   display: inline-block;
   padding: 1%;
   margin: 2%;
@@ -72,12 +72,17 @@
 
 .collection-item {
     background: white;
-    padding: 0 4%;
-    i{
-      color:$c-gray;
-      cursor:pointer;
-      &:hover{
-        color:$c-green;
+    padding: 0 3%;
+    span {
+    display: inline-block;
+    width: 2%;
+      i {
+        color:$c-gray;
+        cursor:pointer;
+        font-size: 1.5em;
+        &:hover{
+          color:$c-green;
+        }
       }
     }
 }
