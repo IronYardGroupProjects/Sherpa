@@ -3,12 +3,14 @@
       {{category}}
     </h4>
     <div class="collection-item">
-      <i
-        ng-hide="index === 0"
-        class="fa fa-chevron-left"
-        ng-click="rewind()"
-      >
-      </i>
+      <span>
+        <i
+          ng-hide="index === 0"
+          class="fa fa-chevron-left"
+          ng-click="rewind()"
+        >
+        </i>
+      </span>
         <div
             ng-swipe-left="advance()"
             ng-swipe-right="rewind()"
@@ -18,11 +20,13 @@
             >
             {{locationDisplay}}
         </div>
-      <i
-        ng-hide="index === (location.data.length - 1)"
-        class="fa fa-chevron-right"
-        ng-click="advance()"
-      >
-      </i>
+      <span>
+        <i
+          ng-hide="index === (location.data.length - 1)"
+          class="fa fa-chevron-right"
+          ng-click="advance()"
+        >
+        </i>
+      </span>
     </div>
   </div>

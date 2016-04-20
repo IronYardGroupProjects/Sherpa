@@ -199,7 +199,6 @@ angular
     // starts the tour
     function startTour(ids){
       var defer = $q.defer();
-      console.log(ids);
       $http.post('/tour', {list: ids})
         .then(function(data){
           defer.resolve(data)
@@ -70321,7 +70320,6 @@ angular
                   $rootScope.$broadcast('change-state', 'home.map');
                 },
                 function(err){
-                  console.log(err);
                   localStorage.removeItem('activeTour');
                 }
               )

@@ -33,7 +33,6 @@ angular
                   $rootScope.$broadcast('change-state', 'home.map');
                 },
                 function(err){
-                  console.log(err);
                   localStorage.removeItem('activeTour');
                 }
               )
