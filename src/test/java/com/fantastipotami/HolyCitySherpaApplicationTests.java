@@ -61,6 +61,7 @@ public class HolyCitySherpaApplicationTests {
 
     /**
      * unit test for /perm-tour
+     * gets all prefab tours
      */
     @Test
     public void test1() throws Exception {
@@ -74,6 +75,12 @@ public class HolyCitySherpaApplicationTests {
         ArrayList<LinkedHashMap> responseArray = mapper.readValue(result.getResponse().getContentAsString(), ArrayList.class);
         Assert.assertTrue(responseArray.size() == properSize);
     }
+
+    /**
+     * test for /tour/{id}
+     * create a tour based of a prefab tour
+     * @throws Exception
+     */
     @Test
     public void test2() throws Exception {
         MvcResult result =
@@ -83,6 +90,12 @@ public class HolyCitySherpaApplicationTests {
         Integer responseInt = mapper.readValue(result.getResponse().getContentAsString(), Integer.class);
         Assert.assertTrue(responseInt != null);
     }
+
+    /**
+     * tests /tour
+     * creates a tour based off 3 random choices from locations
+     * @throws Exception
+     */
     @Test
     public void test3() throws Exception {
         Random r = new Random();
@@ -103,6 +116,12 @@ public class HolyCitySherpaApplicationTests {
         Integer responseInt = mapper.readValue(result.getResponse().getContentAsString(), Integer.class);
         Assert.assertTrue(responseInt != null);
     }
+
+    /**
+     * test /tour/{id}
+     * updates the isVisited boolean for each tour location join
+     * @throws Exception
+     */
     @Test
     public void test4() throws Exception {
         Tour tour = tourRepo.findOne(1);
@@ -116,6 +135,12 @@ public class HolyCitySherpaApplicationTests {
         );
         Assert.assertTrue(tourRepo.findOne(1).getLocations().get(0).getIsVisited());
     }
+
+    /**
+     * /tour/locations test
+     * gets all locations associated with a tour id
+     * @throws Exception
+     */
     @Test
     public void test5() throws Exception {
         MvcResult result =
@@ -130,6 +155,13 @@ public class HolyCitySherpaApplicationTests {
                         .collect(Collectors.toCollection(ArrayList::new)).size())
                 .collect(Collectors.toCollection(ArrayList::new)).size());
     }
+
+    /**
+     * /re-join/{id} test
+     * tests route to find the tour based off an
+     * id that is stored locally
+     * @throws Exception
+     */
     @Test
     public void test6() throws Exception {
         MvcResult result =
@@ -143,6 +175,12 @@ public class HolyCitySherpaApplicationTests {
                         .collect(Collectors.toCollection(ArrayList::new)).size())
                 .collect(Collectors.toCollection(ArrayList::new)).size());
     }
+
+    /**
+     * tests /tour
+     * cancels and deletes tour from database
+     * @throws Exception
+     */
     @Test
     public void test7() throws Exception {
         mockMvc.perform(
@@ -151,7 +189,19 @@ public class HolyCitySherpaApplicationTests {
         );
         Assert.assertTrue(tourRepo.findOne(1) == null);
     }
-
+//    @Test
+//    public void test8() throws Exception {
+//        MvcResult result =
+//            mockMvc.perform(
+//                    MockMvcRequestBuilders.get("/category/2")
+//            ).andReturn();
+//        ArrayList<LinkedHashMap> responseArray = mapper.readValue(result.getResponse().getContentAsString(), ArrayList.class);
+//        Assert.assertTrue(0 == responseArray.stream()
+//                .filter(loc -> {
+//                    loc.get("category").getClass().getName().equals(catRepo.findOne(2));
+//                })
+//                .collect(Collectors.toCollection(ArrayList::new)).size());
+//    }
 
     /**
      * tests all routes for the prefab tour path
@@ -178,6 +228,11 @@ public class HolyCitySherpaApplicationTests {
         postCreation(responseInt);
     }
 
+    /**
+     * tests all routes for the choice path
+     * up to cancellation
+     * @throws Exception
+     */
     @Test
     public void testChoice() throws Exception {
         Random r = new Random();
