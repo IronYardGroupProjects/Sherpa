@@ -17,7 +17,7 @@ public class Tour {
     @GeneratedValue
     private int id;
 
-    @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "tour", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<TourLocationJoin> locations;
     @JsonIgnore
     @Temporal(TemporalType.TIMESTAMP)

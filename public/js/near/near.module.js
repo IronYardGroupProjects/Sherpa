@@ -17,9 +17,11 @@ angular
           },
           resolve: {
             location: function($q){
+              console.time("GETTING LOCATION")
               var defer = $q.defer();
               navigator.geolocation.getCurrentPosition(function(position){
                 defer.resolve(position);
+                console.timeEnd("GETTING LOCATION")
               })
               return defer.promise;
             }
