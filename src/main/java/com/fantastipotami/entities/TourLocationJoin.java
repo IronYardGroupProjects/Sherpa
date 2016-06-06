@@ -1,9 +1,12 @@
 package com.fantastipotami.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
@@ -20,7 +23,7 @@ public class TourLocationJoin {
     @NotNull
     private Boolean isVisited = false;
 
-    @ManyToOne
+    @ManyToOne(cascade = javax.persistence.CascadeType.REMOVE)
     private Location location;
 
     @JsonIgnore
