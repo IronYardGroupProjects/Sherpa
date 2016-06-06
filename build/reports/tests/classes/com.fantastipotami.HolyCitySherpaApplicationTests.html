@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">2</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.395s</div>
+<div class="counter">0.820s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">77%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,13 +61,302 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Tests</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Standard output</a>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="test7"></a>
+<h3 class="failures">test7</h3>
+<span class="code">
+<pre>org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [&quot;FK_KMEKJTHPUHSS5FCJWEOKQUYTU: PUBLIC.PERM_TOUR_LOC_JOINS FOREIGN KEY(LOCATION_ID) REFERENCES PUBLIC.LOCATIONS(ID) (38)&quot;; SQL statement:
+delete from locations where id=? [23503-191]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:980)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:892)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:654)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:844)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:65)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:167)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:134)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:155)
+	at com.fantastipotami.HolyCitySherpaApplicationTests.test7(HolyCitySherpaApplicationTests.java:186)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:254)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:193)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:105)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:56)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:64)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:106)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:360)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54)
+	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [&quot;FK_KMEKJTHPUHSS5FCJWEOKQUYTU: PUBLIC.PERM_TOUR_LOC_JOINS FOREIGN KEY(LOCATION_ID) REFERENCES PUBLIC.LOCATIONS(ID) (38)&quot;; SQL statement:
+delete from locations where id=? [23503-191]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:225)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:521)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:761)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:730)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:485)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:291)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:131)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy94.delete(Unknown Source)
+	at com.fantastipotami.controllers.SherpaController.cancelTour(SherpaController.java:116)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:817)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:731)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:968)
+	... 59 more
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:129)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:126)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:112)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:211)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:62)
+	at org.hibernate.persister.entity.AbstractEntityPersister.delete(AbstractEntityPersister.java:3400)
+	at org.hibernate.persister.entity.AbstractEntityPersister.delete(AbstractEntityPersister.java:3630)
+	at org.hibernate.action.internal.EntityDeleteAction.execute(EntityDeleteAction.java:114)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:465)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:351)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:350)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:56)
+	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1258)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:425)
+	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.beforeTransactionCommit(JdbcTransaction.java:101)
+	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.commit(AbstractTransactionImpl.java:177)
+	at org.hibernate.jpa.internal.TransactionImpl.commit(TransactionImpl.java:77)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:517)
+	... 87 more
+Caused by: org.h2.jdbc.JdbcSQLException: Referential integrity constraint violation: &quot;FK_KMEKJTHPUHSS5FCJWEOKQUYTU: PUBLIC.PERM_TOUR_LOC_JOINS FOREIGN KEY(LOCATION_ID) REFERENCES PUBLIC.LOCATIONS(ID) (38)&quot;; SQL statement:
+delete from locations where id=? [23503-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.constraint.ConstraintReferential.checkRow(ConstraintReferential.java:426)
+	at org.h2.constraint.ConstraintReferential.checkRowRefTable(ConstraintReferential.java:443)
+	at org.h2.constraint.ConstraintReferential.checkRow(ConstraintReferential.java:318)
+	at org.h2.table.Table.fireConstraints(Table.java:962)
+	at org.h2.table.Table.fireAfterRow(Table.java:980)
+	at org.h2.command.dml.Delete.update(Delete.java:100)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:160)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:146)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:208)
+	... 101 more
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testPrefab"></a>
+<h3 class="failures">testPrefab</h3>
+<span class="code">
+<pre>org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [&quot;FK_KMEKJTHPUHSS5FCJWEOKQUYTU: PUBLIC.PERM_TOUR_LOC_JOINS FOREIGN KEY(LOCATION_ID) REFERENCES PUBLIC.LOCATIONS(ID) (38)&quot;; SQL statement:
+delete from locations where id=? [23503-191]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:980)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:892)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:654)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:844)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:65)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:167)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:134)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:155)
+	at com.fantastipotami.HolyCitySherpaApplicationTests.postCreation(HolyCitySherpaApplicationTests.java:290)
+	at com.fantastipotami.HolyCitySherpaApplicationTests.testPrefab(HolyCitySherpaApplicationTests.java:228)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:254)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:193)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:105)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:56)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:64)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:106)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:360)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54)
+	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [&quot;FK_KMEKJTHPUHSS5FCJWEOKQUYTU: PUBLIC.PERM_TOUR_LOC_JOINS FOREIGN KEY(LOCATION_ID) REFERENCES PUBLIC.LOCATIONS(ID) (38)&quot;; SQL statement:
+delete from locations where id=? [23503-191]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:225)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:521)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:761)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:730)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:485)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:291)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:131)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy94.delete(Unknown Source)
+	at com.fantastipotami.controllers.SherpaController.cancelTour(SherpaController.java:116)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:817)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:731)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:968)
+	... 60 more
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:129)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:126)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:112)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:211)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:62)
+	at org.hibernate.persister.entity.AbstractEntityPersister.delete(AbstractEntityPersister.java:3400)
+	at org.hibernate.persister.entity.AbstractEntityPersister.delete(AbstractEntityPersister.java:3630)
+	at org.hibernate.action.internal.EntityDeleteAction.execute(EntityDeleteAction.java:114)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:465)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:351)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:350)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:56)
+	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1258)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:425)
+	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.beforeTransactionCommit(JdbcTransaction.java:101)
+	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.commit(AbstractTransactionImpl.java:177)
+	at org.hibernate.jpa.internal.TransactionImpl.commit(TransactionImpl.java:77)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:517)
+	... 88 more
+Caused by: org.h2.jdbc.JdbcSQLException: Referential integrity constraint violation: &quot;FK_KMEKJTHPUHSS5FCJWEOKQUYTU: PUBLIC.PERM_TOUR_LOC_JOINS FOREIGN KEY(LOCATION_ID) REFERENCES PUBLIC.LOCATIONS(ID) (38)&quot;; SQL statement:
+delete from locations where id=? [23503-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.constraint.ConstraintReferential.checkRow(ConstraintReferential.java:426)
+	at org.h2.constraint.ConstraintReferential.checkRowRefTable(ConstraintReferential.java:443)
+	at org.h2.constraint.ConstraintReferential.checkRow(ConstraintReferential.java:318)
+	at org.h2.table.Table.fireConstraints(Table.java:962)
+	at org.h2.table.Table.fireAfterRow(Table.java:980)
+	at org.h2.command.dml.Delete.update(Delete.java:100)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:160)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:146)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:208)
+	... 102 more
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -79,77 +368,77 @@
 </thead>
 <tr>
 <td class="success">test1</td>
-<td>0.402s</td>
+<td>0.231s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">test2</td>
-<td>0.100s</td>
+<td>0.059s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">test3</td>
-<td>0.108s</td>
+<td>0.103s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">test4</td>
-<td>0.107s</td>
+<td>0.068s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">test5</td>
-<td>0.098s</td>
+<td>0.061s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">test6</td>
-<td>0.073s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">test7</td>
 <td>0.043s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="failures">test7</td>
+<td>0.046s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
 <td class="success">testChoice</td>
-<td>0.212s</td>
+<td>0.111s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testPrefab</td>
-<td>0.252s</td>
-<td class="success">passed</td>
+<td class="failures">testPrefab</td>
+<td>0.098s</td>
+<td class="failures">failed</td>
 </tr>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>16:14:00.601 [Test worker] DEBUG o.s.t.c.j.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.fantastipotami.HolyCitySherpaApplicationTests]
-16:14:00.609 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-16:14:00.619 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-16:14:00.632 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.fantastipotami.HolyCitySherpaApplicationTests] from class [org.springframework.test.context.web.WebTestContextBootstrapper]
-16:14:00.669 [Test worker] DEBUG o.s.t.c.w.WebTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@25053cbb declaringClass = 'com.fantastipotami.HolyCitySherpaApplicationTests', classes = '{class com.fantastipotami.SherpaApplication}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
-16:14:00.677 [Test worker] DEBUG o.s.t.c.s.AbstractContextLoader - Did not detect default resource location for test class [com.fantastipotami.HolyCitySherpaApplicationTests]: class path resource [com/fantastipotami/HolyCitySherpaApplicationTests-context.xml] does not exist
-16:14:00.678 [Test worker] DEBUG o.s.t.c.s.AbstractContextLoader - Did not detect default resource location for test class [com.fantastipotami.HolyCitySherpaApplicationTests]: class path resource [com/fantastipotami/HolyCitySherpaApplicationTestsContext.groovy] does not exist
-16:14:00.678 [Test worker] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [com.fantastipotami.HolyCitySherpaApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
-16:14:00.683 [Test worker] DEBUG o.s.t.c.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.fantastipotami.HolyCitySherpaApplicationTests]
-16:14:00.687 [Test worker] DEBUG o.s.t.c.w.WebTestContextBootstrapper - @TestExecutionListeners is not present for class [com.fantastipotami.HolyCitySherpaApplicationTests]: using defaults.
-16:14:00.703 [Test worker] INFO  o.s.t.c.w.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-16:14:00.740 [Test worker] INFO  o.s.t.c.w.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3cd9295c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4802a798, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@39ffbe5e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@47d2176c, org.springframework.test.context.transaction.TransactionalTestExecutionListener@32b44503, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6fd70aaa]
-16:14:00.749 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.fantastipotami.HolyCitySherpaApplicationTests]
-16:14:00.751 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.fantastipotami.HolyCitySherpaApplicationTests]
-16:14:00.752 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.fantastipotami.HolyCitySherpaApplicationTests]
-16:14:00.752 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.fantastipotami.HolyCitySherpaApplicationTests]
-16:14:00.759 [Test worker] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@6374def7 testClass = HolyCitySherpaApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7822b3aa testClass = HolyCitySherpaApplicationTests, locations = '{}', classes = '{class com.fantastipotami.SherpaApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
-16:14:00.761 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.fantastipotami.HolyCitySherpaApplicationTests]
-16:14:00.761 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.fantastipotami.HolyCitySherpaApplicationTests]
-16:14:00.927 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-16:14:00.931 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-16:14:00.932 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-16:14:00.935 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [integrationTest] PropertySource with search precedence immediately lower than [systemEnvironment]
+<pre>13:10:43.221 [Test worker] DEBUG o.s.t.c.j.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.fantastipotami.HolyCitySherpaApplicationTests]
+13:10:43.228 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+13:10:43.233 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+13:10:43.245 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.fantastipotami.HolyCitySherpaApplicationTests] from class [org.springframework.test.context.web.WebTestContextBootstrapper]
+13:10:43.267 [Test worker] DEBUG o.s.t.c.w.WebTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@737dd96 declaringClass = 'com.fantastipotami.HolyCitySherpaApplicationTests', classes = '{class com.fantastipotami.SherpaApplication}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+13:10:43.273 [Test worker] DEBUG o.s.t.c.s.AbstractContextLoader - Did not detect default resource location for test class [com.fantastipotami.HolyCitySherpaApplicationTests]: class path resource [com/fantastipotami/HolyCitySherpaApplicationTests-context.xml] does not exist
+13:10:43.273 [Test worker] DEBUG o.s.t.c.s.AbstractContextLoader - Did not detect default resource location for test class [com.fantastipotami.HolyCitySherpaApplicationTests]: class path resource [com/fantastipotami/HolyCitySherpaApplicationTestsContext.groovy] does not exist
+13:10:43.273 [Test worker] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [com.fantastipotami.HolyCitySherpaApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+13:10:43.276 [Test worker] DEBUG o.s.t.c.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.fantastipotami.HolyCitySherpaApplicationTests]
+13:10:43.280 [Test worker] DEBUG o.s.t.c.w.WebTestContextBootstrapper - @TestExecutionListeners is not present for class [com.fantastipotami.HolyCitySherpaApplicationTests]: using defaults.
+13:10:43.289 [Test worker] INFO  o.s.t.c.w.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+13:10:43.326 [Test worker] INFO  o.s.t.c.w.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7c4509b8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@416fc803, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@163b263d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@223d8bc7, org.springframework.test.context.transaction.TransactionalTestExecutionListener@76e14ef1, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@49f1affe]
+13:10:43.329 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.fantastipotami.HolyCitySherpaApplicationTests]
+13:10:43.330 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.fantastipotami.HolyCitySherpaApplicationTests]
+13:10:43.331 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.fantastipotami.HolyCitySherpaApplicationTests]
+13:10:43.332 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.fantastipotami.HolyCitySherpaApplicationTests]
+13:10:43.335 [Test worker] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@1d3228a0 testClass = HolyCitySherpaApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3af891eb testClass = HolyCitySherpaApplicationTests, locations = '{}', classes = '{class com.fantastipotami.SherpaApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+13:10:43.336 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.fantastipotami.HolyCitySherpaApplicationTests]
+13:10:43.337 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.fantastipotami.HolyCitySherpaApplicationTests]
+13:10:43.408 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+13:10:43.410 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+13:10:43.411 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+13:10:43.412 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [integrationTest] PropertySource with search precedence immediately lower than [systemEnvironment]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -159,93 +448,101 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v1.3.3.RELEASE)
 
-2016-04-20 16:14:01.771  INFO 79715 --- [    Test worker] c.f.HolyCitySherpaApplicationTests       : Starting HolyCitySherpaApplicationTests on Alexanders-MacBook-Pro.local with PID 79715 (/Users/alexanderhughes/Documents/feb2016/Sherpa/build/classes/test started by alexanderhughes in /Users/alexanderhughes/Documents/feb2016/Sherpa)
-2016-04-20 16:14:01.772  INFO 79715 --- [    Test worker] c.f.HolyCitySherpaApplicationTests       : No active profile set, falling back to default profiles: default
-2016-04-20 16:14:02.009  INFO 79715 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@98197e3: startup date [Wed Apr 20 16:14:01 EDT 2016]; root of context hierarchy
-2016-04-20 16:14:03.770  INFO 79715 --- [    Test worker] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]]
-2016-04-20 16:14:04.727  INFO 79715 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a0370bb1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2016-04-20 16:14:05.825  INFO 79715 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2016-04-20 16:14:05.884  INFO 79715 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2016-06-06 13:10:43.757  INFO 11018 --- [    Test worker] c.f.HolyCitySherpaApplicationTests       : Starting HolyCitySherpaApplicationTests on Alexanders-MacBook-Pro.local with PID 11018 (/Users/alexanderhughes/Documents/feb2016/Sherpa/build/classes/test started by alexanderhughes in /Users/alexanderhughes/Documents/feb2016/Sherpa)
+2016-06-06 13:10:43.758  INFO 11018 --- [    Test worker] c.f.HolyCitySherpaApplicationTests       : No active profile set, falling back to default profiles: default
+2016-06-06 13:10:43.917  INFO 11018 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@61e5e1ef: startup date [Mon Jun 06 13:10:43 EDT 2016]; root of context hierarchy
+2016-06-06 13:10:45.157  INFO 11018 --- [    Test worker] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]]
+2016-06-06 13:10:45.728  INFO 11018 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4e3750e1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-06-06 13:10:46.201  INFO 11018 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-06-06 13:10:46.237  INFO 11018 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2016-04-20 16:14:06.027  INFO 79715 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {4.3.11.Final}
-2016-04-20 16:14:06.030  INFO 79715 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2016-04-20 16:14:06.035  INFO 79715 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
-2016-04-20 16:14:06.477  INFO 79715 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2016-04-20 16:14:06.935  INFO 79715 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2016-04-20 16:14:07.425  INFO 79715 --- [    Test worker] o.h.h.i.ast.ASTQueryTranslatorFactory    : HHH000397: Using ASTQueryTranslatorFactory
-2016-04-20 16:14:08.086  INFO 79715 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
-2016-04-20 16:14:08.086  INFO 79715 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000102: Fetching database metadata
-2016-04-20 16:14:08.089  INFO 79715 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000396: Updating schema
-2016-04-20 16:14:08.098  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: categories
-2016-04-20 16:14:08.100  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: geofences
-2016-04-20 16:14:08.102  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: loc_cat_joins
-2016-04-20 16:14:08.103  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: locations
-2016-04-20 16:14:08.104  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: perm_tour_loc_joins
-2016-04-20 16:14:08.105  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: perm_tours
-2016-04-20 16:14:08.107  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: tour_loc_joins
-2016-04-20 16:14:08.111  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: tours
-2016-04-20 16:14:08.114  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: categories
-2016-04-20 16:14:08.115  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: geofences
-2016-04-20 16:14:08.117  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: loc_cat_joins
-2016-04-20 16:14:08.118  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: locations
-2016-04-20 16:14:08.119  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: perm_tour_loc_joins
-2016-04-20 16:14:08.120  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: perm_tours
-2016-04-20 16:14:08.121  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: tour_loc_joins
-2016-04-20 16:14:08.123  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: tours
-2016-04-20 16:14:08.125  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: categories
-2016-04-20 16:14:08.129  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: geofences
-2016-04-20 16:14:08.131  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: loc_cat_joins
-2016-04-20 16:14:08.133  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: locations
-2016-04-20 16:14:08.136  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: perm_tour_loc_joins
-2016-04-20 16:14:08.139  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: perm_tours
-2016-04-20 16:14:08.142  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: tour_loc_joins
-2016-04-20 16:14:08.144  INFO 79715 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: tours
-2016-04-20 16:14:08.198  INFO 79715 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000232: Schema update complete
-2016-04-20 16:14:11.084  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@98197e3: startup date [Wed Apr 20 16:14:01 EDT 2016]; root of context hierarchy
-2016-04-20 16:14:11.232  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/tour/{id}],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.joinTour(javax.servlet.http.HttpSession,int)
-2016-04-20 16:14:11.234  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/re-join/{id}],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.getTourLocs(javax.servlet.http.HttpSession,int)
-2016-04-20 16:14:11.235  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/location/{id}],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.getCats(int)
-2016-04-20 16:14:11.240  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/perm-tour],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.getAllTours(javax.servlet.http.HttpSession)
-2016-04-20 16:14:11.242  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/tour],methods=[DELETE]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.cancelTour(javax.servlet.http.HttpSession)
-2016-04-20 16:14:11.245  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/tour],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.buildTour(javax.servlet.http.HttpSession,java.util.HashMap)
-2016-04-20 16:14:11.247  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/tour/{id}],methods=[PUT]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.updateTourLoc(int)
-2016-04-20 16:14:11.248  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/tour/locations],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.getLocJoins(javax.servlet.http.HttpSession)
-2016-04-20 16:14:11.250  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/category],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.getAllCategories()
-2016-04-20 16:14:11.250  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/category/{id}],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.getToursByCat(int)
-2016-04-20 16:14:11.263  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.Map&lt;java.lang.String, java.lang.Object&gt;&gt; org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2016-04-20 16:14:11.265  INFO 79715 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error],produces=[text/html]}&quot; onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2016-04-20 16:14:11.315  INFO 79715 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2016-04-20 16:14:11.320  INFO 79715 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2016-04-20 16:14:11.415  INFO 79715 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2016-04-20 16:14:11.877  INFO 79715 --- [    Test worker] c.f.HolyCitySherpaApplicationTests       : Started HolyCitySherpaApplicationTests in 10.912 seconds (JVM running for 13.012)
-2016-04-20 16:14:11.945  INFO 79715 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
-2016-04-20 16:14:11.945  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2016-04-20 16:14:11.969  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 23 ms
-2016-04-20 16:14:12.334  INFO 79715 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
-2016-04-20 16:14:12.336  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2016-04-20 16:14:12.345  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 8 ms
-2016-04-20 16:14:12.435  INFO 79715 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
-2016-04-20 16:14:12.436  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2016-04-20 16:14:12.442  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 5 ms
-2016-04-20 16:14:12.543  INFO 79715 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
-2016-04-20 16:14:12.543  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2016-04-20 16:14:12.546  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
-2016-04-20 16:14:12.651  INFO 79715 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
-2016-04-20 16:14:12.651  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2016-04-20 16:14:12.655  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 4 ms
-2016-04-20 16:14:12.751  INFO 79715 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
-2016-04-20 16:14:12.752  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2016-04-20 16:14:12.755  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
-2016-04-20 16:14:12.827  INFO 79715 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
-2016-04-20 16:14:12.827  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2016-04-20 16:14:12.833  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 5 ms
-2016-04-20 16:14:12.870  INFO 79715 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
-2016-04-20 16:14:12.870  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2016-04-20 16:14:12.872  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 2 ms
-2016-04-20 16:14:13.084  INFO 79715 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
-2016-04-20 16:14:13.086  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2016-04-20 16:14:13.091  INFO 79715 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 5 ms
+2016-06-06 13:10:46.335  INFO 11018 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {4.3.11.Final}
+2016-06-06 13:10:46.337  INFO 11018 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2016-06-06 13:10:46.338  INFO 11018 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2016-06-06 13:10:46.625  INFO 11018 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-06-06 13:10:46.932  INFO 11018 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2016-06-06 13:10:47.245  INFO 11018 --- [    Test worker] o.h.h.i.ast.ASTQueryTranslatorFactory    : HHH000397: Using ASTQueryTranslatorFactory
+2016-06-06 13:10:47.846  INFO 11018 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2016-06-06 13:10:47.847  INFO 11018 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000102: Fetching database metadata
+2016-06-06 13:10:47.850  INFO 11018 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000396: Updating schema
+2016-06-06 13:10:47.859  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: categories
+2016-06-06 13:10:47.864  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: geofences
+2016-06-06 13:10:47.866  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: loc_cat_joins
+2016-06-06 13:10:47.867  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: locations
+2016-06-06 13:10:47.869  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: perm_tour_loc_joins
+2016-06-06 13:10:47.871  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: perm_tours
+2016-06-06 13:10:47.873  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: tour_loc_joins
+2016-06-06 13:10:47.875  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: tours
+2016-06-06 13:10:47.876  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: categories
+2016-06-06 13:10:47.878  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: geofences
+2016-06-06 13:10:47.880  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: loc_cat_joins
+2016-06-06 13:10:47.881  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: locations
+2016-06-06 13:10:47.882  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: perm_tour_loc_joins
+2016-06-06 13:10:47.884  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: perm_tours
+2016-06-06 13:10:47.885  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: tour_loc_joins
+2016-06-06 13:10:47.887  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: tours
+2016-06-06 13:10:47.888  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: categories
+2016-06-06 13:10:47.889  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: geofences
+2016-06-06 13:10:47.891  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: loc_cat_joins
+2016-06-06 13:10:47.892  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: locations
+2016-06-06 13:10:47.893  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: perm_tour_loc_joins
+2016-06-06 13:10:47.896  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: perm_tours
+2016-06-06 13:10:47.897  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: tour_loc_joins
+2016-06-06 13:10:47.899  INFO 11018 --- [    Test worker] java.sql.DatabaseMetaData                : HHH000262: Table not found: tours
+2016-06-06 13:10:47.954  INFO 11018 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000232: Schema update complete
+2016-06-06 13:10:49.777  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@61e5e1ef: startup date [Mon Jun 06 13:10:43 EDT 2016]; root of context hierarchy
+2016-06-06 13:10:49.856  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/location/{id}],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.getCats(int)
+2016-06-06 13:10:49.858  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/tour],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.buildTour(javax.servlet.http.HttpSession,java.util.HashMap)
+2016-06-06 13:10:49.858  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/tour/locations],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.getLocJoins(javax.servlet.http.HttpSession)
+2016-06-06 13:10:49.858  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/category/{id}],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.getToursByCat(int)
+2016-06-06 13:10:49.859  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/re-join/{id}],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.getTourLocs(javax.servlet.http.HttpSession,int)
+2016-06-06 13:10:49.859  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/tour/{id}],methods=[PUT]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.updateTourLoc(int)
+2016-06-06 13:10:49.859  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/perm-tour],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.getAllTours(javax.servlet.http.HttpSession)
+2016-06-06 13:10:49.860  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/tour],methods=[DELETE]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.cancelTour(javax.servlet.http.HttpSession)
+2016-06-06 13:10:49.860  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/category],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.getAllCategories()
+2016-06-06 13:10:49.860  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/tour/{id}],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Object&gt; com.fantastipotami.controllers.SherpaController.joinTour(javax.servlet.http.HttpSession,int)
+2016-06-06 13:10:49.862  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.Map&lt;java.lang.String, java.lang.Object&gt;&gt; org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-06-06 13:10:49.863  INFO 11018 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error],produces=[text/html]}&quot; onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-06-06 13:10:49.901  INFO 11018 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-06-06 13:10:49.903  INFO 11018 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-06-06 13:10:49.973  INFO 11018 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-06-06 13:10:50.224  INFO 11018 --- [    Test worker] c.f.HolyCitySherpaApplicationTests       : Started HolyCitySherpaApplicationTests in 6.8 seconds (JVM running for 8.173)
+2016-06-06 13:10:50.272  INFO 11018 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
+2016-06-06 13:10:50.272  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2016-06-06 13:10:50.287  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 14 ms
+2016-06-06 13:10:50.495  INFO 11018 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
+2016-06-06 13:10:50.496  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2016-06-06 13:10:50.499  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2016-06-06 13:10:50.558  INFO 11018 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
+2016-06-06 13:10:50.560  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2016-06-06 13:10:50.565  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 4 ms
+2016-06-06 13:10:50.663  INFO 11018 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
+2016-06-06 13:10:50.663  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2016-06-06 13:10:50.674  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 11 ms
+2016-06-06 13:10:50.731  INFO 11018 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
+2016-06-06 13:10:50.732  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2016-06-06 13:10:50.735  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2016-06-06 13:10:50.794  INFO 11018 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
+2016-06-06 13:10:50.794  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2016-06-06 13:10:50.796  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 2 ms
+2016-06-06 13:10:50.838  INFO 11018 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
+2016-06-06 13:10:50.838  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2016-06-06 13:10:50.841  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2016-06-06 13:10:50.862  WARN 11018 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23503, SQLState: 23503
+2016-06-06 13:10:50.863 ERROR 11018 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : Referential integrity constraint violation: &quot;FK_KMEKJTHPUHSS5FCJWEOKQUYTU: PUBLIC.PERM_TOUR_LOC_JOINS FOREIGN KEY(LOCATION_ID) REFERENCES PUBLIC.LOCATIONS(ID) (38)&quot;; SQL statement:
+delete from locations where id=? [23503-191]
+2016-06-06 13:10:50.865  INFO 11018 --- [    Test worker] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+2016-06-06 13:10:50.887  INFO 11018 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
+2016-06-06 13:10:50.888  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2016-06-06 13:10:50.891  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2016-06-06 13:10:50.999  INFO 11018 --- [    Test worker] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
+2016-06-06 13:10:51.000  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2016-06-06 13:10:51.003  INFO 11018 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2016-06-06 13:10:51.092  WARN 11018 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23503, SQLState: 23503
+2016-06-06 13:10:51.093 ERROR 11018 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : Referential integrity constraint violation: &quot;FK_KMEKJTHPUHSS5FCJWEOKQUYTU: PUBLIC.PERM_TOUR_LOC_JOINS FOREIGN KEY(LOCATION_ID) REFERENCES PUBLIC.LOCATIONS(ID) (38)&quot;; SQL statement:
+delete from locations where id=? [23503-191]
+2016-06-06 13:10:51.093  INFO 11018 --- [    Test worker] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
 </pre>
 </span>
 </div>
@@ -257,7 +554,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 2.9</a> at Apr 20, 2016 4:14:13 PM</p>
+<a href="http://www.gradle.org">Gradle 2.9</a> at Jun 6, 2016 1:10:51 PM</p>
 </div>
 </div>
 </body>
